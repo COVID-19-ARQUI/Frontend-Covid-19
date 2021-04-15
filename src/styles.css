@@ -7,5 +7,22 @@
   margin-right: auto;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@media (min-width: 576px) {
+  .certificates-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .container {
+    max-width: 1110px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
