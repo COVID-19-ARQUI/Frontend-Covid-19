@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {DashboardService} from '../../../../services/dashboard.service';
+import {Dashboard} from '../../../../models/dashboard.model';
 
 @Component({
   selector: 'app-dashboards',
@@ -6,12 +8,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboards.component.css']
 })
 export class DashboardsComponent implements OnInit {
-
-  constructor() { }
+  dashboard:Dashboard[];
+  constructor(
+    private servicedash: DashboardService
+  ) { }
 
   ngOnInit(): void {
+    this.loaddata();
   }
 
-
+  loaddata(): Dashboard[]{
+    this.servicedash.getmedia().subscribe(value => {
+      this.dashboard=value;
+    })
+    return this.dashboard;
+  }
 
 }
