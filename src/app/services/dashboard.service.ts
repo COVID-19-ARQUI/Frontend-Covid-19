@@ -1,9 +1,15 @@
 import { Injectable } from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Dashboard} from '../models/dashboard.model';
+import apikey from '../shared/apikey';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DashboardService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+  getmedia(){
+    return this.http.get<Dashboard[]>(apikey.api+'/dashboards');
+  }
 }
