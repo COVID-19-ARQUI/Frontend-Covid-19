@@ -11,7 +11,7 @@ export class DatosService {
   constructor(private http: HttpClient) {
   }
 
-  postData() {
+  postNewData() {
     return this.http.get<Dashboard[]>(apikey.api + '/dashboards');
   }
 }
