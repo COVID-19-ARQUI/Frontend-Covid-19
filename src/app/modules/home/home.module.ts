@@ -10,13 +10,15 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatListModule} from '@angular/material/list';
 import {HomeComponent} from './home.component';
 import { MatSliderModule } from '@angular/material/slider';
+import { NewdataComponent } from './pages/newdata/newdata.component';
 
 @NgModule({
   declarations: [
     HomeComponent,
     SideBarComponent,
     MainComponent,
-    DashboardsComponent
+    DashboardsComponent,
+    NewdataComponent
   ],
   imports: [
     CommonModule,
