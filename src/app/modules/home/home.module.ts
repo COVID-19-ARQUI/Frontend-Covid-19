@@ -12,6 +12,9 @@ import {HomeComponent} from './home.component';
 import { MatSliderModule } from '@angular/material/slider';
 import { DepartmentComponent } from './pages/department/department.component';
 import {ChartsModule} from 'ng2-charts';
+import {MatRippleModule} from '@angular/material/core';
+import {MatButtonModule} from '@angular/material/button';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -30,6 +33,11 @@ import {ChartsModule} from 'ng2-charts';
     MatListModule,
     MatSliderModule,
     ChartsModule,
+    MatRippleModule,
+    MatButtonModule,
+    MatListModule,
+    MatTableModule,
+
   ],
   entryComponents: [],
 })
