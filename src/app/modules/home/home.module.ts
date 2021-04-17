@@ -11,6 +11,9 @@ import {MatListModule} from '@angular/material/list';
 import {HomeComponent} from './home.component';
 import { MatSliderModule } from '@angular/material/slider';
 import { DepartmentComponent } from './pages/department/department.component';
+import {MatRippleModule} from '@angular/material/core';
+import {MatButtonModule} from '@angular/material/button';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -26,8 +29,12 @@ import { DepartmentComponent } from './pages/department/department.component';
     MatSidenavModule,
     MatToolbarModule,
     MatIconModule,
-    MatListModule,
     MatSliderModule,
+    MatRippleModule,
+    MatButtonModule,
+    MatListModule,
+    MatTableModule,
+
   ],
   entryComponents: [],
 })
