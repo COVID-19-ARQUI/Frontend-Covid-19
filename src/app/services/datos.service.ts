@@ -6,12 +6,12 @@ import apikey from '../shared/apikey';
 @Injectable({
   providedIn: 'root'
 })
-export class DashboardService {
+export class DatosService {
 
   constructor(private http: HttpClient) {
   }
 
-  getmedia() {
+  postNewData() {
     return this.http.get<Dashboard[]>(apikey.api + '/dashboards');
   }
 }

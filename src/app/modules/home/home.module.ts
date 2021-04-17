@@ -9,14 +9,17 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatListModule} from '@angular/material/list';
 import {HomeComponent} from './home.component';
-import { MatSliderModule } from '@angular/material/slider';
-import { DepartmentComponent } from './pages/department/department.component';
+import {MatSliderModule} from '@angular/material/slider';
+import {NewdataComponent} from './pages/newdata/newdata.component';
+import {DepartmentComponent} from './pages/department/department.component';
 import {ChartsModule} from 'ng2-charts';
 import {MatRippleModule} from '@angular/material/core';
 import {MatButtonModule} from '@angular/material/button';
 import {MatTableModule} from '@angular/material/table';
 import { PrincipalComponent } from './pages/principal/principal.component';
 
+import {MatFormField, MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,10 @@ import { PrincipalComponent } from './pages/principal/principal.component';
     MainComponent,
     DashboardsComponent,
     DepartmentComponent,
-    PrincipalComponent
+    PrincipalComponent,
+    DepartmentComponent,
+    DashboardsComponent,
+    NewdataComponent
   ],
   imports: [
     CommonModule,
@@ -40,7 +46,8 @@ import { PrincipalComponent } from './pages/principal/principal.component';
     MatButtonModule,
     MatListModule,
     MatTableModule,
-
+    MatFormFieldModule,
+    MatSelectModule
   ],
   entryComponents: [],
 })

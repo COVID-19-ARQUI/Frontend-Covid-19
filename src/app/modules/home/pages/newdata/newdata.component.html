@@ -1,0 +1,13 @@
+<p>newdata works!</p>
+<br>
+<mat-form-field appearance="fill">
+  <mat-label>Municipio</mat-label>
+  <mat-select>
+    <mat-option>-- None --</mat-option>
+    <mat-optgroup *ngFor="let group of departments" [label]="group.department">
+      <mat-option *ngFor="let municipio of group.municipalities" [value]="municipio">
+        {{municipio}}
+      </mat-option>
+    </mat-optgroup>
+  </mat-select>
+</mat-form-field>
