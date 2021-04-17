@@ -15,6 +15,8 @@ import {ChartsModule} from 'ng2-charts';
 import {MatRippleModule} from '@angular/material/core';
 import {MatButtonModule} from '@angular/material/button';
 import {MatTableModule} from '@angular/material/table';
+import { PrincipalComponent } from './pages/principal/principal.component';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import {MatTableModule} from '@angular/material/table';
     SideBarComponent,
     MainComponent,
     DashboardsComponent,
-    DepartmentComponent
+    DepartmentComponent,
+    PrincipalComponent
   ],
   imports: [
     CommonModule,

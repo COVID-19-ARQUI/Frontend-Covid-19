@@ -1,0 +1,140 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.21864,
+          -13.76043
+        ]
+      },
+      "properties": {
+        "state": "Bolivia",
+        "name": "Beni",
+        "population": 199518
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -64.28779,
+          -20.0459
+        ]
+      },
+      "properties": {
+        "state": "Bolivia",
+        "name": "Chuquisaca",
+        "population": 199518
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.61957,
+          -17.18119
+        ]
+      },
+      "properties": {
+        "state": "Bolivia",
+        "name": "Cochabamba",
+        "population": 199518
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -68.12862,
+          -15.23296
+        ]
+      },
+      "properties": {
+        "state": "Bolivia",
+        "name": "La Paz",
+        "population": 199518
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -67.6842,
+          -18.64323
+        ]
+      },
+      "properties": {
+        "state": "Bolivia",
+        "name": "Oruro",
+        "population": 199518
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -67.32107,
+          -11.09351
+        ]
+      },
+      "properties": {
+        "state": "Bolivia",
+        "name": "Pando",
+        "population": 199518
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -66.73026,
+          -20.54665
+        ]
+      },
+      "properties": {
+        "state": "Bolivia",
+        "name": "Potosi",
+        "population": 199518
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -61.50252,
+          -17.25653
+        ]
+      },
+      "properties": {
+        "state": "Bolivia",
+        "name": "Santa Cruz",
+        "population": 199518
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -63.88114,
+          -21.59624
+        ]
+      },
+      "properties": {
+        "state": "Bolivia",
+        "name": "Tarija",
+        "population": 199518
+      }
+    }
+  ]
+}

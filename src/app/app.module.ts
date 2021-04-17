@@ -6,7 +6,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HomeModule} from './modules/home/home.module';
-
+import {MarkerService} from './services/marker.service';
 
 
 
@@ -21,7 +21,7 @@ import {HomeModule} from './modules/home/home.module';
     BrowserAnimationsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [MarkerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

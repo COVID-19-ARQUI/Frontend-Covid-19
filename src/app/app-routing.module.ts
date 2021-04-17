@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import {MainComponent} from './layout/main/main.component';
 import {DashboardsComponent} from './modules/home/pages/dashboards/dashboards.component';
 import {DepartmentComponent} from './modules/home/pages/department/department.component';
+import {PrincipalComponent} from './modules/home/pages/principal/principal.component';
 
 
 const routes: Routes = [
@@ -25,6 +26,10 @@ const routes: Routes = [
         component: DepartmentComponent,
       },
     ]
+  },
+  {
+    path: 'princial',
+    component: PrincipalComponent,
   },
 
   // {
