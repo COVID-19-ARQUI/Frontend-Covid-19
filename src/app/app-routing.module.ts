@@ -33,7 +33,7 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'princial',
+    path: 'principal',
     component: PrincipalComponent,
   },
 
