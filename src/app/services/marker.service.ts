@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import * as L from 'leaflet';
 import {PopupService} from './popup.service';
+import {DatosService} from './datos.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MarkerService {
   capitals: string = '/assets/data/bolivia.geojson';
-  constructor(private http: HttpClient, private popupService: PopupService) { }
+  constructor(private http: HttpClient, private popupService: PopupService, private datosService: DatosService) { }
 
   static scaledRadius(val: number, maxVal: number): number {
     return 20 * (val / maxVal);

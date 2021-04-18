@@ -6,6 +6,7 @@ import {DashboardsComponent} from './modules/home/pages/dashboards/dashboards.co
 import {DepartmentComponent} from './modules/home/pages/department/department.component';
 import {PrincipalComponent} from './modules/home/pages/principal/principal.component';
 import {NewdataComponent} from './modules/home/pages/newdata/newdata.component';
+import {NoticiasComponent} from './modules/home/pages/noticias/noticias.component';
 
 
 const routes: Routes = [
@@ -30,6 +31,10 @@ const routes: Routes = [
         path: 'data',
         component: NewdataComponent,
       },
+      {
+        path: 'noticia',
+        component: NoticiasComponent
+      }
     ]
   },
   {

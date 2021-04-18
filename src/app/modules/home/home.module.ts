@@ -17,9 +17,12 @@ import {MatRippleModule} from '@angular/material/core';
 import {MatButtonModule} from '@angular/material/button';
 import {MatTableModule} from '@angular/material/table';
 import { PrincipalComponent } from './pages/principal/principal.component';
-
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatInputModule} from '@angular/material/input';
+import {MatMenuModule} from '@angular/material/menu';
 import {MatFormField, MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
+import { NoticiasComponent } from './pages/noticias/noticias.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,8 @@ import {MatSelectModule} from '@angular/material/select';
     PrincipalComponent,
     DepartmentComponent,
     DashboardsComponent,
-    NewdataComponent
+    NewdataComponent,
+    NoticiasComponent,
   ],
   imports: [
     CommonModule,
@@ -47,7 +51,10 @@ import {MatSelectModule} from '@angular/material/select';
     MatListModule,
     MatTableModule,
     MatFormFieldModule,
-    MatSelectModule
+    MatSelectModule,
+    MatGridListModule,
+    MatInputModule,
+    MatMenuModule
   ],
   entryComponents: [],
 })

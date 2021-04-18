@@ -39,7 +39,7 @@ export class DashboardsComponent implements OnInit {
   public lineChartColors: Color[] = [
     {
       borderColor: 'black',
-      backgroundColor: 'rgba(255,0,0,0.3)',
+      backgroundColor: 'rgba(50,222,209,0.3)',
     },
   ];
   public lineChartLegend = true;
