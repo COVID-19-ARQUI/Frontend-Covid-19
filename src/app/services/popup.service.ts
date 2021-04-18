@@ -7,22 +7,17 @@ import {Dato} from '../models/dato.model';
   providedIn: 'root'
 })
 export class PopupService {
-  datosum: Dato[] = [];
+
   constructor(private http: HttpClient, private datosService: DatosService) { }
-  makeCapitalPopup(data: any): string {
-    console.log(this.listdatos(1));
+  makeCapitalPopup(data: any,constaguiados: any): string {
     return `` +
-      `<div>Capital: ${ data.name }</div>` +
+      `<div >Capital: ${ data.name }</div>` +
       `<div>State: ${ data.state }</div>` +
-      `<div>Population: ${ data.population }</div>
+      `<div>contaguios: ${ constaguiados}</div>
+
        <a mat-raised-button href="http://localhost:4200/main/graphics" target="_blank">Mas info</a>`;
        }
-  listdatos(iddepa: number): Dato[] {
-this.datosService.getgenneralsumdep(iddepa).subscribe((data) => {
-  this.datosum = data;
-});
-return this.datosum;
-  }
+
 
 
 }

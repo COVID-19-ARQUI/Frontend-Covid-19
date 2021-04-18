@@ -16,10 +16,10 @@ export class DatosService {
     return this.http.get<Dashboard[]>(apikey.api + '/dashboards');
   }
   getgenneralsum(){
-    return this.http.get<Dato[]>(apikey.api + `/departmentgeneral/1`);
+    return this.http.get<Dato[]>('http://localhost:8080/data/departmentgeneral/1');
   }
   getgenneralsumdep(iddepartamento: number){
-    return this.http.get<Dato[]>(apikey.api + `/departmentgeneral/${iddepartamento}`);
+    return this.http.get<Dato[]>(apikey.api + `/data/departmentgeneral/${iddepartamento}`);
   }
 
 }
