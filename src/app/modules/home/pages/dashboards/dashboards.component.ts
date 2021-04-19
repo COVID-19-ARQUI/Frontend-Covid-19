@@ -7,8 +7,6 @@ import {DatosService} from '../../../../services/datos.service';
 import {Dato} from '../../../../models/dato.model';
 
 import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
-import {DatosGenerales} from '../../../../models/datosGenerales.model';
-import {createValueHasWrongTypeError} from '@angular/compiler-cli/src/ngtsc/annotations/src/diagnostics';
 @Component({
   selector: 'app-dashboards',
   templateUrl: './dashboards.component.html',
@@ -65,6 +63,15 @@ export class DashboardsComponent implements OnInit {
   public lineChartPlugins = [];
 
   public LapazData: ChartDataSets[];
+  public LapazLabel: Label[];
+  LaPazdatosc:number[]=[];
+  LaPazdatosm:number[]=[];
+  LaPazdatosr:number[]=[];
+  LaPazdatosv1:number[]=[];
+  LaPazdatosv2:number[]=[];
+  LaPazfecha:string[]=[];
+  LaPazfechav:string[]=[];
+
   public CochabambaData: ChartDataSets[];
   public TarijaData: ChartDataSets[];
   public PandoData: ChartDataSets[];
@@ -73,6 +80,9 @@ export class DashboardsComponent implements OnInit {
   public BeniData: ChartDataSets[];
   public ChuqisacaData: ChartDataSets[];
   public OruroData: ChartDataSets[];
+
+
+
   constructor(
     private servicedash: DashboardService,
     private servicedata: DatosService,
@@ -98,35 +108,31 @@ export class DashboardsComponent implements OnInit {
     await this.servicedash.getdatadepartments().subscribe((va) => {
       depa=va;
       this.dashboard =va;
-      this.loaddatatochartdepa(depa);
+      this.loaddataLaPaz(depa);
     });
   }
-  loaddatatochartdepa(depa) {
-    let departamento:[{name:string,dat:[],fec:[],fec1:[]}];
-    depa.forEach(value=>{
+  loaddataLaPaz(depa) {
+    console.log(depa[0]);
 
-      var da;
-      var fe;
-      var fe1;
-      value.datoDto.forEach(ca=>{
-        if (ca.tipoDeDato=='contagiados'){
-          da.push(ca.dato);
-          fe.push(ca.fecha);
+    depa[0].datoDto.forEach(value=>{
+        if (value.tipoDeDato=='contagiados'){
+          this.LaPazdatosc.push(value.dato);
+          this.LaPazfecha.push(value.fecha);
         }
-        if (ca.tipoDeDato=='muertos'){
-          da.push(ca.dato);
+        if (value.tipoDeDato=='muertos'){
+          this.LaPazdatosm.push(value.dato);
         }
-        if (ca.tipoDeDato=='recuperados'){
-          da.push(ca.dato);
+        if (value.tipoDeDato=='recuperados'){
+          this.LaPazdatosr.push(value.dato);
         }
-        if (ca.tipoDeDato=='vacuna1'){
-          da.push(ca.dato);
-          fe1.push(ca.fecha);
+        if (value.tipoDeDato=='vacuna1'){
+          this.LaPazdatosv1.push(value.dato);
+          this.LaPazfechav.push(value.fecha);
         }
-      })
-      departamento.push({name: value.department,dat:da,fec:fe,fec1:fe1})
-    })
-    return departamento;
+        if (value.tipoDeDato=='vacuna2'){
+          this.LaPazdatosv2.push(value.dato);
+        }
+    });
   }
   async loadsuma(){
     var suma;
@@ -167,6 +173,12 @@ export class DashboardsComponent implements OnInit {
     this.lineChartDataVaccined=[
       { data: this.vdata, label: 'Vacunas'},
     ];
+
+    this.LapazData=[
+      { data: this.LaPazdatosc, label: 'Contagiados'},
+    ];
+    this.LapazLabel=this.LaPazfecha
+
     this.lineChartLabels=this.date;
     this.lineChartLabelsVa=this.vdate;
   }
