@@ -241,7 +241,7 @@ export class DashboardsComponent implements OnInit {
     console.log(depa)
     console.log(depa[4],'holasdasdas');
 
-    depa[4].datoDto.forEach(value=>{
+    depa[7].datoDto.forEach(value=>{
       if (value.tipoDeDato=='contagiados'){
         this.Orurodatosc.push(value.dato);
         this.Orurofecha.push(value.fecha);
@@ -264,9 +264,9 @@ export class DashboardsComponent implements OnInit {
 
   loaddataChuqisaca(depa) {
     console.log(depa)
-    console.log(depa[4],'holasdasdas');
+    console.log(depa[8],'holasdasdas');
 
-    depa[4].datoDto.forEach(value=>{
+    depa[8].datoDto.forEach(value=>{
       if (value.tipoDeDato=='contagiados'){
         this.Chuqisacadatosc.push(value.dato);
         this.Chuqisacafecha.push(value.fecha);
