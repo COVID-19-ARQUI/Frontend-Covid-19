@@ -13,8 +13,29 @@
          <td>{{ dash.dato}}</td>
        </tr>
      </table>
-<!--     <p >tipoDeDato dato</p>-->
-<!--     <p *ngFor="let dash of lista">{{dash.tipoDeDato}} {{dash.dato}}   </p>-->
+     <div class="container">
+     <button mat-fab color="primary"  style="alignment: center">
+
+       <mat-icon>replay</mat-icon>
+       <a routerLinkActive="active"
+          routerLink="/main/department">Back</a>
+
+     </button>
+
+     <button mat-fab color="primary"  style="alignment: center">
+
+     <mat-icon>donut_small</mat-icon>
+       <a routerLinkActive="active"
+          routerLink="/main/graphics">Graphic</a>
+     </button>
+     </div>
+<!--     <div class="container">-->
+<!--       <a routerLinkActive="active"-->
+<!--          routerLink="/principal">Login</a> |-->
+
+
+<!--       <router-outlet></router-outlet>-->
+<!--     </div>-->
    </div>
   </mat-grid-tile>
   <mat-grid-tile [colspan]="9" [rowspan]="11" style="background-color: aliceblue">

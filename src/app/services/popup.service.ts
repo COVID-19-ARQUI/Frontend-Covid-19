@@ -36,9 +36,7 @@ export class PopupService {
       `<div>State: ${ data.state }</div>` +
       `<div>contagios:${data.contagios} </div>
          <div>Muertes:${data.Muertes} </div>
-        <div>recuperados:${data.recuperados} </div>
-
-       <a mat-raised-button href="http://localhost:4200/main/graphics" target="_blank">Mas info</a>`;
+        <div>recuperados:${data.recuperados} </div>`;
        }
 
 }
