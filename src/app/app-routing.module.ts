@@ -12,7 +12,7 @@ import {NoticiasComponent} from './modules/home/pages/noticias/noticias.componen
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/main',
+    redirectTo: '/main/graphics',
     pathMatch: 'full',
   },
   {

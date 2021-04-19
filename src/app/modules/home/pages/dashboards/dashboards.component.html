@@ -11,7 +11,7 @@
   <mat-grid-tile>
     <mat-card>
       <mat-card-title>Muertos</mat-card-title>
-      <mat-card-content align="center">{{contagiados}}</mat-card-content>
+      <mat-card-content align="center">{{muertos}}</mat-card-content>
 
 
     </mat-card>
@@ -19,21 +19,21 @@
   <mat-grid-tile>
     <mat-card>
       <mat-card-title>Recuperados</mat-card-title>
-      <mat-card-content align="center">{{contagiados}}</mat-card-content>
+      <mat-card-content align="center">{{recuperados}}</mat-card-content>
 <!--      <mat-icon aria-hidden="false" aria-label="Example home icon" >home</mat-icon>-->
     </mat-card>
   </mat-grid-tile>
   <mat-grid-tile>
     <mat-card>
       <mat-card-title>Primera Dosis</mat-card-title>
-      <mat-card-content align="center">x</mat-card-content>
+      <mat-card-content align="center">{{vacu1}}</mat-card-content>
       <!--      <mat-icon aria-hidden="false" aria-label="Example home icon" >home</mat-icon>-->
     </mat-card>
   </mat-grid-tile>
   <mat-grid-tile>
     <mat-card>
       <mat-card-title>Segunda Dosis</mat-card-title>
-      <mat-card-content align="center">x</mat-card-content>
+      <mat-card-content align="center">{{vacu2}}</mat-card-content>
       <!--      <mat-icon aria-hidden="false" aria-label="Example home icon" >home</mat-icon>-->
     </mat-card>
   </mat-grid-tile>
@@ -527,7 +527,7 @@
       <mat-step>
         <ng-template matStepLabel>Contagiados</ng-template>
         <div style="display: block; ">
-          <h1 style="text-align:center;"> Chuqisaca</h1>
+          <h1 style="text-align:center;"> Chuquisaca</h1>
           <canvas baseChart width="300" height="200"
                   [datasets]="ChuqisacaData"
                   [labels]="ChuqisacaLabel"
@@ -541,7 +541,7 @@
       <mat-step>
         <ng-template matStepLabel>Muertos</ng-template>
         <div style="display: block; ">
-          <h1 style="text-align:center;"> Chuqisaca</h1>
+          <h1 style="text-align:center;"> Chuquisaca</h1>
           <canvas baseChart width="300" height="200"
                   [datasets]="ChuqisacaDataM"
                   [labels]="ChuqisacaLabel"
@@ -555,7 +555,7 @@
       <mat-step>
         <ng-template matStepLabel>Recuperados</ng-template>
         <div style="display: block; ">
-          <h1 style="text-align:center;">Chuqisaca</h1>
+          <h1 style="text-align:center;">Chuquisaca</h1>
           <canvas baseChart width="300" height="200"
                   [datasets]="ChuqisacaDataR"
                   [labels]="ChuqisacaLabel"
@@ -569,7 +569,7 @@
       <mat-step>
         <ng-template matStepLabel>Vacunados</ng-template>
         <div style="display: block; ">
-          <h1 style="text-align:center;">Chuqisaca</h1>
+          <h1 style="text-align:center;">Chuquisaca</h1>
           <canvas baseChart width="300" height="200"
                   [datasets]="ChuqisacaDataV"
                   [labels]="ChuqisacaLabelv"

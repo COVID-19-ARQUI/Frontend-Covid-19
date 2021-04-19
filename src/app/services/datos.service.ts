@@ -24,5 +24,10 @@ export class DatosService {
   async getBoliviaData(){
     return this.http.get<Dato[]>(apikey.api+'/data/Bolivia').toPromise();
   }
-
+  getgenneralvaccine(){
+    return this.http.get<Dato>(apikey.api+'/data/departmentvacuna/1');
+  }
+  getgenneralvaccine2(){
+    return this.http.get<Dato>(apikey.api+'/data/departmentvacuna2/1');
+  }
 }

@@ -28,6 +28,8 @@ export class DashboardsComponent implements OnInit {
   contagiados:number;
   muertos:number;
   recuperados:number;
+  vacu1:number;
+  vacu2:number;
   public lineChartData: ChartDataSets[];
   public lineChartDataDeath: ChartDataSets[];
   public lineChartDataRecovered: ChartDataSets[];
@@ -205,9 +207,18 @@ export class DashboardsComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadsuma();
+    this.vaccine();
     this.loaddata();
     this.loaddatadepartment();
     this.auxiliar();
+  }
+  async vaccine(){
+    await this.servicedata.getgenneralvaccine().subscribe((value) => {
+      this.vacu1= value.dato;
+    });
+    await this.servicedata.getgenneralvaccine2().subscribe((value2) => {
+      this.vacu2= value2.dato;
+    });
   }
 
   async loaddata(){
@@ -263,8 +274,6 @@ export class DashboardsComponent implements OnInit {
   }
 
   loaddataChuqisaca(depa) {
-    console.log(depa)
-    console.log(depa[8],'holasdasdas');
 
     depa[8].datoDto.forEach(value=>{
       if (value.tipoDeDato=='contagiados'){
@@ -276,13 +285,6 @@ export class DashboardsComponent implements OnInit {
       }
       if (value.tipoDeDato=='recuperados'){
         this.Chuqisacadatosr.push(value.dato);
-      }
-      if (value.tipoDeDato=='vacuna1'){
-        this.Chuqisacadatosv1.push(value.dato);
-        this.Chuqisacafechav.push(value.fecha);
-      }
-      if (value.tipoDeDato=='vacuna2'){
-        this.Chuqisacadatosv2.push(value.dato);
       }
     });
   }
