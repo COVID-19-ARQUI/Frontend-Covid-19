@@ -54,7 +54,7 @@ export class DashboardsComponent implements OnInit {
 
   }
   auxiliar(){
-    console.log(this.ndata)
+    console.log(this.ndata);
     this.lineChartData=[
       { data: this.ndata, label: 'Contagiados'},
     ];

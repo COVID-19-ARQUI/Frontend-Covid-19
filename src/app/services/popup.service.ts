@@ -2,18 +2,41 @@ import { Injectable } from '@angular/core';
 import {DatosService} from './datos.service';
 import { HttpClient } from '@angular/common/http';
 import {Dato} from '../models/dato.model';
-
 @Injectable({
   providedIn: 'root'
 })
 export class PopupService {
+  databolivia: Dato[]=[];
+  ndatac: Dato[]=[];
+  ndatar: number[]=[];
+  ndatam: number[]=[];
+  constructor(private http: HttpClient, private servicedata: DatosService) { }
+  async loaddata(ndpartamente: number){
+    // await this.servicedash.getdatadepartments().subscribe((dash) => {
+    //   this.dashboard =dash;
+    // });
+    var datos;
+    await this.servicedata.getgenneralsumdep(1).subscribe((value) => {
+      datos = value;
+      this.databolivia = value;
+      //console.log(value,'aqui');
+      this.ndatac.push(value[1]);
+      // this.ndatac.push(value[1]);
+      // this.ndatac.push(value[2]);
+      // this.datatochart(datos);
+    });
 
-  constructor(private http: HttpClient, private datosService: DatosService) { }
-  makeCapitalPopup(data: any,constaguiados: any): string {
+  }
+  makeCapitalPopup(data: any, conta: number, muerto: number, recober: number): string {
+    //console.log(this.ndatac);
+    this.loaddata(data.population);
+    // console.log(this.ndatac);
     return `` +
       `<div >Capital: ${ data.name }</div>` +
       `<div>State: ${ data.state }</div>` +
-      `<div>contaguios: ${ constaguiados}</div>
+      `<div>contagios:${conta} </div>
+         <div>Muertes:${muerto} </div>
+        <div>recuperados:${recober} </div>
 
        <a mat-raised-button href="http://localhost:4200/main/graphics" target="_blank">Mas info</a>`;
        }
