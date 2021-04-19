@@ -28,8 +28,8 @@ L.Marker.prototype.options.icon = iconDefault;
 export class PrincipalComponent implements OnInit {
   databolivia: Dato[] = [];
   lista: any;
-  listav1: any;
-  listav2: any;
+  listav1: Dato;
+  listav2: Dato;
   private map;
   ndata: number[] = [];
   nddata: number[] = [];
@@ -65,19 +65,19 @@ export class PrincipalComponent implements OnInit {
      // console.log(this.lista);
   }
   listdatos(): any{
-    this.datosService.getgenneralvaccine().subscribe(value => {
+    this.datosService.getgenneralsum().subscribe(value => {
       this.lista = value;
     });
     return this.lista;
   }
   listdatosv1(): any{
-    this.datosService.getgenneralvaccine2().subscribe(value => {
+    this.datosService.getgenneralvaccine().subscribe(value => {
       this.listav1 = value;
     });
     return this.lista;
   }
   listdatosv2(): any{
-    this.datosService.getgenneralsum().subscribe(value => {
+    this.datosService.getgenneralvaccine2().subscribe(value => {
       this.listav2 = value;
     });
     return this.lista;
