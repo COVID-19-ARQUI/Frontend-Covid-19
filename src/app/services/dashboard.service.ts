@@ -11,7 +11,7 @@ export class DashboardService {
   constructor(private http: HttpClient) {
   }
 
-  getmedia() {
+  getdatadepartments() {
     return this.http.get<Dashboard[]>(apikey.api + '/dashboards');
   }
 }

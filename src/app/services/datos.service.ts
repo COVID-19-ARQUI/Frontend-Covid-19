@@ -21,5 +21,8 @@ export class DatosService {
   getgenneralsumdep(iddepartamento: number){
     return this.http.get<Dato[]>(apikey.api + `/data/departmentgeneral/${iddepartamento}`);
   }
+  async getBoliviaData(){
+    return this.http.get<Dato[]>(apikey.api+'/data/Bolivia').toPromise();
+  }
 
 }

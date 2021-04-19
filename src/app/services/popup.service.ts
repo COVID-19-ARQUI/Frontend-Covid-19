@@ -18,6 +18,4 @@ export class PopupService {
        <a mat-raised-button href="http://localhost:4200/main/graphics" target="_blank">Mas info</a>`;
        }
 
-
-
 }

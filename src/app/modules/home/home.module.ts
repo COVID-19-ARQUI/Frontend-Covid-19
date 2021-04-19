@@ -23,6 +23,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatFormField, MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import { NoticiasComponent } from './pages/noticias/noticias.component';
+import {DateFormatPipe} from '../../shared/date-format.pipe';
 
 @NgModule({
   declarations: [

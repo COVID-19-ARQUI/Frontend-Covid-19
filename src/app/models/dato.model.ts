@@ -1,6 +1,6 @@
 export interface Dato {
   idDato: number;
-  dato: string;
+  dato: number;
   fecha: string;
   zonaId: number;
   tipoDeDato: string;

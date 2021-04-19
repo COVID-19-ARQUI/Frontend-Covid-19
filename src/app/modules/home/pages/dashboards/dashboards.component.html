@@ -1,24 +1,11 @@
-<!--<p *ngFor="let dash of dashboard">{{dash.department}} asdas</p>>-->
+<!--<p *ngFor="let dash of ndata">{{dash}}</p>-->
 <h1>Graficos de Bolivia</h1>
-<mat-grid-list cols="2" >
-  <mat-grid-tile>
+<mat-grid-list cols="1" >
 
-    <div style="display: block;">
+
+    <div style="display: block; ">
       <h1 style="text-align:center;"> contagiados</h1>
-    <canvas baseChart width="700" height="500"
-            [datasets]="lineChartData"
-            [labels]="lineChartLabels"
-            [colors]="lineChartColors"
-            [legend]="lineChartLegend"
-            [chartType]="lineChartType"
-            [plugins]="lineChartPlugins">
-    </canvas>
-  </div></mat-grid-tile>
-  <mat-grid-tile>
-    <div style="display: block;">
-
-      <h1 style="text-align:center;">muertos</h1>
-    <canvas baseChart width="700" height="500"
+    <canvas baseChart width="1500" height="500"
             [datasets]="lineChartData"
             [labels]="lineChartLabels"
             [colors]="lineChartColors"
@@ -27,35 +14,49 @@
             [plugins]="lineChartPlugins">
     </canvas>
   </div>
-  </mat-grid-tile>
-  <mat-grid-tile>
-    <div style="display: block;">
 
-      <h1 style="text-align:center;">recuperados</h1>
-      <canvas baseChart width="700" height="500"
-              [datasets]="lineChartData"
-              [labels]="lineChartLabels"
-              [colors]="lineChartColors"
-              [legend]="lineChartLegend"
-              [chartType]="lineChartType"
-              [plugins]="lineChartPlugins">
-      </canvas>
-    </div>
-  </mat-grid-tile>
-  <mat-grid-tile>
-    <div style="display: block;">
+<!--  <mat-grid-tile>-->
+<!--    <div style="display: block;">-->
 
-      <h1 style="text-align:center;">Vacunas</h1>
-      <canvas baseChart width="700" height="500"
-              [datasets]="lineChartData"
-              [labels]="lineChartLabels"
-              [colors]="lineChartColors"
-              [legend]="lineChartLegend"
-              [chartType]="lineChartType"
-              [plugins]="lineChartPlugins">
-      </canvas>
-    </div>
-  </mat-grid-tile>
+<!--      <h1 style="text-align:center;">muertos</h1>-->
+<!--    <canvas baseChart width="700" height="500"-->
+<!--            [datasets]="lineChartData"-->
+<!--            [labels]="lineChartLabels"-->
+<!--            [colors]="lineChartColors"-->
+<!--            [legend]="lineChartLegend"-->
+<!--            [chartType]="lineChartType"-->
+<!--            [plugins]="lineChartPlugins">-->
+<!--    </canvas>-->
+<!--  </div>-->
+<!--  </mat-grid-tile>-->
+<!--  <mat-grid-tile>-->
+<!--    <div style="display: block;">-->
+
+<!--      <h1 style="text-align:center;">recuperados</h1>-->
+<!--      <canvas baseChart width="700" height="500"-->
+<!--              [datasets]="lineChartData"-->
+<!--              [labels]="lineChartLabels"-->
+<!--              [colors]="lineChartColors"-->
+<!--              [legend]="lineChartLegend"-->
+<!--              [chartType]="lineChartType"-->
+<!--              [plugins]="lineChartPlugins">-->
+<!--      </canvas>-->
+<!--    </div>-->
+<!--  </mat-grid-tile>-->
+<!--  <mat-grid-tile>-->
+<!--    <div style="display: block;">-->
+
+<!--      <h1 style="text-align:center;">Vacunas</h1>-->
+<!--      <canvas baseChart width="700" height="500"-->
+<!--              [datasets]="lineChartData"-->
+<!--              [labels]="lineChartLabels"-->
+<!--              [colors]="lineChartColors"-->
+<!--              [legend]="lineChartLegend"-->
+<!--              [chartType]="lineChartType"-->
+<!--              [plugins]="lineChartPlugins">-->
+<!--      </canvas>-->
+<!--    </div>-->
+<!--  </mat-grid-tile>-->
 </mat-grid-list>
 
 
