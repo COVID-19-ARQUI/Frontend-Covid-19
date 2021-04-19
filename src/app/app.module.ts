@@ -8,7 +8,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HomeModule} from './modules/home/home.module';
 import {MarkerService} from './services/marker.service';
 import {PopupService} from './services/popup.service';
-import { DateFormatPipe } from './shared/date-format.pipe';
+
 
 
 @NgModule({

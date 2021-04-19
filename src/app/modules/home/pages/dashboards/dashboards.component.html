@@ -1,7 +1,43 @@
-<!--<p *ngFor="let dash of ndata">{{dash}}</p>-->
-<h1>Graficos de Bolivia</h1>
+
+<mat-card-title align="center">Dashboard</mat-card-title>
+<mat-grid-list cols="5" rowHeight="5:2">
+  <mat-grid-tile>
+    <mat-card>
+      <mat-card-title>Contagiados</mat-card-title>
+      <mat-card-content align="center">{{contagiados}}</mat-card-content>
+
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <mat-card>
+      <mat-card-title>Muertos</mat-card-title>
+      <mat-card-content align="center">{{contagiados}}</mat-card-content>
 
 
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <mat-card>
+      <mat-card-title>Recuperados</mat-card-title>
+      <mat-card-content align="center">{{contagiados}}</mat-card-content>
+<!--      <mat-icon aria-hidden="false" aria-label="Example home icon" >home</mat-icon>-->
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <mat-card>
+      <mat-card-title>Primera Dosis</mat-card-title>
+      <mat-card-content align="center">x</mat-card-content>
+      <!--      <mat-icon aria-hidden="false" aria-label="Example home icon" >home</mat-icon>-->
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <mat-card>
+      <mat-card-title>Segunda Dosis</mat-card-title>
+      <mat-card-content align="center">x</mat-card-content>
+      <!--      <mat-icon aria-hidden="false" aria-label="Example home icon" >home</mat-icon>-->
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
 <mat-horizontal-stepper #stepper>
   <mat-step>
     <ng-template matStepLabel>Contagiados</ng-template>
@@ -45,69 +81,265 @@
       </canvas>
     </div>
   </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Vacunados</ng-template>
+    <div style="display: block; ">
+      <h1 style="text-align:center;"> Vacunados</h1>
+      <canvas baseChart width="1500" height="500"
+              [datasets]="lineChartDataVaccined"
+              [labels]="lineChartLabelsVa"
+              [colors]="lineChartColorsVaccined"
+              [legend]="lineChartLegend"
+              [chartType]="lineChartType"
+              [plugins]="lineChartPlugins">
+      </canvas>
+    </div>
+  </mat-step>
 </mat-horizontal-stepper>
 
 
-
-<!--<mat-grid-list cols="1" >-->
-<!--    <div style="display: block; ">-->
-<!--      <h1 style="text-align:center;"> contagiados</h1>-->
-<!--    <canvas baseChart width="1500" height="500"-->
-<!--            [datasets]="lineChartData"-->
-<!--            [labels]="lineChartLabels"-->
-<!--            [colors]="lineChartColors"-->
-<!--            [legend]="lineChartLegend"-->
-<!--            [chartType]="lineChartType"-->
-<!--            [plugins]="lineChartPlugins">-->
-<!--    </canvas>-->
-<!--  </div>-->
-
-<!--  <mat-grid-tile>-->
-<!--    <div style="display: block;">-->
-
-<!--      <h1 style="text-align:center;">muertos</h1>-->
-<!--    <canvas baseChart width="700" height="500"-->
-<!--            [datasets]="lineChartData"-->
-<!--            [labels]="lineChartLabels"-->
-<!--            [colors]="lineChartColors"-->
-<!--            [legend]="lineChartLegend"-->
-<!--            [chartType]="lineChartType"-->
-<!--            [plugins]="lineChartPlugins">-->
-<!--    </canvas>-->
-<!--  </div>-->
-<!--  </mat-grid-tile>-->
-<!--  <mat-grid-tile>-->
-<!--    <div style="display: block;">-->
-
-<!--      <h1 style="text-align:center;">recuperados</h1>-->
-<!--      <canvas baseChart width="700" height="500"-->
-<!--              [datasets]="lineChartData"-->
-<!--              [labels]="lineChartLabels"-->
-<!--              [colors]="lineChartColors"-->
-<!--              [legend]="lineChartLegend"-->
-<!--              [chartType]="lineChartType"-->
-<!--              [plugins]="lineChartPlugins">-->
-<!--      </canvas>-->
-<!--    </div>-->
-<!--  </mat-grid-tile>-->
-<!--  <mat-grid-tile>-->
-<!--    <div style="display: block;">-->
-
-<!--      <h1 style="text-align:center;">Vacunas</h1>-->
-<!--      <canvas baseChart width="700" height="500"-->
-<!--              [datasets]="lineChartData"-->
-<!--              [labels]="lineChartLabels"-->
-<!--              [colors]="lineChartColors"-->
-<!--              [legend]="lineChartLegend"-->
-<!--              [chartType]="lineChartType"-->
-<!--              [plugins]="lineChartPlugins">-->
-<!--      </canvas>-->
-<!--    </div>-->
-<!--  </mat-grid-tile>-->
-<!--</mat-grid-list>-->
-
-
-<!--<p *ngFor="let dash of dashboard">{{dash.department}}</p>-->
+<mat-grid-list cols="2" rowHeight="1:1" >
+  <mat-grid-tile >
+    <mat-horizontal-stepper #stepper>
+    <mat-step>
+      <ng-template matStepLabel>Contagiados</ng-template>
+      <div style="display: block; ">
+        <h1 style="text-align:center;"> La Paz</h1>
+        <canvas baseChart width="300" height="200"
+                [datasets]="lineChartData"
+                [labels]="lineChartLabels"
+                [colors]="lineChartColors"
+                [legend]="lineChartLegend"
+                [chartType]="lineChartType"
+                [plugins]="lineChartPlugins">
+        </canvas>
+      </div>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Muertos</ng-template>
+      <div style="display: block; ">
+        <h1 style="text-align:center;"> Muertos</h1>
+        <canvas baseChart width="300" height="200"
+                [datasets]="lineChartDataDeath"
+                [labels]="lineChartLabels"
+                [colors]="lineChartColorsDeath"
+                [legend]="lineChartLegend"
+                [chartType]="lineChartType"
+                [plugins]="lineChartPlugins">
+        </canvas>
+      </div>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Recuperados</ng-template>
+      <div style="display: block; ">
+        <h1 style="text-align:center;"> Recuperados</h1>
+        <canvas baseChart width="300" height="200"
+                [datasets]="lineChartDataRecovered"
+                [labels]="lineChartLabels"
+                [colors]="lineChartColorsRecovered"
+                [legend]="lineChartLegend"
+                [chartType]="lineChartType"
+                [plugins]="lineChartPlugins">
+        </canvas>
+      </div>
+    </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Vacunados</ng-template>
+        <div style="display: block; ">
+          <h1 style="text-align:center;"> Vacunados</h1>
+          <canvas baseChart width="300" height="200"
+                  [datasets]="lineChartDataVaccined"
+                  [labels]="lineChartLabels"
+                  [colors]="lineChartColorsVaccined"
+                  [legend]="lineChartLegend"
+                  [chartType]="lineChartType"
+                  [plugins]="lineChartPlugins">
+          </canvas>
+        </div>
+      </mat-step>
+  </mat-horizontal-stepper>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <mat-horizontal-stepper #stepper>
+      <mat-step>
+        <ng-template matStepLabel>Contagiados</ng-template>
+        <div style="display: block; ">
+          <h1 style="text-align:center;"> La Paz</h1>
+          <canvas baseChart width="300" height="200"
+                  [datasets]="lineChartData"
+                  [labels]="lineChartLabels"
+                  [colors]="lineChartColors"
+                  [legend]="lineChartLegend"
+                  [chartType]="lineChartType"
+                  [plugins]="lineChartPlugins">
+          </canvas>
+        </div>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Muertos</ng-template>
+        <div style="display: block; ">
+          <h1 style="text-align:center;"> Muertos</h1>
+          <canvas baseChart width="300" height="200"
+                  [datasets]="lineChartDataDeath"
+                  [labels]="lineChartLabels"
+                  [colors]="lineChartColorsDeath"
+                  [legend]="lineChartLegend"
+                  [chartType]="lineChartType"
+                  [plugins]="lineChartPlugins">
+          </canvas>
+        </div>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Recuperados</ng-template>
+        <div style="display: block; ">
+          <h1 style="text-align:center;"> Recuperados</h1>
+          <canvas baseChart width="300" height="200"
+                  [datasets]="lineChartDataRecovered"
+                  [labels]="lineChartLabels"
+                  [colors]="lineChartColorsRecovered"
+                  [legend]="lineChartLegend"
+                  [chartType]="lineChartType"
+                  [plugins]="lineChartPlugins">
+          </canvas>
+        </div>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Vacunados</ng-template>
+        <div style="display: block; ">
+          <h1 style="text-align:center;"> Vacunados</h1>
+          <canvas baseChart width="300" height="200"
+                  [datasets]="lineChartDataVaccined"
+                  [labels]="lineChartLabels"
+                  [colors]="lineChartColorsVaccined"
+                  [legend]="lineChartLegend"
+                  [chartType]="lineChartType"
+                  [plugins]="lineChartPlugins">
+          </canvas>
+        </div>
+      </mat-step>
+    </mat-horizontal-stepper>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <mat-horizontal-stepper #stepper>
+      <mat-step>
+        <ng-template matStepLabel>Contagiados</ng-template>
+        <div style="display: block; ">
+          <h1 style="text-align:center;"> La Paz</h1>
+          <canvas baseChart width="300" height="200"
+                  [datasets]="lineChartData"
+                  [labels]="lineChartLabels"
+                  [colors]="lineChartColors"
+                  [legend]="lineChartLegend"
+                  [chartType]="lineChartType"
+                  [plugins]="lineChartPlugins">
+          </canvas>
+        </div>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Muertos</ng-template>
+        <div style="display: block; ">
+          <h1 style="text-align:center;"> Muertos</h1>
+          <canvas baseChart width="300" height="200"
+                  [datasets]="lineChartDataDeath"
+                  [labels]="lineChartLabels"
+                  [colors]="lineChartColorsDeath"
+                  [legend]="lineChartLegend"
+                  [chartType]="lineChartType"
+                  [plugins]="lineChartPlugins">
+          </canvas>
+        </div>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Recuperados</ng-template>
+        <div style="display: block; ">
+          <h1 style="text-align:center;"> Recuperados</h1>
+          <canvas baseChart width="300" height="200"
+                  [datasets]="lineChartDataRecovered"
+                  [labels]="lineChartLabels"
+                  [colors]="lineChartColorsRecovered"
+                  [legend]="lineChartLegend"
+                  [chartType]="lineChartType"
+                  [plugins]="lineChartPlugins">
+          </canvas>
+        </div>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Vacunados</ng-template>
+        <div style="display: block; ">
+          <h1 style="text-align:center;"> Vacunados</h1>
+          <canvas baseChart width="300" height="200"
+                  [datasets]="lineChartDataVaccined"
+                  [labels]="lineChartLabels"
+                  [colors]="lineChartColorsVaccined"
+                  [legend]="lineChartLegend"
+                  [chartType]="lineChartType"
+                  [plugins]="lineChartPlugins">
+          </canvas>
+        </div>
+      </mat-step>
+    </mat-horizontal-stepper>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <mat-horizontal-stepper #stepper>
+      <mat-step>
+        <ng-template matStepLabel>Contagiados</ng-template>
+        <div style="display: block; ">
+          <h1 style="text-align:center;"> La Paz</h1>
+          <canvas baseChart width="300" height="200"
+                  [datasets]="lineChartData"
+                  [labels]="lineChartLabels"
+                  [colors]="lineChartColors"
+                  [legend]="lineChartLegend"
+                  [chartType]="lineChartType"
+                  [plugins]="lineChartPlugins">
+          </canvas>
+        </div>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Muertos</ng-template>
+        <div style="display: block; ">
+          <h1 style="text-align:center;"> Muertos</h1>
+          <canvas baseChart width="300" height="200"
+                  [datasets]="lineChartDataDeath"
+                  [labels]="lineChartLabels"
+                  [colors]="lineChartColorsDeath"
+                  [legend]="lineChartLegend"
+                  [chartType]="lineChartType"
+                  [plugins]="lineChartPlugins">
+          </canvas>
+        </div>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Recuperados</ng-template>
+        <div style="display: block; ">
+          <h1 style="text-align:center;"> Recuperados</h1>
+          <canvas baseChart width="300" height="200"
+                  [datasets]="lineChartDataRecovered"
+                  [labels]="lineChartLabels"
+                  [colors]="lineChartColorsRecovered"
+                  [legend]="lineChartLegend"
+                  [chartType]="lineChartType"
+                  [plugins]="lineChartPlugins">
+          </canvas>
+        </div>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Vacunados</ng-template>
+        <div style="display: block; ">
+          <h1 style="text-align:center;"> Vacunados</h1>
+          <canvas baseChart width="300" height="200"
+                  [datasets]="lineChartDataVaccined"
+                  [labels]="lineChartLabels"
+                  [colors]="lineChartColorsVaccined"
+                  [legend]="lineChartLegend"
+                  [chartType]="lineChartType"
+                  [plugins]="lineChartPlugins">
+          </canvas>
+        </div>
+      </mat-step>
+    </mat-horizontal-stepper>
+  </mat-grid-tile>
+</mat-grid-list>
 
 
 
