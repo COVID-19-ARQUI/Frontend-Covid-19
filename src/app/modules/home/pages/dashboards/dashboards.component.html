@@ -1,19 +1,66 @@
 <!--<p *ngFor="let dash of ndata">{{dash}}</p>-->
 <h1>Graficos de Bolivia</h1>
-<mat-grid-list cols="1" >
 
 
+<mat-horizontal-stepper #stepper>
+  <mat-step>
+    <ng-template matStepLabel>Contagiados</ng-template>
     <div style="display: block; ">
-      <h1 style="text-align:center;"> contagiados</h1>
-    <canvas baseChart width="1500" height="500"
-            [datasets]="lineChartData"
-            [labels]="lineChartLabels"
-            [colors]="lineChartColors"
-            [legend]="lineChartLegend"
-            [chartType]="lineChartType"
-            [plugins]="lineChartPlugins">
-    </canvas>
-  </div>
+      <h1 style="text-align:center;"> Contagiados</h1>
+      <canvas baseChart width="1500" height="500"
+              [datasets]="lineChartData"
+              [labels]="lineChartLabels"
+              [colors]="lineChartColors"
+              [legend]="lineChartLegend"
+              [chartType]="lineChartType"
+              [plugins]="lineChartPlugins">
+      </canvas>
+    </div>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Muertos</ng-template>
+    <div style="display: block; ">
+      <h1 style="text-align:center;"> Muertos</h1>
+      <canvas baseChart width="1500" height="500"
+              [datasets]="lineChartDataDeath"
+              [labels]="lineChartLabels"
+              [colors]="lineChartColorsDeath"
+              [legend]="lineChartLegend"
+              [chartType]="lineChartType"
+              [plugins]="lineChartPlugins">
+      </canvas>
+    </div>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Recuperados</ng-template>
+    <div style="display: block; ">
+      <h1 style="text-align:center;"> Recuperados</h1>
+      <canvas baseChart width="1500" height="500"
+              [datasets]="lineChartDataRecovered"
+              [labels]="lineChartLabels"
+              [colors]="lineChartColorsRecovered"
+              [legend]="lineChartLegend"
+              [chartType]="lineChartType"
+              [plugins]="lineChartPlugins">
+      </canvas>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>
+
+
+
+<!--<mat-grid-list cols="1" >-->
+<!--    <div style="display: block; ">-->
+<!--      <h1 style="text-align:center;"> contagiados</h1>-->
+<!--    <canvas baseChart width="1500" height="500"-->
+<!--            [datasets]="lineChartData"-->
+<!--            [labels]="lineChartLabels"-->
+<!--            [colors]="lineChartColors"-->
+<!--            [legend]="lineChartLegend"-->
+<!--            [chartType]="lineChartType"-->
+<!--            [plugins]="lineChartPlugins">-->
+<!--    </canvas>-->
+<!--  </div>-->
 
 <!--  <mat-grid-tile>-->
 <!--    <div style="display: block;">-->
@@ -57,7 +104,7 @@
 <!--      </canvas>-->
 <!--    </div>-->
 <!--  </mat-grid-tile>-->
-</mat-grid-list>
+<!--</mat-grid-list>-->
 
 
 <!--<p *ngFor="let dash of dashboard">{{dash.department}}</p>-->
