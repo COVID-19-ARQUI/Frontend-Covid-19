@@ -64,7 +64,11 @@ export class DashboardsComponent implements OnInit {
   public lineChartPlugins = [];
 
   public LapazData: ChartDataSets[];
+  public LapazDataDeath: ChartDataSets[];
+  public LapazDataRecovered: ChartDataSets[];
+  public LapazVaccinated: ChartDataSets[];
   public LapazLabel: Label[];
+  public LapazLabelVa: Label[];
   LaPazdatosc:number[]=[];
   LaPazdatosm:number[]=[];
   LaPazdatosr:number[]=[];
@@ -74,8 +78,47 @@ export class DashboardsComponent implements OnInit {
   LaPazfechav:string[]=[];
 
   public CochabambaData: ChartDataSets[];
+  public CochabambaDataDeath: ChartDataSets[];
+  public CochabambaDataRecovered: ChartDataSets[];
+  public CochabambaVaccinated: ChartDataSets[];
+  public CochabambaLabel: Label[];
+  public CochabambaLabelVa: Label[];
+  Cochabambadatosc:number[]=[];
+  Cochabambadatosm:number[]=[];
+  Cochabambadatosr:number[]=[];
+  Cochabambadatosv1:number[]=[];
+  Cochabambadatosv2:number[]=[];
+  Cochabambafecha:string[]=[];
+  Cochabambafechav:string[]=[];
+
   public TarijaData: ChartDataSets[];
+  public TarijaDataDeath: ChartDataSets[];
+  public TarijaDataRecovered: ChartDataSets[];
+  public TarijaVaccinated: ChartDataSets[];
+  public TarijaLabel: Label[];
+  public TarijaLabelVa: Label[];
+  Tarijadatosc:number[]=[];
+  Tarijadatosm:number[]=[];
+  Tarijadatosr:number[]=[];
+  Tarijadatosv1:number[]=[];
+  Tarijadatosv2:number[]=[];
+  Tarijafecha:string[]=[];
+  Tarijafechav:string[]=[];
+
   public PandoData: ChartDataSets[];
+  public PandoDataDeath: ChartDataSets[];
+  public PandoDataRecovered: ChartDataSets[];
+  public PandoVaccinated: ChartDataSets[];
+  public PandoLabel: Label[];
+  public PandoLabelVa: Label[];
+  Pandodatosc:number[]=[];
+  Pandodatosm:number[]=[];
+  Pandodatosr:number[]=[];
+  Pandodatosv1:number[]=[];
+  Pandodatosv2:number[]=[];
+  Pandofecha:string[]=[];
+  Pandofechav:string[]=[];
+
 
   public PotosiData: ChartDataSets[];
   public PotosiDataM: ChartDataSets[];
@@ -181,6 +224,10 @@ export class DashboardsComponent implements OnInit {
       depa=va;
       this.dashboard =va;
       this.loaddataLaPaz(depa);
+      this.loaddataCochabamba(depa);
+      this.loaddataTarija(depa);
+      this.loaddataPando(depa);
+      console.log(depa);
       this.loaddataPotosi(depa);
       this.loaddataSantaCruz(depa);
       this.loaddataBeni(depa);
@@ -315,7 +362,6 @@ export class DashboardsComponent implements OnInit {
   }
 
   loaddataLaPaz(depa) {
-    console.log(depa[0],'holasdasdas');
 
     depa[0].datoDto.forEach(value=>{
       if (value.tipoDeDato=='contagiados'){
@@ -337,6 +383,73 @@ export class DashboardsComponent implements OnInit {
       }
     });
   }
+  loaddataCochabamba(depa) {
+
+    depa[1].datoDto.forEach(value=>{
+      if (value.tipoDeDato=='contagiados'){
+        this.Cochabambadatosc.push(value.dato);
+        this.Cochabambafecha.push(value.fecha);
+      }
+      if (value.tipoDeDato=='muertos'){
+        this.Cochabambadatosm.push(value.dato);
+      }
+      if (value.tipoDeDato=='recuperados'){
+        this.Cochabambadatosr.push(value.dato);
+      }
+      if (value.tipoDeDato=='vacuna1'){
+        this.Cochabambadatosv1.push(value.dato);
+        this.Cochabambafechav.push(value.fecha);
+      }
+      if (value.tipoDeDato=='vacuna2'){
+        this.Cochabambadatosv2.push(value.dato);
+      }
+    });
+  }
+  loaddataTarija(depa) {
+
+    depa[2].datoDto.forEach(value=>{
+      if (value.tipoDeDato=='contagiados'){
+        this.Tarijadatosc.push(value.dato);
+        this.Tarijafecha.push(value.fecha);
+      }
+      if (value.tipoDeDato=='muertos'){
+        this.Tarijadatosm.push(value.dato);
+      }
+      if (value.tipoDeDato=='recuperados'){
+        this.Tarijadatosr.push(value.dato);
+      }
+      if (value.tipoDeDato=='vacuna1'){
+        this.Tarijadatosv1.push(value.dato);
+        this.Tarijafechav.push(value.fecha);
+      }
+      if (value.tipoDeDato=='vacuna2'){
+        this.Tarijadatosv2.push(value.dato);
+      }
+    });
+  }
+  loaddataPando(depa) {
+
+    depa[5].datoDto.forEach(value=>{
+      if (value.tipoDeDato=='contagiados'){
+        this.Pandodatosc.push(value.dato);
+        this.Pandofecha.push(value.fecha);
+      }
+      if (value.tipoDeDato=='muertos'){
+        this.Pandodatosm.push(value.dato);
+      }
+      if (value.tipoDeDato=='recuperados'){
+        this.Pandodatosr.push(value.dato);
+      }
+      if (value.tipoDeDato=='vacuna1'){
+        this.Pandodatosv1.push(value.dato);
+        this.Pandofechav.push(value.fecha);
+      }
+      if (value.tipoDeDato=='vacuna2'){
+        this.Pandodatosv2.push(value.dato);
+      }
+    });
+  }
+
   async loadsuma(){
     var suma;
     await this.servicedata.getgenneralsum().subscribe((dash) => {
@@ -380,6 +493,66 @@ export class DashboardsComponent implements OnInit {
     this.LapazData=[
       { data: this.LaPazdatosc, label: 'Contagiados'},
     ];
+    this.LapazDataDeath=[
+      { data: this.LaPazdatosm, label: 'Muertos'},
+    ];
+    this.LapazDataRecovered=[
+      { data: this.LaPazdatosr, label: 'Recuperados'},
+    ];
+    this.LapazVaccinated=[
+      { data: this.LaPazdatosv1, label: 'Vacunas'},
+    ];
+
+    this.LapazLabel=this.LaPazfecha;
+    this.LapazLabelVa=this.LaPazfechav;
+
+    this.CochabambaData=[
+      { data: this.Cochabambadatosc, label: 'Contagiados'},
+    ];
+    this.CochabambaDataDeath=[
+      { data: this.Cochabambadatosm, label: 'Muertos'},
+    ];
+    this.CochabambaDataRecovered=[
+      { data: this.Cochabambadatosr, label: 'Recuperados'},
+    ];
+    this.CochabambaVaccinated=[
+      { data: this.Cochabambadatosv1, label: 'Vacunas'},
+    ];
+
+    this.CochabambaLabel=this.Cochabambafecha;
+    this.CochabambaLabelVa=this.Cochabambafechav;
+
+    this.TarijaData=[
+      { data: this.Tarijadatosc, label: 'Contagiados'},
+    ];
+    this.TarijaDataDeath=[
+      { data: this.Tarijadatosm, label: 'Muertos'},
+    ];
+    this.TarijaDataRecovered=[
+      { data: this.Tarijadatosr, label: 'Recuperados'},
+    ];
+    this.TarijaVaccinated=[
+      { data: this.Tarijadatosv1, label: 'Vacunas'},
+    ];
+
+    this.TarijaLabel=this.Tarijafecha;
+    this.TarijaLabelVa=this.Tarijafechav;
+
+    this.PandoData=[
+      { data: this.Pandodatosc, label: 'Contagiados'},
+    ];
+    this.PandoDataDeath=[
+      { data: this.Pandodatosm, label: 'Muertos'},
+    ];
+    this.PandoDataRecovered=[
+      { data: this.Pandodatosr, label: 'Recuperados'},
+    ];
+    this.PandoVaccinated=[
+      { data: this.Pandodatosv1, label: 'Vacunas'},
+    ];
+
+    this.PandoLabel=this.Pandofecha;
+    this.PandoLabelVa=this.Pandofechav;
     this.LapazLabel=this.LaPazfecha;
 
     this.PotosiData=[{ data:this.Potosidatosc,label:'Contagiados'}];
