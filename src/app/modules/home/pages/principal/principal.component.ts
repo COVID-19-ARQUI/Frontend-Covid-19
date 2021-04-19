@@ -1,6 +1,10 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import * as L from 'leaflet';
 import {MarkerService} from '../../../../services/marker.service';
+import {Dato} from '../../../../models/dato.model';
+import {DatosService} from '../../../../services/datos.service';
+
 const iconRetinaUrl = 'assets/marker-icon-2x.png';
 const iconUrl = 'assets/marker-icon.png';
 const shadowUrl = 'assets/marker-shadow.png';
@@ -14,14 +18,20 @@ const iconDefault = L.icon({
   tooltipAnchor: [16, -28],
   shadowSize: [41, 41]
 });
+
 L.Marker.prototype.options.icon = iconDefault;
 @Component({
   selector: 'app-principal',
   templateUrl: './principal.component.html',
   styleUrls: ['./principal.component.css']
 })
-export class PrincipalComponent implements AfterViewInit {
+export class PrincipalComponent implements OnInit {
+  databolivia: Dato[] = [];
+  lista: any;
   private map;
+  ndata: number[] = [];
+  nddata: number[] = [];
+  zona: number[] = [];
 
   private initMap(): void {
     this.map = L.map('map', {
@@ -29,19 +39,54 @@ export class PrincipalComponent implements AfterViewInit {
       zoom: 6
     });
     const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 18,
+      maxZoom: 10,
       minZoom: 3,
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     });
 
     tiles.addTo(this.map);
   }
-  constructor(private markerService: MarkerService) { }
+  constructor(private markerService: MarkerService,
+              private datosService: DatosService) { }
 
-  ngAfterViewInit(): void {
+  ngOnInit(): void {
      this.initMap();
     // this.markerService.makeCapitalMarkers(this.map);
-     this.markerService.makeCapitalCircleMarkers(this.map);
+     this.listdatos();
+     for (let _i = 0; _i < 9; _i++){
+       this.listdatodepa(_i);
+     }
+     this.auxiliar();
+     this.markerService.makeCapitalCircleMarkers(this.map, this.zona, this.ndata, this.nddata);
+     // console.log(this.lista);
   }
-
+  listdatos(): any{
+    this.datosService.getgenneralsum().subscribe(value => {
+      this.lista = value;
+    });
+    return this.lista;
+  }
+  // tslint:disable-next-line:typedef
+  async listdatodepa(ndep: number){
+    let datos;
+    await this.datosService.getgenneralsumdep(ndep).subscribe((value) => {
+     datos = value;
+     this.databolivia = value;
+     this.datatochart(datos);
+   });
+  }
+  // tslint:disable-next-line:typedef
+  datatochart(datos){
+    datos.map((values) => {
+        this.ndata.push(values.dato );
+        this.nddata.push(values.tipoDeDato);
+        this.zona.push(values.zonaId);
+    });
+  }
+  // tslint:disable-next-line:typedef
+  auxiliar(){
+    console.log(this.ndata);
+    console.log(this.nddata);
+    console.log(this.zona);
+  }
 }

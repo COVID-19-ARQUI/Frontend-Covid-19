@@ -13,7 +13,7 @@
       "properties": {
         "state": "Bolivia",
         "name": "Beni",
-        "population": 199518
+        "population": 8
       }
     },
     {
@@ -28,7 +28,7 @@
       "properties": {
         "state": "Bolivia",
         "name": "Chuquisaca",
-        "population": 199518
+        "population": 10
       }
     },
     {
@@ -43,7 +43,7 @@
       "properties": {
         "state": "Bolivia",
         "name": "Cochabamba",
-        "population": 199518
+        "population": 3
       }
     },
     {
@@ -58,7 +58,7 @@
       "properties": {
         "state": "Bolivia",
         "name": "La Paz",
-        "population": 199518
+        "population": 2
       }
     },
     {
@@ -73,7 +73,7 @@
       "properties": {
         "state": "Bolivia",
         "name": "Oruro",
-        "population": 199518
+        "population": 9
       }
     },
     {
@@ -88,7 +88,7 @@
       "properties": {
         "state": "Bolivia",
         "name": "Pando",
-        "population": 199518
+        "population": 7
       }
     },
     {
@@ -103,7 +103,7 @@
       "properties": {
         "state": "Bolivia",
         "name": "Potosi",
-        "population": 199518
+        "population": 6
       }
     },
     {
@@ -118,7 +118,7 @@
       "properties": {
         "state": "Bolivia",
         "name": "Santa Cruz",
-        "population": 199518
+        "population": 5
       }
     },
     {
@@ -133,7 +133,7 @@
       "properties": {
         "state": "Bolivia",
         "name": "Tarija",
-        "population": 199518
+        "population": 4
       }
     }
   ]
