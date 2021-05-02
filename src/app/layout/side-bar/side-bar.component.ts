@@ -9,6 +9,7 @@ import {Observable} from 'rxjs';
 })
 export class SideBarComponent implements OnInit {
   showFiller = false;
+  auth=true;
   isHandset$: Observable<boolean> = this.breakpointObserver
     .observe(Breakpoints.Handset)
     .pipe(
@@ -22,5 +23,6 @@ export class SideBarComponent implements OnInit {
   ngOnInit(): void {
 
   }
+
 
 }

@@ -15,12 +15,12 @@
         routerLinkActive="active"
       >Gráficos</a
       >
-<!--      <a-->
-<!--        mat-list-item-->
-<!--        routerLink="/main/data"-->
-<!--        routerLinkActive="active"-->
-<!--      >Nuevos datos</a-->
-<!--      >-->
+      <a *ngIf="auth==true"
+        mat-list-item
+        routerLink="/main/data"
+        routerLinkActive="active"
+      >Ingresar datos nuevos</a
+      >
       <a
         mat-list-item
         routerLink="/principal"
