@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {map, shareReplay} from 'rxjs/operators';
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 import {Observable} from 'rxjs';
+
 @Component({
   selector: 'app-side-bar',
   templateUrl: './side-bar.component.html',
@@ -9,16 +10,18 @@ import {Observable} from 'rxjs';
 })
 export class SideBarComponent implements OnInit {
   showFiller = false;
-  auth=true;
+  auth = true;
   isHandset$: Observable<boolean> = this.breakpointObserver
     .observe(Breakpoints.Handset)
     .pipe(
       map((result) => result.matches),
       shareReplay()
     );
+
   constructor(
     private breakpointObserver: BreakpointObserver,
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
 

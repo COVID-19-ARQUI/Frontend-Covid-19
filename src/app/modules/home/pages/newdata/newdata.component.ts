@@ -1,8 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {DepartmentService} from '../../../../services/department.service';
 import {DepartmentModel} from '../../../../models/department.model';
-import {FormControl, FormsModule} from '@angular/forms';
-import {MatSelectModule} from '@angular/material/select';
+import {FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-newdata',
@@ -13,6 +12,7 @@ import {MatSelectModule} from '@angular/material/select';
 export class NewdataComponent implements OnInit {
   departments: DepartmentModel[];
   departmentControl: FormControl;
+
   constructor(
     private departmentService: DepartmentService
   ) {

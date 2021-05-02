@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
 import * as L from 'leaflet';
 import {MarkerService} from '../../../../services/marker.service';
 import {Dato} from '../../../../models/dato.model';
@@ -20,6 +19,7 @@ const iconDefault = L.icon({
 });
 
 L.Marker.prototype.options.icon = iconDefault;
+
 @Component({
   selector: 'app-principal',
   templateUrl: './principal.component.html',
@@ -37,7 +37,7 @@ export class PrincipalComponent implements OnInit {
 
   private initMap(): void {
     this.map = L.map('map', {
-      center: [ -16.290154, -63.588653 ],
+      center: [-16.290154, -63.588653],
       zoom: 6
     });
     const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -48,59 +48,67 @@ export class PrincipalComponent implements OnInit {
 
     tiles.addTo(this.map);
   }
+
   constructor(private markerService: MarkerService,
-              private datosService: DatosService) { }
+              private datosService: DatosService) {
+  }
 
   ngOnInit(): void {
-     this.initMap();
+    this.initMap();
     // this.markerService.makeCapitalMarkers(this.map);
-     this.listdatos();
-     this.listdatosv1();
+    this.listdatos();
+    this.listdatosv1();
     this.listdatosv2();
-     for (let _i = 0; _i < 9; _i++){
-       this.listdatodepa(_i);
-     }
-     this.auxiliar();
-     this.markerService.makeCapitalCircleMarkers(this.map, this.zona, this.ndata, this.nddata);
-     // console.log(this.lista);
+    for (let _i = 0; _i < 9; _i++) {
+      this.listdatodepa(_i);
+    }
+    this.auxiliar();
+    this.markerService.makeCapitalCircleMarkers(this.map, this.zona, this.ndata, this.nddata);
+    // console.log(this.lista);
   }
-  listdatos(): any{
+
+  listdatos(): any {
     this.datosService.getgenneralsum().subscribe(value => {
       this.lista = value;
     });
     return this.lista;
   }
-  listdatosv1(): any{
+
+  listdatosv1(): any {
     this.datosService.getgenneralvaccine().subscribe(value => {
       this.listav1 = value;
     });
     return this.lista;
   }
-  listdatosv2(): any{
+
+  listdatosv2(): any {
     this.datosService.getgenneralvaccine2().subscribe(value => {
       this.listav2 = value;
     });
     return this.lista;
   }
+
   // tslint:disable-next-line:typedef
-  async listdatodepa(ndep: number){
+  async listdatodepa(ndep: number) {
     let datos;
     await this.datosService.getgenneralsumdep(ndep).subscribe((value) => {
-     datos = value;
-     this.databolivia = value;
-     this.datatochart(datos);
-   });
-  }
-  // tslint:disable-next-line:typedef
-  datatochart(datos){
-    datos.map((values) => {
-        this.ndata.push(values.dato );
-        this.nddata.push(values.tipoDeDato);
-        this.zona.push(values.zonaId);
+      datos = value;
+      this.databolivia = value;
+      this.datatochart(datos);
     });
   }
+
   // tslint:disable-next-line:typedef
-  auxiliar(){
+  datatochart(datos) {
+    datos.map((values) => {
+      this.ndata.push(values.dato);
+      this.nddata.push(values.tipoDeDato);
+      this.zona.push(values.zonaId);
+    });
+  }
+
+  // tslint:disable-next-line:typedef
+  auxiliar() {
     console.log(this.ndata);
     console.log(this.nddata);
     console.log(this.zona);

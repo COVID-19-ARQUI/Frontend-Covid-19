@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { NewdataComponent } from './newdata.component';
+import {NewdataComponent} from './newdata.component';
 
 describe('NewdataComponent', () => {
   let component: NewdataComponent;
@@ -8,9 +8,9 @@ describe('NewdataComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NewdataComponent ]
+      declarations: [NewdataComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

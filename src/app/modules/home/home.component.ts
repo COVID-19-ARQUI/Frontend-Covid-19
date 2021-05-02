@@ -1,4 +1,4 @@
-import { AfterViewInit,Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -7,8 +7,10 @@ import { AfterViewInit,Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements AfterViewInit {
 
-  constructor() {}
+  constructor() {
+  }
 
-  ngAfterViewInit() {}
+  ngAfterViewInit() {
+  }
 
 }

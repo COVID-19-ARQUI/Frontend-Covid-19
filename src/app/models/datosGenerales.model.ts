@@ -1,6 +1,5 @@
-
 export interface DatosGenerales {
-  contagiados:number;
-  muertos:number;
-  recuperados:number;
+  contagiados: number;
+  muertos: number;
+  recuperados: number;
 }

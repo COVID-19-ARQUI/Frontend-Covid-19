@@ -1,9 +1,9 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {SideBarComponent} from '../../layout/side-bar/side-bar.component';
 import {MainComponent} from '../../layout/main/main.component';
-import { DashboardsComponent } from './pages/dashboards/dashboards.component';
-import { RouterModule } from '@angular/router';
+import {DashboardsComponent} from './pages/dashboards/dashboards.component';
+import {RouterModule} from '@angular/router';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
@@ -16,13 +16,13 @@ import {ChartsModule} from 'ng2-charts';
 import {MatRippleModule} from '@angular/material/core';
 import {MatButtonModule} from '@angular/material/button';
 import {MatTableModule} from '@angular/material/table';
-import { PrincipalComponent } from './pages/principal/principal.component';
+import {PrincipalComponent} from './pages/principal/principal.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatInputModule} from '@angular/material/input';
 import {MatMenuModule} from '@angular/material/menu';
-import {MatFormField, MatFormFieldModule} from '@angular/material/form-field';
+import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
-import { NoticiasComponent } from './pages/noticias/noticias.component';
+import {NoticiasComponent} from './pages/noticias/noticias.component';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatCardModule} from '@angular/material/card';
 
@@ -62,4 +62,5 @@ import {MatCardModule} from '@angular/material/card';
   ],
   entryComponents: [],
 })
-export class HomeModule { }
+export class HomeModule {
+}
