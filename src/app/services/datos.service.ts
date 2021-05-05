@@ -25,9 +25,9 @@ export class DatosService {
     return this.http.get<Dato[]>(apikey.api+'/data/Bolivia').toPromise();
   }
   getgenneralvaccine(){
-    return this.http.get<Dato>(apikey.api+'/data/departmentvacuna/1');
+    return this.http.get<Dato>(apikey.api+'/data/departmentvacuna/2');
   }
   getgenneralvaccine2(){
-    return this.http.get<Dato>(apikey.api+'/data/departmentvacuna2/1');
+    return this.http.get<Dato>(apikey.api+'/data/departmentvacuna2/2');
   }
 }
