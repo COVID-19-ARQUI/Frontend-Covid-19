@@ -12,13 +12,17 @@ import {NoticiasComponent} from './modules/home/pages/noticias/noticias.componen
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/main/graphics',
+    redirectTo: '/main/principal',
     pathMatch: 'full',
   },
   {
     path: 'main',
     component: MainComponent,
     children: [
+      {
+        path: 'principal',
+        component: PrincipalComponent,
+      },
       {
         path: 'graphics',
         component: DashboardsComponent,
@@ -37,10 +41,7 @@ const routes: Routes = [
       }
     ]
   },
-  {
-    path: 'principal',
-    component: PrincipalComponent,
-  },
+
 
   // {
   //   path: 'user',
