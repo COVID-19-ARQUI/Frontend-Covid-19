@@ -463,7 +463,7 @@ export class DashboardsComponent implements OnInit {
 
   async loadsuma() {
     var suma;
-    await this.servicedata.getgenneralsum().subscribe((dash) => {
+    await this.servicedepartment.getgenneralsum().subscribe((dash) => {
       suma = dash;
       this.dataSuma(suma);
       console.log(suma);
