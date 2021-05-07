@@ -4,6 +4,7 @@ import * as L from 'leaflet';
 import {PopupService} from './popup.service';
 import {DatosService} from './datos.service';
 import {Dato} from '../models/dato.model';
+import {logging} from 'protractor';
 
 @Injectable({
   providedIn: 'root'
@@ -35,12 +36,18 @@ export class MarkerService {
       for (const c of res.features) {
         const lon = c.geometry.coordinates[0];
         const lat = c.geometry.coordinates[1];
+
+
         const circle = L.circleMarker([lat, lon], {
           radius: MarkerService.scaledRadius(c.properties.contagios/500, maxPop)
         });
-        circle.bindPopup(this.popupService.makeCapitalPopup(c.properties, dato[i], dato[2 + i], dato[3 + i]));
+
+        console.log(c.properties.population);
+
+        circle.bindPopup(this.popupService.makeCapitalPopup(c.properties));
+
         circle.addTo(map);
-        i = i + 3;
+
       }
 
     });

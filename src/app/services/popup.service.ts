@@ -11,6 +11,7 @@ export class PopupService {
   ndatar: number[]=[];
   ndatam: number[]=[];
   constructor(private http: HttpClient, private servicedata: DatosService) { }
+
   async loaddata(ndpartamente: number){
     // await this.servicedash.getdatadepartments().subscribe((dash) => {
     //   this.dashboard =dash;
@@ -27,7 +28,8 @@ export class PopupService {
     });
 
   }
-  makeCapitalPopup(data: any, conta: number, muerto: number, recober: number): string {
+
+  makeCapitalPopup(data: any): string {
     //console.log(this.ndatac);
     this.loaddata(data.population);
     // console.log(this.ndatac);

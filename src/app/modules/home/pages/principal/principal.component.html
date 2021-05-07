@@ -1,45 +1,49 @@
-<mat-grid-list [cols]="10" rowHeight="4rem" style="background-color: aliceblue">
-  <mat-grid-tile [colspan]="10" [rowspan]="1" style="background-color: aliceblue">
+
+
+
+
+
+
+
+<mat-grid-list [cols]="10" rowHeight="4rem" >
+
+
+  <mat-grid-tile [colspan]="10" [rowspan]="1" >
     <h1>Mapa covid Bolivia</h1>
+
+    <h1>Bolivia</h1>
   </mat-grid-tile>
-  <mat-grid-tile [colspan]="1" [rowspan]="11" style="background-color: aliceblue">
-    <div>
-      <h1>Bolivia</h1>
-      <table>
-        <td>Tipo de dato</td>
-        <td>Dato</td>
-        <tr *ngFor="let dash of lista">
-          <td>{{ dash.tipoDeDato}}</td>
-          <td>{{ dash.dato}}</td>
-        </tr>
-        <tr>
-          <td>{{ listav1.tipoDeDato}}</td>
-          <td>{{ listav1.dato}}</td>
-        </tr>
-        <tr>
-          <td>{{ listav2.tipoDeDato}}</td>
-          <td>{{ listav2.dato}}</td>
-        </tr>
-      </table>
-      <div class="container">
 
 
-        <button mat-fab color="primary" style="alignment: center">
-
-          <mat-icon>donut_small</mat-icon>
-          <a routerLinkActive="active"
-             routerLink="/main/graphics">Graphic</a>
-        </button>
-      </div>
-    </div>
-  </mat-grid-tile>
-  <mat-grid-tile [colspan]="9" [rowspan]="11" style="background-color: aliceblue">
+  <mat-grid-tile [colspan]="10" [rowspan]="10" >
     <div class="map-container">
       <div class="map-frame">
         <div id="map"></div>
       </div>
     </div>
   </mat-grid-tile>
+
+  <mat-grid-tile [colspan]="10" [rowspan]="5" >
+    <table>
+
+      <td>Tipo de dato</td>
+      <td>Dato</td>
+      <tr *ngFor="let dash of lista">
+        <td>{{ dash.tipoDeDato}}</td>
+        <td>{{ dash.dato}}</td>
+      </tr>
+      <tr>
+        <td>{{ listav1.tipoDeDato}}</td>
+        <td>{{ listav1.dato}}</td>
+      </tr>
+      <tr>
+        <td>{{ listav2.tipoDeDato}}</td>
+        <td>{{ listav2.dato}}</td>
+      </tr>
+    </table>
+  </mat-grid-tile>
+
+
 </mat-grid-list>
 
 
