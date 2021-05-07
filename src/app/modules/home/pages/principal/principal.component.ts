@@ -3,6 +3,7 @@ import * as L from 'leaflet';
 import {MarkerService} from '../../../../services/marker.service';
 import {Dato} from '../../../../models/dato.model';
 import {DatosService} from '../../../../services/datos.service';
+import {DepartmentService} from '../../../../services/department.service';
 
 const iconRetinaUrl = 'assets/marker-icon-2x.png';
 const iconUrl = 'assets/marker-icon.png';
@@ -50,7 +51,8 @@ export class PrincipalComponent implements OnInit {
   }
 
   constructor(private markerService: MarkerService,
-              private datosService: DatosService) {
+              private datosService: DatosService,
+              private departmentService: DepartmentService) {
   }
 
   ngOnInit(): void {
@@ -68,21 +70,21 @@ export class PrincipalComponent implements OnInit {
   }
 
   listdatos(): any {
-    this.datosService.getgenneralsum().subscribe(value => {
+    this.departmentService.getgenneralsum().subscribe(value => {
       this.lista = value;
     });
     return this.lista;
   }
 
   listdatosv1(): any {
-    this.datosService.getgenneralvaccine().subscribe(value => {
+    this.departmentService.getgenneralvaccine().subscribe(value => {
       this.listav1 = value;
     });
     return this.lista;
   }
 
   listdatosv2(): any {
-    this.datosService.getgenneralvaccine2().subscribe(value => {
+    this.departmentService.getgenneralvaccine2().subscribe(value => {
       this.listav2 = value;
     });
     return this.lista;
@@ -91,7 +93,7 @@ export class PrincipalComponent implements OnInit {
   // tslint:disable-next-line:typedef
   async listdatodepa(ndep: number) {
     let datos;
-    await this.datosService.getgenneralsumdep(ndep).subscribe((value) => {
+    await this.departmentService.getgenneralsumdep(ndep).subscribe((value) => {
       datos = value;
       this.databolivia = value;
       this.datatochart(datos);

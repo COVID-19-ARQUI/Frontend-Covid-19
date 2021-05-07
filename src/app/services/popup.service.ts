@@ -12,27 +12,9 @@ export class PopupService {
   ndatam: number[]=[];
   constructor(private http: HttpClient, private servicedata: DatosService) { }
 
-  async loaddata(ndpartamente: number){
-    // await this.servicedash.getdatadepartments().subscribe((dash) => {
-    //   this.dashboard =dash;
-    // });
-    var datos;
-    await this.servicedata.getgenneralsumdep(1).subscribe((value) => {
-      datos = value;
-      this.databolivia = value;
-      //console.log(value,'aqui');
-      this.ndatac.push(value[1]);
-      // this.ndatac.push(value[1]);
-      // this.ndatac.push(value[2]);
-      // this.datatochart(datos);
-    });
 
-  }
+  makeCapitalPopup(data: any,data2: any): string {
 
-  makeCapitalPopup(data: any): string {
-    //console.log(this.ndatac);
-    this.loaddata(data.population);
-    // console.log(this.ndatac);
     return `` +
       `<div >Capital: ${ data.name }</div>` +
       `<div>State: ${ data.state }</div>` +
@@ -40,5 +22,4 @@ export class PopupService {
          <div>Muertes:${data.Muertes} </div>
         <div>recuperados:${data.recuperados} </div>`;
        }
-
 }

@@ -5,13 +5,17 @@ import {PopupService} from './popup.service';
 import {DatosService} from './datos.service';
 import {Dato} from '../models/dato.model';
 import {logging} from 'protractor';
+import {DepartmentService} from './department.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MarkerService {
   capitals = '/assets/data/bolivia.geojson';
-  constructor(private http: HttpClient, private popupService: PopupService, private datosService: DatosService) { }
+  lista: any;
+  constructor(private http: HttpClient, private popupService: PopupService,
+              private datosService: DatosService,
+              private departmentService: DepartmentService) { }
 
   static scaledRadius(val: number, maxVal: number): number {
     return 20 * (val / maxVal);
@@ -43,8 +47,9 @@ export class MarkerService {
         });
 
         console.log(c.properties.population);
+        console.log(this.getDataInDeparment(c.properties.population))
 
-        circle.bindPopup(this.popupService.makeCapitalPopup(c.properties));
+        circle.bindPopup(this.popupService.makeCapitalPopup(c.properties,this.getDataInDeparment(c.properties.population)));
 
         circle.addTo(map);
 
@@ -52,5 +57,11 @@ export class MarkerService {
 
     });
   }
+getDataInDeparment(iddep: number): any{
+  this.departmentService.getgenneralsum().subscribe(value => {
+    this.lista = value;
+  });
+  return this.lista;
 
+}
 }
