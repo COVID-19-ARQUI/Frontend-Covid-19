@@ -7,6 +7,7 @@ import {DatosService} from '../../../../services/datos.service';
 import {Dato} from '../../../../models/dato.model';
 
 import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
+import {DepartmentService} from '../../../../services/department.service';
 
 @Component({
   selector: 'app-dashboards',
@@ -203,6 +204,7 @@ export class DashboardsComponent implements OnInit {
   constructor(
     private servicedash: DashboardService,
     private servicedata: DatosService,
+    private servicedepartment: DepartmentService,
   ) {
   }
 
@@ -215,10 +217,10 @@ export class DashboardsComponent implements OnInit {
   }
 
   async vaccine() {
-    await this.servicedata.getgenneralvaccine().subscribe((value) => {
+    await this.servicedepartment.getgenneralvaccine().subscribe((value) => {
       this.vacu1 = value.dato;
     });
-    await this.servicedata.getgenneralvaccine2().subscribe((value2) => {
+    await this.servicedepartment.getgenneralvaccine2().subscribe((value2) => {
       this.vacu2 = value2.dato;
     });
   }

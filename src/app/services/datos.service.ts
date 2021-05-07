@@ -16,18 +16,13 @@ export class DatosService {
     return this.http.get<Dashboard[]>(apikey.api + '/dashboards');
   }
   getgenneralsum(){
-    return this.http.get<Dato[]>(apikey.api+'/data/departmentgeneral/1');
+    return this.http.get<Dato[]>(apikey.api+'/department/departmentgeneral/1');
   }
   getgenneralsumdep(iddepartamento: number){
-    return this.http.get<Dato[]>(apikey.api + `/data/departmentgeneral/${iddepartamento}`);
+    return this.http.get<Dato[]>(apikey.api + `/department/departmentgeneral/${iddepartamento}`);
   }
   async getBoliviaData(){
     return this.http.get<Dato[]>(apikey.api+'/data/Bolivia').toPromise();
   }
-  getgenneralvaccine(){
-    return this.http.get<Dato>(apikey.api+'/data/departmentvacuna/1');
-  }
-  getgenneralvaccine2(){
-    return this.http.get<Dato>(apikey.api+'/data/departmentvacuna2/1');
-  }
+
 }
