@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import * as L from 'leaflet';
 import {PopupService} from './popup.service';
 import {DatosService} from './datos.service';
-import {Dato} from '../models/dato.model';
+import {Data} from '../models/data.model';
 import {logging} from 'protractor';
 import {DepartmentService} from './department.service';
 

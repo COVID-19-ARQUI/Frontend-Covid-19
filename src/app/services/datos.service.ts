@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Dashboard} from '../models/dashboard.model';
 import apikey from '../shared/apikey';
-import {Dato} from '../models/dato.model';
+import {Data} from '../models/data.model';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +17,7 @@ export class DatosService {
   }
 
   async getBoliviaData(){
-    return this.http.get<Dato[]>(apikey.api+'/data/Bolivia').toPromise();
+    return this.http.get<Data[]>(apikey.api+'/data/Bolivia').toPromise();
   }
 
 }

@@ -3,7 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Dashboard} from '../models/dashboard.model';
 import apikey from '../shared/apikey';
 import {DepartmentModel} from '../models/department.model';
-import {Dato} from '../models/dato.model';
+import {Data} from '../models/data.model';
 
 @Injectable({
   providedIn: 'root'
@@ -16,15 +16,16 @@ export class DepartmentService {
     return this.http.get<DepartmentModel[]>(apikey.api + '/department');
   }
   getgenneralvaccine(){
-    return this.http.get<Dato>(apikey.api+'/department/departmentvacuna/1');
+    return this.http.get<Data>(apikey.api+'/department/departmentvacuna/1');
   }
   getgenneralvaccine2(){
-    return this.http.get<Dato>(apikey.api+'/department/departmentvacuna2/1');
+    return this.http.get<Data>(apikey.api+'/department/departmentvacuna2/1');
   }
+  //move to datos servises dont forget
   getgenneralsum(){
-    return this.http.get<Dato[]>(apikey.api+'/department/departmentgeneral/1');
+    return this.http.get<Data[]>(apikey.api+'/data/general/29');
   }
   getgenneralsumdep(iddepartamento: number){
-    return this.http.get<Dato[]>(apikey.api + `/department/departmentgeneral/${iddepartamento}`);
+    return this.http.get<Data[]>(apikey.api + `/department/departmentgeneral/${iddepartamento}`);
   }
 }

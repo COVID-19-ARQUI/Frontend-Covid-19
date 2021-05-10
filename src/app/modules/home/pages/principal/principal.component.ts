@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import * as L from 'leaflet';
 import {MarkerService} from '../../../../services/marker.service';
-import {Dato} from '../../../../models/dato.model';
+import {Data} from '../../../../models/data.model';
 import {DatosService} from '../../../../services/datos.service';
 import {DepartmentService} from '../../../../services/department.service';
 
@@ -27,10 +27,10 @@ L.Marker.prototype.options.icon = iconDefault;
   styleUrls: ['./principal.component.css']
 })
 export class PrincipalComponent implements OnInit {
-  databolivia: Dato[] = [];
+  databolivia: Data[] = [];
   lista: any;
-  listav1: Dato;
-  listav2: Dato;
+  listav1: Data;
+  listav2: Data;
   private map;
   ndata: number[] = [];
   nddata: number[] = [];

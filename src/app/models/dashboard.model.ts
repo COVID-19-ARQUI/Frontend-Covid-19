@@ -1,7 +1,7 @@
-import {Dato} from './dato.model';
+import {Data} from './data.model';
 
 export interface Dashboard {
   idDepartment: number;
   department: string;
-  datoDto: Dato[];
+  dataDto: Data[];
 }

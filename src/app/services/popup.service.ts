@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import {DatosService} from './datos.service';
 import { HttpClient } from '@angular/common/http';
-import {Dato} from '../models/dato.model';
+import {Data} from '../models/data.model';
 @Injectable({
   providedIn: 'root'
 })
 export class PopupService {
-  databolivia: Dato[]=[];
-  ndatac: Dato[]=[];
+  databolivia: Data[]=[];
+  ndatac: Data[]=[];
   ndatar: number[]=[];
   ndatam: number[]=[];
   constructor(private http: HttpClient, private servicedata: DatosService) { }

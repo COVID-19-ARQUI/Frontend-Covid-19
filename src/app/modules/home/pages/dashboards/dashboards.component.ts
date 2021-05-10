@@ -4,7 +4,7 @@ import {Dashboard} from '../../../../models/dashboard.model';
 import {Color, Label} from 'ng2-charts';
 import {ChartDataSets, ChartOptions} from 'chart.js';
 import {DatosService} from '../../../../services/datos.service';
-import {Dato} from '../../../../models/dato.model';
+import {Data} from '../../../../models/data.model';
 
 import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
 import {DepartmentService} from '../../../../services/department.service';
@@ -19,7 +19,7 @@ import {DepartmentService} from '../../../../services/department.service';
 })
 export class DashboardsComponent implements OnInit {
   dashboard: Dashboard[];
-  databolivia: Dato[] = [];
+  databolivia: Data[] = [];
   ndata: number[] = [];
   ddata: number[] = [];
   rdata: number[] = [];
@@ -218,10 +218,10 @@ export class DashboardsComponent implements OnInit {
 
   async vaccine() {
     await this.servicedepartment.getgenneralvaccine().subscribe((value) => {
-      this.vacu1 = value.dato;
+      this.vacu1 = value.data;
     });
     await this.servicedepartment.getgenneralvaccine2().subscribe((value2) => {
-      this.vacu2 = value2.dato;
+      this.vacu2 = value2.data;
     });
   }
 
@@ -255,25 +255,25 @@ export class DashboardsComponent implements OnInit {
 
   loaddataOruro(depa) {
     console.log(depa);
-    console.log(depa[4], 'holasdasdas');
+    console.log(depa[9], 'holasdasdas');
 
-    depa[7].datoDto.forEach(value => {
-      if (value.tipoDeDato == 'contagiados') {
-        this.Orurodatosc.push(value.dato);
-        this.Orurofecha.push(value.fecha);
+    depa[9].datoDto.forEach(value => {
+      if (value.datatype == 'Confirmados') {
+        this.Orurodatosc.push(value.data);
+        this.Orurofecha.push(value.inDate);
       }
-      if (value.tipoDeDato == 'muertos') {
-        this.Orurodatosm.push(value.dato);
+      if (value.datatype== 'Muertos') {
+        this.Orurodatosm.push(value.data);
       }
-      if (value.tipoDeDato == 'recuperados') {
-        this.Orurodatosr.push(value.dato);
+      if (value.datatype == 'Recuperados') {
+        this.Orurodatosr.push(value.data);
       }
-      if (value.tipoDeDato == 'vacuna1') {
+      if (value.datatype == 'Vacuna 1ra Dosis') {
         this.Orurodatosv1.push(value.dato);
-        this.Orurofechav.push(value.fecha);
+        this.Orurofechav.push(value.inDate);
       }
-      if (value.tipoDeDato == 'vacuna2') {
-        this.Orurodatosv2.push(value.dato);
+      if (value.datatype == 'Vacuna 2da Dosis') {
+        this.Orurodatosv2.push(value.data);
       }
     });
   }
