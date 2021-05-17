@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {Dashboard} from '../../../../models/dashboard.model';
 import {Data} from '../../../../models/data.model';
 import {ChartDataSets} from 'chart.js';
@@ -6,15 +6,13 @@ import {Color, Label} from 'ng2-charts';
 import {DashboardService} from '../../../../services/dashboard.service';
 import {DatosService} from '../../../../services/datos.service';
 import {DepartmentService} from '../../../../services/department.service';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-department',
-  templateUrl: './department.component.html',
-  styleUrls: ['./department.component.css']
+  selector: 'app-dashboardsbolivia',
+  templateUrl: './dashboardsbolivia.component.html',
+  styleUrls: ['./dashboardsbolivia.component.css']
 })
-export class DepartmentComponent implements OnInit {
-
+export class DashboardsboliviaComponent implements OnInit {
   contagiados: number;
   muertos: number;
   recuperados: number;
@@ -62,14 +60,12 @@ export class DepartmentComponent implements OnInit {
       backgroundColor: 'blue',
     },
   ];
+
   constructor(private servicedash: DashboardService,
               private servicedata: DatosService,
-              private servicedepartment: DepartmentService,
-              private activatedRoute: ActivatedRoute) {
-  }
+              private servicedepartment: DepartmentService) { }
 
   ngOnInit(): void {
-
     this.loaddata();
     this.loadsuma();
     this.auxiliar();
@@ -107,10 +103,8 @@ export class DepartmentComponent implements OnInit {
   }
 
   async loaddata() {
-    const id = this.activatedRoute.snapshot.params.id;
-    console.log(id);
     var datos;
-    await this.servicedepartment.getgenneraldatadep(id).subscribe((value) => {
+    await this.servicedata.getBoliviaData().subscribe((value) => {
       datos = value;
       this.databolivia = value;
 

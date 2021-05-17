@@ -25,6 +25,9 @@ export class DepartmentService {
   getgenneralsum(){
     return this.http.get<Data[]>(apikey.api+'/data/general/29');
   }
+  getgenneraldatadep(iddepartamento: number){
+    return this.http.get<Data[]>(apikey.api + `/department/single/list/${iddepartamento}`);
+  }
   getgenneralsumdep(iddepartamento: number){
     return this.http.get<Data[]>(apikey.api + `/department/departmentgeneral/${iddepartamento}`);
   }

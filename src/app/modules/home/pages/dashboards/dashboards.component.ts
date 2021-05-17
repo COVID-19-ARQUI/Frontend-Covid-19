@@ -227,7 +227,7 @@ export class DashboardsComponent implements OnInit {
 
   async loaddata() {
     var datos;
-    await this.servicedata.getBoliviaData().then((value) => {
+    await this.servicedata.getBoliviaData().subscribe((value) => {
       datos = value;
       this.databolivia = value;
       this.datatochart(datos);
@@ -269,7 +269,7 @@ export class DashboardsComponent implements OnInit {
         this.Orurodatosr.push(value.data);
       }
       if (value.datatype == 'Vacuna 1ra Dosis') {
-        this.Orurodatosv1.push(value.dato);
+        this.Orurodatosv1.push(value.data);
         this.Orurofechav.push(value.inDate);
       }
       if (value.datatype == 'Vacuna 2da Dosis') {

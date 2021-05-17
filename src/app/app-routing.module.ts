@@ -7,6 +7,7 @@ import {DepartmentComponent} from './modules/home/pages/department/department.co
 import {PrincipalComponent} from './modules/home/pages/principal/principal.component';
 import {NewdataComponent} from './modules/home/pages/newdata/newdata.component';
 import {NoticiasComponent} from './modules/home/pages/noticias/noticias.component';
+import {DashboardsboliviaComponent} from './modules/home/pages/dashboardsbolivia/dashboardsbolivia.component';
 
 
 const routes: Routes = [
@@ -28,7 +29,7 @@ const routes: Routes = [
         component: DashboardsComponent,
       },
       {
-        path: 'department',
+        path: 'department/:id',
         component: DepartmentComponent,
       },
       {
@@ -38,6 +39,10 @@ const routes: Routes = [
       {
         path: 'noticia',
         component: NoticiasComponent
+      },
+      {
+        path: 'dashbolivia',
+        component: DashboardsboliviaComponent
       }
     ]
   },

@@ -26,6 +26,8 @@ import {NoticiasComponent} from './pages/noticias/noticias.component';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatCardModule} from '@angular/material/card';
 
+import { DashboardsboliviaComponent } from './pages/dashboardsbolivia/dashboardsbolivia.component';
+
 @NgModule({
   declarations: [
     HomeComponent,
@@ -38,6 +40,7 @@ import {MatCardModule} from '@angular/material/card';
     DashboardsComponent,
     NewdataComponent,
     NoticiasComponent,
+    DashboardsboliviaComponent,
   ],
   imports: [
     CommonModule,

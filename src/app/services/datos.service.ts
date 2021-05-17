@@ -16,8 +16,8 @@ export class DatosService {
     return this.http.get<Dashboard[]>(apikey.api + '/dashboards');
   }
 
-  async getBoliviaData(){
-    return this.http.get<Data[]>(apikey.api+'/data/Bolivia').toPromise();
+  getBoliviaData(){
+    return this.http.get<Data[]>(apikey.api +'/data/general/list/29');
   }
 
 }
