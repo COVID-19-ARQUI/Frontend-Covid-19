@@ -8,6 +8,7 @@ import {PrincipalComponent} from './modules/home/pages/principal/principal.compo
 import {NewdataComponent} from './modules/home/pages/newdata/newdata.component';
 import {NoticiasComponent} from './modules/home/pages/noticias/noticias.component';
 import {DashboardsboliviaComponent} from './modules/home/pages/dashboardsbolivia/dashboardsbolivia.component';
+import {DashboardseditComponent} from './modules/home/pages/dashboardsedit/dashboardsedit.component';
 
 
 const routes: Routes = [
@@ -43,6 +44,10 @@ const routes: Routes = [
       {
         path: 'dashbolivia',
         component: DashboardsboliviaComponent
+      },
+      {
+        path: 'dashedit',
+        component: DashboardseditComponent
       }
     ]
   },

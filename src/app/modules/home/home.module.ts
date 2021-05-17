@@ -27,6 +27,7 @@ import {MatStepperModule} from '@angular/material/stepper';
 import {MatCardModule} from '@angular/material/card';
 
 import { DashboardsboliviaComponent } from './pages/dashboardsbolivia/dashboardsbolivia.component';
+import { DashboardseditComponent } from './pages/dashboardsedit/dashboardsedit.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { DashboardsboliviaComponent } from './pages/dashboardsbolivia/dashboards
     NewdataComponent,
     NoticiasComponent,
     DashboardsboliviaComponent,
+    DashboardseditComponent,
   ],
   imports: [
     CommonModule,

@@ -13,7 +13,7 @@ export class DepartmentService {
   constructor(private http: HttpClient) {
   }
   getDepartments() {
-    return this.http.get<DepartmentModel[]>(apikey.api + '/department');
+    return this.http.get<DepartmentModel[]>(apikey.api + '/department/list');
   }
   getgenneralvaccine(){
     return this.http.get<Data>(apikey.api+'/department/departmentvacuna/1');
@@ -25,10 +25,13 @@ export class DepartmentService {
   getgenneralsum(){
     return this.http.get<Data[]>(apikey.api+'/data/general/29');
   }
+
+  //list datadeparment
   getgenneraldatadep(iddepartamento: number){
     return this.http.get<Data[]>(apikey.api + `/department/single/list/${iddepartamento}`);
   }
+  //sum data http://localhost:8080/department/general/2
   getgenneralsumdep(iddepartamento: number){
-    return this.http.get<Data[]>(apikey.api + `/department/departmentgeneral/${iddepartamento}`);
+    return this.http.get<Data[]>(apikey.api + `/department/general/${iddepartamento}`);
   }
 }

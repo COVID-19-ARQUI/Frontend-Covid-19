@@ -20,6 +20,7 @@ export class DepartmentComponent implements OnInit {
   recuperados: number;
   vacu1: number;
   vacu2: number;
+  name: string;
   dashboard: Dashboard[];
   databolivia: Data[] = [];
   ndata: number[] = [];
@@ -73,10 +74,32 @@ export class DepartmentComponent implements OnInit {
     this.loaddata();
     this.loadsuma();
     this.auxiliar();
+    this.loadname();
+  }
+
+  loadname(){
+    var data;
+    this.servicedepartment.getDepartments().subscribe((dash) => {
+      data = dash;
+      this.dataname(data);
+      console.log(data);
+    });
+  }
+  dataname(data) {
+    const id = this.activatedRoute.snapshot.params.id;
+    data.map(value => {
+      if (value.idDepartment == id) {
+        console.log(value.department);
+        this.name = value.department;
+      }
+    });
+
   }
   async loadsuma() {
     var suma;
-    await this.servicedepartment.getgenneralsum().subscribe((dash) => {
+    const id = this.activatedRoute.snapshot.params.id;
+    console.log(id);
+    await this.servicedepartment.getgenneralsumdep(id).subscribe((dash) => {
       suma = dash;
       this.dataSuma(suma);
       console.log(suma);
