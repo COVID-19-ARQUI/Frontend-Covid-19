@@ -28,6 +28,7 @@ import {MatCardModule} from '@angular/material/card';
 
 import { DashboardsboliviaComponent } from './pages/dashboardsbolivia/dashboardsbolivia.component';
 import { DashboardseditComponent } from './pages/dashboardsedit/dashboardsedit.component';
+import { PredictionsComponent } from './pages/predictions/predictions.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { DashboardseditComponent } from './pages/dashboardsedit/dashboardsedit.c
     NoticiasComponent,
     DashboardsboliviaComponent,
     DashboardseditComponent,
+    PredictionsComponent,
   ],
   imports: [
     CommonModule,

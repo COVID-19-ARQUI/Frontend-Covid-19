@@ -14,7 +14,6 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./department.component.css']
 })
 export class DepartmentComponent implements OnInit {
-
   contagiados: number;
   muertos: number;
   recuperados: number;

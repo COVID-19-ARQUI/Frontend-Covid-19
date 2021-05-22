@@ -1,0 +1,44 @@
+<mat-horizontal-stepper #stepper>
+  <mat-step>
+    <ng-template matStepLabel>Contagiados</ng-template>
+    <div style="display: block; ">
+      <h1 style="text-align:center;"> Contagiados</h1>
+      <canvas baseChart width="1500" height="500"
+              [datasets]=""
+              [labels]=""
+              [colors]=""
+              [legend]=""
+              [chartType]=""
+              [plugins]="">
+      </canvas>
+    </div>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Muertos</ng-template>
+    <div style="display: block; ">
+      <h1 style="text-align:center;"> Muertos</h1>
+      <canvas baseChart width="1500" height="500"
+              [datasets]=""
+              [labels]=""
+              [colors]=""
+              [legend]=""
+              [chartType]=""
+              [plugins]="">
+      </canvas>
+    </div>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Recuperados</ng-template>
+    <div style="display: block; ">
+      <h1 style="text-align:center;"> Recuperados</h1>
+      <canvas baseChart width="1500" height="500"
+              [datasets]=""
+              [labels]=""
+              [colors]=""
+              [legend]=""
+              [chartType]=""
+              [plugins]="">
+      </canvas>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>
