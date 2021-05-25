@@ -8,8 +8,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HomeModule} from './modules/home/home.module';
 import {MarkerService} from './services/marker.service';
 import {PopupService} from './services/popup.service';
-
-
+import {AuthModule} from '@auth0/auth0-angular';
 
 @NgModule({
   declarations: [
@@ -21,6 +20,11 @@ import {PopupService} from './services/popup.service';
     HomeModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    AuthModule.forRoot({
+      domain: 'dev--tnvggww.us.auth0.com',
+      clientId: 'UwAptlSTZkoX2r6vdBckoGEAB6mQgFkN',
+      redirectUri: window.location.origin,
+    }),
   ],
   providers: [
     MarkerService,

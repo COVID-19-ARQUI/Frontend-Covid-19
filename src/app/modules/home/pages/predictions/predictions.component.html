@@ -4,12 +4,12 @@
     <div style="display: block; ">
       <h1 style="text-align:center;"> Contagiados</h1>
       <canvas baseChart width="1500" height="500"
-              [datasets]=""
-              [labels]=""
-              [colors]=""
-              [legend]=""
-              [chartType]=""
-              [plugins]="">
+              [datasets]="lineChartData"
+              [labels]="lineChartLabels"
+              [colors]="lineChartColors"
+              [legend]="lineChartLegend"
+              [chartType]="lineChartType"
+              [plugins]="lineChartPlugins">
       </canvas>
     </div>
   </mat-step>
@@ -18,12 +18,12 @@
     <div style="display: block; ">
       <h1 style="text-align:center;"> Muertos</h1>
       <canvas baseChart width="1500" height="500"
-              [datasets]=""
-              [labels]=""
-              [colors]=""
-              [legend]=""
-              [chartType]=""
-              [plugins]="">
+              [datasets]="lineChartDataDeath"
+              [labels]="lineChartLabels"
+              [colors]="lineChartColorsDeath"
+              [legend]="lineChartLegend"
+              [chartType]="lineChartType"
+              [plugins]="lineChartPlugins">
       </canvas>
     </div>
   </mat-step>
@@ -32,12 +32,12 @@
     <div style="display: block; ">
       <h1 style="text-align:center;"> Recuperados</h1>
       <canvas baseChart width="1500" height="500"
-              [datasets]=""
-              [labels]=""
-              [colors]=""
-              [legend]=""
-              [chartType]=""
-              [plugins]="">
+              [datasets]="lineChartDataRecovered"
+              [labels]="lineChartLabels"
+              [colors]="lineChartColorsRecovered"
+              [legend]="lineChartLegend"
+              [chartType]="lineChartType"
+              [plugins]="lineChartPlugins">
       </canvas>
     </div>
   </mat-step>

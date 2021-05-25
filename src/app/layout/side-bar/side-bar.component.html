@@ -9,14 +9,22 @@
   >
     <div class="sidebar-logo"></div>
     <mat-nav-list>
+      <ng-container *ngIf="auth.isAuthenticated$ | async; else loggedOut">
+        <button (click)="auth.logout()">
+          Log out
+        </button>
+      </ng-container>
+
+      <ng-template #loggedOut>
+        <button (click)="auth.loginWithRedirect()">Log in</button>
+      </ng-template>
       <a
         mat-list-item
         routerLink="/main/dashbolivia"
         routerLinkActive="active"
       >Gráficos</a
       >
-      <a *ngIf="auth==true"
-         mat-list-item
+      <a mat-list-item
          routerLink="/main/data"
          routerLinkActive="active"
       >Ingresar datos nuevos</a
