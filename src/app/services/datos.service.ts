@@ -16,8 +16,9 @@ export class DatosService {
     return this.http.get<Dashboard[]>(apikey.api + '/dashboards');
   }
 
-  getBoliviaData(){
-    return this.http.get<Data[]>(apikey.api +'/data/general/list/29');
+  // tslint:disable-next-line:typedef
+  getBoliviaData() {
+    return this.http.get<Data[]>(apikey.api + '/data/general/list/29');
   }
 
 }
