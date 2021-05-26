@@ -20,6 +20,7 @@ import {PrincipalComponent} from './pages/principal/principal.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatInputModule} from '@angular/material/input';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import {NoticiasComponent} from './pages/noticias/noticias.component';
@@ -29,6 +30,8 @@ import {MatCardModule} from '@angular/material/card';
 import { DashboardsboliviaComponent } from './pages/dashboardsbolivia/dashboardsbolivia.component';
 import { DashboardseditComponent } from './pages/dashboardsedit/dashboardsedit.component';
 import { PredictionsComponent } from './pages/predictions/predictions.component';
+import {FormsModule} from '@angular/forms';
+import {BrowserModule} from '@angular/platform-browser';
 
 @NgModule({
   declarations: [
@@ -48,6 +51,8 @@ import { PredictionsComponent } from './pages/predictions/predictions.component'
   ],
   imports: [
     CommonModule,
+    BrowserModule,
+    FormsModule,
     RouterModule,
     MatSidenavModule,
     MatToolbarModule,
@@ -66,6 +71,7 @@ import { PredictionsComponent } from './pages/predictions/predictions.component'
     MatMenuModule,
     MatStepperModule,
     MatCardModule,
+    MatSlideToggleModule
   ],
   entryComponents: [],
 })
