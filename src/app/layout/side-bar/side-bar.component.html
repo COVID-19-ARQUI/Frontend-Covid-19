@@ -9,15 +9,13 @@
   >
     <div class="sidebar-logo"></div>
     <mat-nav-list>
-      <ng-container *ngIf="auth.isAuthenticated$ | async; else loggedOut">
-        <button (click)="auth.logout()">
+
+        <button (click)="auth.logout()" *ngIf="!auth.isAuthenticated$">
           Log out
         </button>
-      </ng-container>
 
-      <ng-template #loggedOut>
-        <button (click)="auth.loginWithRedirect()">Log in</button>
-      </ng-template>
+        <button (click)="auth.loginWithRedirect()" *ngIf="auth.isAuthenticated$">Log in</button>
+
       <a
         mat-list-item
         routerLink="/main/dashbolivia"
