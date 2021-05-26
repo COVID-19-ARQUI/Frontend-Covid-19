@@ -1,1 +1,91 @@
 <p>dashboardsedit works!</p>
+
+
+<p>Slide Toggle using a simple NgModel.</p>
+
+<mat-slide-toggle [(ngModel)]="isChecked">Slide Toggle Checked: {{isChecked}}</mat-slide-toggle>
+
+<div >
+
+<div  *ngIf="isChecked">
+
+  <h1 style="text-align:center;" > </h1>
+  <canvas baseChart width="1500" height="500"
+          [datasets]="lineChartData"
+          [labels]="lineChartLabels"
+          [colors]="lineChartColors"
+          [legend]="lineChartLegend"
+          [chartType]="lineChartType"
+          [plugins]="lineChartPlugins">
+  </canvas>
+</div>
+
+
+</div>
+
+<p>Slide Toggle using a simple NgModel.</p>
+
+<mat-slide-toggle [(ngModel)]="isCheckedC">Contaguiados {{isCheckedC}}</mat-slide-toggle>
+<p>Slide Toggle using a simple NgModel.</p>
+
+<mat-slide-toggle [(ngModel)]="isCheckedM">Contaguiados {{isCheckedM}}</mat-slide-toggle>
+<p>Slide Toggle using a simple NgModel.</p>
+
+<mat-slide-toggle [(ngModel)]="isCheckedR">Contaguiados {{isCheckedR}}</mat-slide-toggle>
+
+<mat-horizontal-stepper #stepper>
+  <mat-step *ngIf="isCheckedC">
+    <ng-template matStepLabel>Contagiados</ng-template>
+    <div style="display: block;">
+      <h1 style="text-align:center;"> Vacunados</h1>
+      <canvas baseChart
+              [data]="pieChartData"
+              [labels]="pieChartLabels"
+              [chartType]="pieChartType"
+              [options]="pieChartOptions"
+              [plugins]="pieChartPlugins"
+              [colors]="pieChartColors"
+              [legend]="pieChartLegend">
+      </canvas>
+    </div>
+
+  </mat-step>
+  <mat-step *ngIf="isCheckedM">
+    <ng-template matStepLabel>Muertos</ng-template>
+
+    <div style="display: block;">
+      <h1 style="text-align:center;"> Vacunados</h1>
+      <canvas baseChart
+              [data]="pieChartData"
+              [labels]="pieChartLabels"
+              [chartType]="pieChartType"
+              [options]="pieChartOptions"
+              [plugins]="pieChartPlugins"
+              [colors]="pieChartColors"
+              [legend]="pieChartLegend">
+      </canvas>
+    </div>
+  </mat-step>
+  <mat-step *ngIf="isCheckedR">
+    <ng-template matStepLabel>Recuperados</ng-template>
+
+    <div style="display: block;">
+      <h1 style="text-align:center;"> Vacunados</h1>
+      <canvas baseChart
+              [data]="pieChartData"
+              [labels]="pieChartLabels"
+              [chartType]="pieChartType"
+              [options]="pieChartOptions"
+              [plugins]="pieChartPlugins"
+              [colors]="pieChartColors"
+              [legend]="pieChartLegend">
+      </canvas>
+    </div>
+  </mat-step>
+
+</mat-horizontal-stepper>
+
+
+
+
+
