@@ -22,6 +22,7 @@ export class SideBarComponent implements OnInit {
 
 
   constructor(
+    @Inject(DOCUMENT) public document: Document,
     private breakpointObserver: BreakpointObserver,
     public auth: AuthService,
   ) {
@@ -33,7 +34,7 @@ export class SideBarComponent implements OnInit {
     this.auth.loginWithRedirect();
   }
   logout():void{
-    this.auth.logout({returnTo: 'http://localhost:4200'})
+    this.auth.logout({returnTo: document.location.origin})
   }
 
 

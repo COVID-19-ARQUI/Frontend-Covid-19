@@ -11,6 +11,7 @@ import {DashboardsboliviaComponent} from './modules/home/pages/dashboardsbolivia
 import {DashboardseditComponent} from './modules/home/pages/dashboardsedit/dashboardsedit.component';
 import {PredictionsComponent} from './modules/home/pages/predictions/predictions.component';
 import {ProfileComponent} from './modules/home/pages/profile/profile.component';
+import {AuthGuard} from '@auth0/auth0-angular';
 
 const routes: Routes = [
   {
@@ -25,6 +26,7 @@ const routes: Routes = [
       {
         path: 'profile',
         component: ProfileComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'principal',
