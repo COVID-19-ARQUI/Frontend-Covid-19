@@ -8,7 +8,9 @@ import {DatosService} from '../../../../services/datos.service';
 import {DepartmentService} from '../../../../services/department.service';
 import { ChartType } from 'chart.js';
 
-
+import * as jspdf from 'jspdf';
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
 
 @Component({
   selector: 'app-dashboardsedit',
@@ -121,6 +123,17 @@ export class DashboardseditComponent implements OnInit {
     this.loaddata();
     this.loadsuma();
     this.auxiliar();
+  }
+
+  exportAsPDF(divId) {
+    let data = document.getElementById(divId);
+    html2canvas(data).then(canvas => {
+      const contentDataURL = canvas.toDataURL('image/png')
+      let pdf = new jsPDF('l', 'cm', 'a4'); //Generates PDF in landscape mode
+      // let pdf = new jspdf('p', 'cm', 'a4'); Generates PDF in portrait mode
+      pdf.addImage(contentDataURL, 'PNG', 0, 0, 29.7, 21.0);
+      pdf.save('Dashboard.pdf');
+    });
   }
   async loadsuma() {
     var suma;
