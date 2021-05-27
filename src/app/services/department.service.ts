@@ -39,4 +39,9 @@ export class DepartmentService {
   getgenneralsumdep(iddepartamento: number) {
     return this.http.get<Data[]>(apikey.api + `/department/general/${iddepartamento}`);
   }
+  //listdeparment and munisipaliti
+
+  getlistofdep() {
+    return this.http.get<DepartmentModel[]>(apikey.api + '/department/list');
+  }
 }

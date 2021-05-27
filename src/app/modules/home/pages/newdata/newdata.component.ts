@@ -15,6 +15,8 @@ import {finalize} from 'rxjs/operators';
 
 export class NewdataComponent implements OnInit {
   departments: DepartmentModel[];
+  depselect:string;
+  muniselect:string;
   departmentControl: FormControl;
   dep:boolean;
   mun:boolean;
