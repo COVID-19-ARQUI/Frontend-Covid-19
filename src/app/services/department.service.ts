@@ -32,7 +32,7 @@ export class DepartmentService {
 
   //list datadeparment
   getgenneraldatadep(iddepartamento: number) {
-    return this.http.get<Data[]>(apikey.api + `/department/single/list/${iddepartamento}`);
+    return this.http.get<Data[]>(apikey.api + `/department/data/single/list/${iddepartamento}`);
   }
 
   //sum data http://localhost:8080/department/general/2

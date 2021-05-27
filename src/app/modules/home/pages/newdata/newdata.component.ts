@@ -16,10 +16,13 @@ import {finalize} from 'rxjs/operators';
 export class NewdataComponent implements OnInit {
   departments: DepartmentModel[];
   departmentControl: FormControl;
+  dep:boolean;
+  mun:boolean;
   csvFile: File;
   @Input() requiredFileType: string;
   fileName = '';
   uploadProgress: number;
+  selected :string;
   uploadSub: Subscription;
 
   constructor(

@@ -1,21 +1,66 @@
-<p>newdata works!</p>
-<br>
-<mat-form-field appearance="fill">
-  <mat-label>Municipio</mat-label>
-  <mat-select>
-    <mat-option>-- None --</mat-option>
-    <mat-optgroup *ngFor="let group of departments" [label]="group.department">
-      <mat-option *ngFor="let municipio of group.municipalities" [value]="municipio">
-        {{municipio}}
-      </mat-option>
-    </mat-optgroup>
-  </mat-select>
-</mat-form-field>
+<!--<p>newdata works!</p>-->
+<!--<br>-->
+<!--<mat-form-field appearance="fill">-->
+<!--  <mat-label>Municipio</mat-label>-->
+<!--  <mat-select>-->
+<!--    <mat-option>&#45;&#45; None &#45;&#45;</mat-option>-->
+<!--    <mat-optgroup *ngFor="let group of departments" [label]="group.department">-->
+<!--      <mat-option *ngFor="let municipio of group.municipalities" [value]="municipio">-->
+<!--        {{municipio}}-->
+<!--      </mat-option>-->
+<!--    </mat-optgroup>-->
+<!--  </mat-select>-->
+<!--</mat-form-field>-->
+<div class="form_data">
+  <p >
+    <mat-form-field appearance="outline" style="alignment: center ">
+      <mat-label>Datos a ingresar</mat-label>
 
-<input type="file" class="file-input" (change)="onFileSelected($event)" #fileUpload>
-<div class="file-upload">     {{fileName || "No file uploaded yet."}}
-  <button mat-mini-fab color="primary" class="upload-btn" (click)="fileUpload.click()">
-    <mat-icon>attach_file</mat-icon>
-  </button>
+      <input matInput  type="number" placeholder="Placeholder">
+      <mat-hint>Hint</mat-hint>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Select an option</mat-label>
+      <mat-select [(value)]="selected">
+        <mat-option>None</mat-option>
+        <mat-option value="1">Contagiados</mat-option>
+        <mat-option value="2">Muertos</mat-option>
+        <mat-option value="3">Recuperado</mat-option>
+        <mat-option value="4">Vacuna primera dosis</mat-option>
+        <mat-option value="5">vacuna segunda dosis</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </p>
+  <mat-slide-toggle [(ngModel)]="dep" color="primary" >Departameto </mat-slide-toggle>
+
+  <br>
+  <div *ngIf="dep==true">
+
+    <mat-form-field appearance="outline" style="alignment: center ">
+      <mat-label>Outline form field</mat-label>
+      <input matInput placeholder="Placeholder">
+      <mat-hint>Hint</mat-hint>
+    </mat-form-field>
+    <br>
+    <mat-slide-toggle [(ngModel)]="mun" color="primary" >municipio </mat-slide-toggle>
+    <p *ngIf="mun==true">
+  <mat-form-field appearance="outline" style="alignment: center " >
+    <mat-label>Outline form field</mat-label>
+    <input matInput placeholder="Placeholder">
+    <mat-hint>Hint</mat-hint>
+  </mat-form-field>
+
+    </p>
+
+  </div>
+
+</div>
+<div>
+  <input type="file" class="file-input" (change)="onFileSelected($event)" #fileUpload>
+  <div class="file-upload">     {{fileName || "No file uploaded yet."}}
+    <button mat-mini-fab color="primary" class="upload-btn" (click)="fileUpload.click()">
+      <mat-icon>attach_file</mat-icon>
+    </button>
+  </div>
 </div>
 
