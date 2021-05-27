@@ -22,8 +22,8 @@ import {AuthModule} from '@auth0/auth0-angular';
     BrowserAnimationsModule,
     HttpClientModule,
     AuthModule.forRoot({
-      domain: 'dev--tnvggww.us.auth0.com',
-      clientId: 'UwAptlSTZkoX2r6vdBckoGEAB6mQgFkN',
+      domain: 'fulano-es.us.auth0.com',
+      clientId: 'Q8fHspzD7bzh3yk0hXCh047CXYIfGFdd',
       redirectUri: window.location.origin,
     }),
   ],

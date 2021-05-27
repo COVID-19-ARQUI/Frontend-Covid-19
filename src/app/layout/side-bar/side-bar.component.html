@@ -9,13 +9,8 @@
   >
     <div class="sidebar-logo"></div>
     <mat-nav-list>
-
-        <button (click)="auth.logout()" *ngIf="!auth.isAuthenticated$">
-          Log out
-        </button>
-
-        <button (click)="auth.loginWithRedirect()" *ngIf="auth.isAuthenticated$">Log in</button>
-
+      <button (click)="loginWithRedirect()" *ngIf="(auth.isAuthenticated$ | async) === false ">Log-in</button>
+      <button (click)="logout()" *ngIf="(auth.isAuthenticated$ | async) === true ">Logout</button>
       <a
         mat-list-item
         routerLink="/main/dashbolivia"
@@ -50,6 +45,11 @@
         routerLink="/main/predict"
         routerLinkActive="active"
       >Predicciones</a>
+      <a
+        mat-list-item
+        routerLink="/main/profile"
+        routerLinkActive="active"
+      >Profile</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
