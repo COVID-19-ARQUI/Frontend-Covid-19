@@ -32,6 +32,7 @@ import { DashboardseditComponent } from './pages/dashboardsedit/dashboardsedit.c
 import { PredictionsComponent } from './pages/predictions/predictions.component';
 import {FormsModule} from '@angular/forms';
 import {BrowserModule} from '@angular/platform-browser';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import {BrowserModule} from '@angular/platform-browser';
     DashboardsboliviaComponent,
     DashboardseditComponent,
     PredictionsComponent,
+    ProfileComponent,
   ],
   imports: [
     CommonModule,

@@ -1,8 +1,9 @@
-import {Component, OnInit} from '@angular/core';
-import {map, shareReplay} from 'rxjs/operators';
+import {Component, Inject, OnInit} from '@angular/core';
+import {map, shareReplay, window} from 'rxjs/operators';
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 import {Observable} from 'rxjs';
 import {AuthService} from '@auth0/auth0-angular';
+import {DOCUMENT} from '@angular/common';
 
 @Component({
   selector: 'app-side-bar',
@@ -27,7 +28,12 @@ export class SideBarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+  }
+  loginWithRedirect():void{
+    this.auth.loginWithRedirect();
+  }
+  logout():void{
+    this.auth.logout({returnTo: 'http://localhost:4200'})
   }
 
 

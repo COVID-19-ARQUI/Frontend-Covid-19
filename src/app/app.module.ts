@@ -23,7 +23,7 @@ import {AuthModule} from '@auth0/auth0-angular';
     HttpClientModule,
     AuthModule.forRoot({
       domain: 'dev--tnvggww.us.auth0.com',
-      clientId: 'UwAptlSTZkoX2r6vdBckoGEAB6mQgFkN',
+      clientId: '4hoYkFEzvgghVdadGuVhOUtAiIpazHrZ',
       redirectUri: window.location.origin,
     }),
   ],

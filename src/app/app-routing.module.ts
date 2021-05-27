@@ -10,6 +10,7 @@ import {NoticiasComponent} from './modules/home/pages/noticias/noticias.componen
 import {DashboardsboliviaComponent} from './modules/home/pages/dashboardsbolivia/dashboardsbolivia.component';
 import {DashboardseditComponent} from './modules/home/pages/dashboardsedit/dashboardsedit.component';
 import {PredictionsComponent} from './modules/home/pages/predictions/predictions.component';
+import {ProfileComponent} from './modules/home/pages/profile/profile.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
     path: 'main',
     component: MainComponent,
     children: [
+      {
+        path: 'profile',
+        component: ProfileComponent,
+      },
       {
         path: 'principal',
         component: PrincipalComponent,
