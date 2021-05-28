@@ -7,6 +7,7 @@ import {FilesService} from '../../../../services/files.service';
 import {Subscription} from 'rxjs';
 import {finalize} from 'rxjs/operators';
 import {dataupload} from '../../../../models/dataupload.model';
+import {DatosService} from '../../../../services/datos.service';
 
 @Component({
   selector: 'app-newdata',
@@ -31,6 +32,7 @@ export class NewdataComponent implements OnInit {
   uploadSub: Subscription;
 
   constructor(
+    private dataService: DatosService,
     private departmentService: DepartmentService,
     private filesService: FilesService
   ) {
@@ -61,8 +63,9 @@ export class NewdataComponent implements OnInit {
       iddepartment: parseInt(this.depselect),
       idmunicipality: this.muniselect,
     }
-    console.log(data);
-    alert("llego ")
+    this.dataService.postNewData(data).subscribe(value => {
+      alert("Registro exitoso")
+    });
   }
 
 
