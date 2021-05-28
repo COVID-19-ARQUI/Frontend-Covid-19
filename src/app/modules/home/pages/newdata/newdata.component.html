@@ -57,7 +57,7 @@
         <mat-label>Departamento</mat-label>
         <mat-select [(value)]="muniselect" name="depa">
           <mat-option value="" selected></mat-option>
-          <mat-option *ngFor="let muni of departments[depselect-2].municipalities" [value]="muni" >
+          <mat-option *ngFor="let muni of departments[depselect-1].municipalities" [value]="muni" >
             {{muni}}
           </mat-option>
         </mat-select>

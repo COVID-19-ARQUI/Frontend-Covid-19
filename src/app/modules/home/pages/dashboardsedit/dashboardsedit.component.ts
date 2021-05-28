@@ -137,7 +137,7 @@ export class DashboardseditComponent implements OnInit {
   }
   async loadsuma() {
     var suma;
-    for(let i =2;i<11;i++){
+    for(let i =1;i<10;i++){
       await this.servicedepartment.getgenneralsumdep(i).subscribe((dash) => {
         suma = dash;
         this.dataSuma(suma,i);
@@ -152,7 +152,7 @@ export class DashboardseditComponent implements OnInit {
     console.log(suma,"asda");
 
     suma.map(value => {
-      if(i==2){
+      if(i==1){
 
         if (value.datatype == 'Confirmados') {
           this.SingleDataSet.push(value.data);
@@ -166,7 +166,7 @@ export class DashboardseditComponent implements OnInit {
           this.SingleDataSetR.push(value.data);
         }
       }
-      if(i==3){
+      if(i==2){
 
         if (value.datatype == 'Confirmados') {
           this.pieChartColors[0].backgroundColor.push('rgba(6,215,239,0.3)');
@@ -180,7 +180,7 @@ export class DashboardseditComponent implements OnInit {
           this.SingleDataSetR.push(value.data);
         }
       }
-      if(i==4){
+      if(i==3){
 
         if (value.datatype == 'Confirmados') {
           this.pieChartColors[0].backgroundColor.push('rgba(142,6,239,0.3)');
@@ -194,7 +194,7 @@ export class DashboardseditComponent implements OnInit {
           this.SingleDataSetR.push(value.data);
         }
       }
-      if(i==5){
+      if(i==4){
 
         if (value.datatype == 'Confirmados') {
           this.SingleDataSet.push(value.data);
@@ -208,7 +208,7 @@ export class DashboardseditComponent implements OnInit {
           this.SingleDataSetR.push(value.data);
         }
       }
-      if(i==6){
+      if(i==5){
 
         if (value.datatype == 'Confirmados') {
           this.SingleDataSet.push(value.data);
@@ -222,7 +222,7 @@ export class DashboardseditComponent implements OnInit {
           this.SingleDataSetR.push(value.data);
         }
       }
-      if(i==7){
+      if(i==6){
 
         if (value.datatype == 'Confirmados') {
           this.SingleDataSet.push(value.data);
@@ -236,7 +236,7 @@ export class DashboardseditComponent implements OnInit {
           this.SingleDataSetR.push(value.data);
         }
       }
-      if(i==8){
+      if(i==7){
 
         if (value.datatype == 'Confirmados') {
           this.SingleDataSet.push(value.data);
@@ -250,7 +250,7 @@ export class DashboardseditComponent implements OnInit {
           this.SingleDataSetR.push(value.data);
         }
       }
-      if(i==9){
+      if(i==8){
 
         if (value.datatype == 'Confirmados') {
           this.pieChartColors[0].backgroundColor.push('rgba(6,64,239,0.3)');
@@ -264,7 +264,7 @@ export class DashboardseditComponent implements OnInit {
           this.SingleDataSetR.push(value.data);
         }
       }
-      if(i==10){
+      if(i==9){
 
         if (value.datatype == 'Confirmados') {
           this.pieChartColors[0].backgroundColor.push('rgba(239,200,6,0.3)');
@@ -285,7 +285,7 @@ export class DashboardseditComponent implements OnInit {
 
   async loaddata() {
     var datos;
-    for(let i =2;i<11;i++){
+    for(let i =1;i<10;i++){
 
       await this.servicedepartment.getgenneraldatadep(i).subscribe((value) => {
         datos = value;
@@ -297,7 +297,7 @@ export class DashboardseditComponent implements OnInit {
   }
   datatochart(datos,i) {
     datos.map((values) => {
-      if(i==2){
+      if(i==1){
         if (values.datatype == 'Confirmados') {
           this.ndata.push(values.data);
           this.date.push(values.inDate);
@@ -309,7 +309,7 @@ export class DashboardseditComponent implements OnInit {
           this.rdata.push(values.data);
         }
       }
-      if(i==3){
+      if(i==2){
         if (values.datatype == 'Confirmados') {
           this.ndata3.push(values.data);
         }
@@ -320,7 +320,7 @@ export class DashboardseditComponent implements OnInit {
           this.rdata3.push(values.data);
         }
       }
-      if(i==4){
+      if(i==3){
         if (values.datatype == 'Confirmados') {
           this.ndata4.push(values.data);
         }
@@ -331,7 +331,7 @@ export class DashboardseditComponent implements OnInit {
           this.rdata4.push(values.data);
         }
       }
-      if(i==5){
+      if(i==4){
         if (values.datatype == 'Confirmados') {
           this.ndata5.push(values.data);
         }
@@ -342,7 +342,7 @@ export class DashboardseditComponent implements OnInit {
           this.rdata5.push(values.data);
         }
       }
-      if(i==6){
+      if(i==5){
         if (values.datatype == 'Confirmados') {
           this.ndata6.push(values.data);
         }
@@ -353,7 +353,7 @@ export class DashboardseditComponent implements OnInit {
           this.rdata6.push(values.data);
         }
       }
-      if(i==7){
+      if(i==6){
         if (values.datatype == 'Confirmados') {
           this.ndata7.push(values.data);
         }
@@ -364,7 +364,7 @@ export class DashboardseditComponent implements OnInit {
           this.rdata7.push(values.data);
         }
       }
-      if(i==8){
+      if(i==7){
         if (values.datatype == 'Confirmados') {
           this.ndata8.push(values.data);
         }
@@ -375,7 +375,7 @@ export class DashboardseditComponent implements OnInit {
           this.rdata8.push(values.data);
         }
       }
-      if(i==9){
+      if(i==8){
         if (values.datatype == 'Confirmados') {
           this.ndata9.push(values.data);
         }
@@ -386,7 +386,7 @@ export class DashboardseditComponent implements OnInit {
           this.rdata9.push(values.data);
         }
       }
-      if(i==10){
+      if(i==9){
         if (values.datatype == 'Confirmados') {
           this.ndata10.push(values.data);
         }
