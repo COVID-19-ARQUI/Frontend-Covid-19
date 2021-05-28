@@ -1,13 +1,10 @@
 <div class="example-flex-container" style="align-content: center">
 
-  <button mat-icon-button color="primary">
-    <mat-icon>save</mat-icon>
-  </button>
+<!--  <button mat-icon-button color="primary">-->
+<!--    <mat-icon>save</mat-icon>-->
+<!--  </button>-->
   <button mat-icon-button color="primary" [disabled]="isCheckedbar" (click)="isCheckedbar=true">
     <mat-icon>bar_chart</mat-icon>
-  </button>
-  <button mat-icon-button color="primary">
-    <mat-icon>donut_large</mat-icon>
   </button>
 
   <button mat-icon-button color="primary" [disabled]="isCheckedpie" (click)="isCheckedpie=true">
@@ -144,15 +141,6 @@
 </div>
 
 
-<div class="donut">
-  <div style="display: block;">
-    <canvas baseChart
-            [data]="doughnutChartData"
-            [labels]="doughnutChartLabels"
-            [chartType]="doughnutChartType">
-    </canvas>
-  </div>
-</div>
 
 
 

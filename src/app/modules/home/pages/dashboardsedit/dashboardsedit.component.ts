@@ -406,6 +406,7 @@ export class DashboardseditComponent implements OnInit {
         if (values.datatype === 'Confirmados') {
           this.ndata.push(values.data);
           this.date.push(values.inDate);
+
         }
         if (values.datatype === 'Muertos') {
           this.ddata.push(values.data);
@@ -509,6 +510,7 @@ export class DashboardseditComponent implements OnInit {
   }
 
   auxiliar() {
+
     this.lineChartData = [
       {data: this.ndata, label: 'La Paz'},
       {data: this.ndata3, label: 'Cochabamba'},
