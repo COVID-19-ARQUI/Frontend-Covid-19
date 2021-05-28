@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Dashboard} from '../models/dashboard.model';
 import apikey from '../shared/apikey';
 import {DepartmentModel} from '../models/department.model';
 import {Data} from '../models/data.model';
@@ -25,22 +24,22 @@ export class DepartmentService {
     return this.http.get<Data>(apikey.api + '/department/departmentvacuna2/1');
   }
 
-  //move to datos servises dont forget
+  // move to datos servises dont forget
   getgenneralsum() {
     return this.http.get<Data[]>(apikey.api + '/data/general/29');
   }
 
-  //list datadeparment
+  // list datadeparment
   getgenneraldatadep(iddepartamento: number) {
     return this.http.get<Data[]>(apikey.api + `/department/data/single/list/${iddepartamento}`);
   }
 
-  //sum data http://localhost:8080/department/general/2
+  // sum data http://localhost:8080/department/general/2
   getgenneralsumdep(iddepartamento: number) {
     return this.http.get<Data[]>(apikey.api + `/department/general/${iddepartamento}`);
   }
-  //listdeparment and munisipaliti
 
+  // list department and municipalities
   getlistofdep() {
     return this.http.get<DepartmentModel[]>(apikey.api + '/department/list');
   }
