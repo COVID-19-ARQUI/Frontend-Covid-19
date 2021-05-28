@@ -1,11 +1,12 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {DepartmentService} from '../../../../services/department.service';
 import {DepartmentModel} from '../../../../models/department.model';
-import {FormControl} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {HttpErrorResponse, HttpEventType} from '@angular/common/http';
 import {FilesService} from '../../../../services/files.service';
 import {Subscription} from 'rxjs';
 import {finalize} from 'rxjs/operators';
+import {dataupload} from '../../../../models/dataupload.model';
 
 @Component({
   selector: 'app-newdata',
@@ -14,9 +15,11 @@ import {finalize} from 'rxjs/operators';
 })
 
 export class NewdataComponent implements OnInit {
+  form: FormGroup;
   departments: DepartmentModel[];
   depselect:string;
   muniselect:string;
+  fecha:string;
   departmentControl: FormControl;
   dep:boolean;
   mun:boolean;
@@ -40,6 +43,22 @@ export class NewdataComponent implements OnInit {
   prepareUploading(): void {
     console.log(this.csvFile);
   }
+
+  signup(): void {
+
+    const data: dataupload={
+      idData:0,
+      data: 0,
+      inDate: this.fecha,
+      dataType: parseInt(this.selected),
+      idcountry: 29,
+      iddepartment: parseInt(this.depselect),
+      idmunicipality: this.muniselect,
+    }
+    console.log(data);
+    alert("llego ")
+  }
+
 
   getDepartment(): DepartmentModel[] {
     this.departmentService.getDepartments().subscribe(value => {
