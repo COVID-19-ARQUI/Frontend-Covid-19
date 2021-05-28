@@ -7,6 +7,7 @@ import {DashboardService} from '../../../../services/dashboard.service';
 import {DatosService} from '../../../../services/datos.service';
 import {DepartmentService} from '../../../../services/department.service';
 import {ActivatedRoute} from '@angular/router';
+import {MunicipalitydataModel} from '../../../../models/municipalitydata.model';
 
 @Component({
   selector: 'app-department',
@@ -14,6 +15,8 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./department.component.css']
 })
 export class DepartmentComponent implements OnInit {
+  municipio: MunicipalitydataModel[];
+  muni:boolean;
   contagiados: number;
   muertos: number;
   recuperados: number;
@@ -75,14 +78,29 @@ export class DepartmentComponent implements OnInit {
     this.loadsuma();
     this.auxiliar();
     this.loadname();
+    this.loadmunicipio();
   }
+loadmunicipio(){
+  const id = this.activatedRoute.snapshot.params.id;
+  this.servicedepartment.getmunicipalitidatabyidped(id).subscribe(value => {
+    this.municipio = value;
+    console.log(value.length);
+    if(value.length==0){
+      this.muni=false;
+    }else {
+      this.muni=true;
+    }
+    console.log(value);
+  });
+  return this.municipio;
+}
 
   loadname() {
     var data;
     this.servicedepartment.getDepartments().subscribe((dash) => {
       data = dash;
       this.dataname(data);
-      console.log(data);
+      //console.log(data);
     });
   }
 
@@ -90,7 +108,7 @@ export class DepartmentComponent implements OnInit {
     const id = this.activatedRoute.snapshot.params.id;
     data.map(value => {
       if (value.idDepartment == id) {
-        console.log(value.department);
+       // console.log(value.department);
         this.name = value.department;
       }
     });
@@ -104,7 +122,7 @@ export class DepartmentComponent implements OnInit {
     await this.servicedepartment.getgenneralsumdep(id).subscribe((dash) => {
       suma = dash;
       this.dataSuma(suma);
-      console.log(suma);
+      //console.log(suma);
     });
   }
 
@@ -144,7 +162,7 @@ export class DepartmentComponent implements OnInit {
   }
 
   datatochart(datos) {
-    console.log(datos);
+    //console.log(datos);
 
     datos.map((values) => {
       if (values.datatype == 'Confirmados') {

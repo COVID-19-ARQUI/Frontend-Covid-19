@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import apikey from '../shared/apikey';
 import {DepartmentModel} from '../models/department.model';
 import {Data} from '../models/data.model';
+import {MunicipalitydataModel} from '../models/municipalitydata.model';
 
 @Injectable({
   providedIn: 'root'
@@ -37,6 +38,11 @@ export class DepartmentService {
   // sum data http://localhost:8080/department/general/2
   getgenneralsumdep(iddepartamento: number) {
     return this.http.get<Data[]>(apikey.api + `/department/general/${iddepartamento}`);
+  }
+
+  //list of municipaliti data by id of deparmetn
+  getmunicipalitidatabyidped(iddepartamento: number) {
+    return this.http.get<MunicipalitydataModel[]>(apikey.api + `/municipalities/deparmeten/${iddepartamento}`);
   }
 
   // list department and municipalities

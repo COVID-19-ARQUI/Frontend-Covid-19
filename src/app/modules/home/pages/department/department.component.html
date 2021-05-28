@@ -98,6 +98,20 @@
 </mat-horizontal-stepper>
 
 
+<table *ngIf="muni">
+  <tr>
+    <th >municipio</th>
+    <th >Casos</th>
+
+  </tr>
+  <tr *ngFor="let a of municipio">
+    <td >{{a.municipality}}</td>
+    <td >{{a.dato}}</td>
+
+  </tr>
+
+</table>
+<h1 *ngIf="muni==false">NO hay Datos</h1>
 
 
 
