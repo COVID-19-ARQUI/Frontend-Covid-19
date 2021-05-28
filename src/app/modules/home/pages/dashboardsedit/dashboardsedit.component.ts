@@ -9,6 +9,7 @@ import {ChartType} from 'chart.js';
 
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
+import {DataModelTable} from "../../../../models/DataModelTable";
 
 @Component({
   selector: 'app-dashboardsedit',
@@ -71,6 +72,9 @@ export class DashboardseditComponent implements OnInit {
   rdata10: number[] = [];
 
   date: string[] = [];
+
+  resultsDepartment : DataModelTable[];
+
   // line char data
   public lineChartData: ChartDataSets[];
   public lineChartDatadead: ChartDataSets[];
@@ -123,6 +127,34 @@ export class DashboardseditComponent implements OnInit {
     this.loadsuma();
     this.auxiliar();
   }
+  createHeaders(keys) {
+    var result = [];
+    for (var i = 0; i < keys.length; i += 1) {
+      result.push({
+        id: keys[i],
+        name: keys[i],
+        prompt: keys[i],
+        width: 65,
+        align: "center",
+        padding: 0
+      });
+    }
+    return result;
+  }
+
+  headers = this.createHeaders([
+    "DATO",
+    "DEPARTAMENTO",
+  ]);
+  generarTable() {
+    var result = [];
+
+
+    for (var i = 0; i < this.resultsDepartment.length; i += 1) {
+      result.push(Object.assign({}, this.resultsDepartment[i]));
+    }
+    return result;
+  };
 
   exportAsPDF(divId1, divId2, divId3) {
 
@@ -131,43 +163,65 @@ export class DashboardseditComponent implements OnInit {
     let data2 = document.getElementById(divId2);
     let data3 = document.getElementById(divId3);
 
-    /***
-     console.log(data1);
-     console.log(data2);
-     console.log(data3);*/
+    let canvas1 = document.getElementById('canvas-contagiados');
+    let canvas2 = document.getElementById('canvas-muertos');
+    let canvas3 = document.getElementById('canvas-recuperados');
 
+    console.log("DATOS");
+    console.log(data1);
+    console.log(data2);
+    console.log(data3);
 
-    console.log('DATOS');
-    console.log(this.pieChartData);
-    console.log(this.pieChartDataM);
-    console.log(this.pieChartDataR);
+    let aux1;
+    let aux2;
+    let aux3;
 
-    if (this.isCheckedC && this.pieChartData) {
+    pdf.setFontSize(20);
+    pdf.text("CASOS CONFIRMADOS", 12, 1);
+    if (data1!=null) {
       html2canvas(data1).then(canvas => {
         const contentDataURL = canvas.toDataURL('image/png');
-        pdf.addImage(contentDataURL, 'PNG', 0, 0, 29.7, 21.0);
+        pdf.text("CASOS CONFIRMADOS", 35, 25);
+        pdf.addImage(contentDataURL, 'PNG', 0, 1.5, 30.0, 15.0);
+        /***pdf.addPage("a4", "l");
+        var headers = {dato:"DATO",department:"DEPARTAMENTO"};
+        pdf.table(1, 1, this.generarTable(), this.headers, { autoSize: true });
+
+
+        let cont=0;
+        for(let item of this.SingleDataSet){
+          var result : DataModelTable;
+          result.data = item;
+          result.department = <string>this.pieChartLabels[cont];
+          results.push(result);
+          cont++;
+        }
+        for(let item of results){
+          console.log("datos: "+item.data+"\t"+item.department);
+        }*/
+
+
+        //pdf.table(0,0,this.lineChartData,null,{autoSize:true})
         pdf.save('confirmados.pdf');
       });
     }
-
-    if (this.isCheckedM && this.pieChartDataM) {
+    if (data2!=null) {
       html2canvas(data2).then(canvas => {
         const contentDataURL = canvas.toDataURL('image/png');
-        pdf.addImage(contentDataURL, 'PNG', 0, 0, 29.7, 21.0);
+        pdf.addImage(contentDataURL, 'PNG', 0, 0, 30.0, 15.0);
+        //pdf.addPage("a4", "l");
         pdf.save('decesos.pdf');
       });
     }
-
-
-    if (this.isCheckedR && this.pieChartDataR) {
-      // console.log(this.pieChartDataR)
+    if (data3!=null) {
       html2canvas(data3).then(canvas => {
         const contentDataURL = canvas.toDataURL('image/png');
-        pdf.addImage(contentDataURL, 'PNG', 0, 0, 29.7, 21.0);
-        pdf.save('recuperados.pdf');
+        //console.log(contentDataURL);
+        //pdf.addImage(contentDataURL, 'PNG', 0, 0, 30.0, 15.0);
+        //pdf.save('recuperados.pdf');
       });
     }
-
+    //pdf.save('reporte.pdf');
 
   }
 
@@ -194,6 +248,7 @@ export class DashboardseditComponent implements OnInit {
           this.SingleDataSet.push(value.data);
           this.pieChartColors[0].backgroundColor.push('rgba(241,5,5,0.3)');
           this.labels.push('La Paz');
+          this.resultsDepartment.push({data:value.data,department:'La Paz'});
         }
         if (value.datatype === 'Muertos') {
           this.SingleDataSetM.push(value.data);
@@ -208,6 +263,7 @@ export class DashboardseditComponent implements OnInit {
           this.pieChartColors[0].backgroundColor.push('rgba(6,215,239,0.3)');
           this.labels.push('Cochabamba');
           this.SingleDataSet.push(value.data);
+          this.resultsDepartment.push({data:value.data,department:'Cochabamba'});
         }
         if (value.datatype === 'Muertos') {
           this.SingleDataSetM.push(value.data);
@@ -222,6 +278,7 @@ export class DashboardseditComponent implements OnInit {
           this.pieChartColors[0].backgroundColor.push('rgba(142,6,239,0.3)');
           this.labels.push('Tarija');
           this.SingleDataSet.push(value.data);
+          this.resultsDepartment.push({data:value.data,department:'Tarija'});
         }
         if (value.datatype === 'Muertos') {
           this.SingleDataSetM.push(value.data);
@@ -236,6 +293,8 @@ export class DashboardseditComponent implements OnInit {
           this.SingleDataSet.push(value.data);
           this.pieChartColors[0].backgroundColor.push('rgba(89,189,20,0.3)');
           this.labels.push('Santa Cruz');
+
+          this.resultsDepartment.push({data:value.data,department:'Santa Cruz'});
         }
         if (value.datatype === 'Muertos') {
           this.SingleDataSetM.push(value.data);
@@ -250,6 +309,8 @@ export class DashboardseditComponent implements OnInit {
           this.SingleDataSet.push(value.data);
           this.pieChartColors[0].backgroundColor.push('rgba(239,126,6,0.3)');
           this.labels.push('Potosí');
+
+          this.resultsDepartment.push({data:value.data,department:'Potosi'});
         }
         if (value.datatype === 'Muertos') {
           this.SingleDataSetM.push(value.data);
@@ -264,6 +325,8 @@ export class DashboardseditComponent implements OnInit {
           this.SingleDataSet.push(value.data);
           this.pieChartColors[0].backgroundColor.push('rgba(6,239,212,0.3)');
           this.labels.push('Pando');
+
+          this.resultsDepartment.push({data:value.data,department:'Pando'});
         }
         if (value.datatype === 'Muertos') {
           this.SingleDataSetM.push(value.data);
@@ -278,6 +341,7 @@ export class DashboardseditComponent implements OnInit {
           this.SingleDataSet.push(value.data);
           this.pieChartColors[0].backgroundColor.push('rgba(196,6,239,0.3)');
           this.labels.push('Beni');
+          this.resultsDepartment.push({data:value.data,department:'Beni'});
         }
         if (value.datatype === 'Muertos') {
           this.SingleDataSetM.push(value.data);
@@ -292,6 +356,8 @@ export class DashboardseditComponent implements OnInit {
           this.pieChartColors[0].backgroundColor.push('rgba(6,64,239,0.3)');
           this.labels.push('Oruro');
           this.SingleDataSet.push(value.data);
+
+          this.resultsDepartment.push({data:value.data,department:'Oruro'});
         }
         if (value.datatype === 'Muertos') {
           this.SingleDataSetM.push(value.data);
@@ -306,6 +372,8 @@ export class DashboardseditComponent implements OnInit {
           this.pieChartColors[0].backgroundColor.push('rgba(239,200,6,0.3)');
           this.labels.push('Chuquisaca');
           this.SingleDataSet.push(value.data);
+
+          this.resultsDepartment.push({data:value.data,department:'Chuquisaca'});
         }
         if (value.datatype === 'Muertos') {
           this.SingleDataSetM.push(value.data);

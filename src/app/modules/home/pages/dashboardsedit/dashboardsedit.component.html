@@ -94,7 +94,7 @@
       <mat-step *ngIf="isCheckedC">
         <ng-template matStepLabel id="selected">Contagiados</ng-template>
         <div style="display: block;" id="graphics-contagiados">
-          <canvas baseChart
+          <canvas baseChart id="canvas-contagiados"
                   [data]="pieChartData"
                   [labels]="pieChartLabels"
                   [chartType]="pieChartType"
@@ -110,7 +110,7 @@
         <ng-template matStepLabel>Muertos</ng-template>
 
         <div style="display: block;" id="graphics-muertos">
-          <canvas baseChart
+          <canvas baseChart id="canvas-muertos"
                   [data]="pieChartDataM"
                   [labels]="pieChartLabels"
                   [chartType]="pieChartType"
@@ -125,7 +125,7 @@
         <ng-template matStepLabel>Recuperados</ng-template>
 
         <div style="display: block;" id="graphics-recuperados">
-          <canvas baseChart
+          <canvas baseChart id="canvas-recuperados"
                   [data]="pieChartDataR"
                   [labels]="pieChartLabels"
                   [chartType]="pieChartType"
