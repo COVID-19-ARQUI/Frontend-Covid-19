@@ -1,8 +1,8 @@
-<div class="form_data" >
-  <div >
+<div class="form_data">
+  <div>
     <mat-form-field appearance="outline">
       <mat-label>Datos a ingresar</mat-label>
-      <input matInput  type="number" placeholder="Placeholder">
+      <input matInput type="number" placeholder="Placeholder">
       <mat-hint>Datos de los casos</mat-hint>
     </mat-form-field>
 
@@ -31,12 +31,12 @@
     </mat-form-field>
 
     <br>
-    <mat-slide-toggle [(ngModel)]="dep" color="primary" >Departameto </mat-slide-toggle>
+    <mat-slide-toggle [(ngModel)]="dep" color="primary">Departameto</mat-slide-toggle>
   </div>
   <br>
   <div *ngIf="dep==true" id="dep">
 
-    <mat-form-field appearance="outline" >
+    <mat-form-field appearance="outline">
       <mat-label>Departamento</mat-label>
       <mat-select [(value)]="depselect" name="depa">
         <mat-option value="" selected></mat-option>
@@ -49,15 +49,15 @@
 
     <br>
 
-    <mat-slide-toggle [(ngModel)]="mun" color="primary" >municipio </mat-slide-toggle>
+    <mat-slide-toggle [(ngModel)]="mun" color="primary">municipio</mat-slide-toggle>
 
     <div *ngIf="mun==true" id="municipio">
 
-      <mat-form-field appearance="outline" >
+      <mat-form-field appearance="outline">
         <mat-label>Departamento</mat-label>
         <mat-select [(value)]="muniselect" name="depa">
           <mat-option value="" selected></mat-option>
-          <mat-option *ngFor="let muni of departments[depselect-1].municipalities" [value]="muni" >
+          <mat-option *ngFor="let muni of departments[depselect-1].municipalities" [value]="muni">
             {{muni}}
           </mat-option>
         </mat-select>

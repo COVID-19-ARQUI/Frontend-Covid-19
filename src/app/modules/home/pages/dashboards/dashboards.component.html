@@ -1,4 +1,3 @@
-
 <mat-card-title align="center">Dashboard</mat-card-title>
 <mat-grid-list cols="5" rowHeight="5:2">
   <mat-grid-tile>
@@ -20,7 +19,7 @@
     <mat-card>
       <mat-card-title>Recuperados</mat-card-title>
       <mat-card-content align="center">{{recuperados}}</mat-card-content>
-<!--      <mat-icon aria-hidden="false" aria-label="Example home icon" >home</mat-icon>-->
+      <!--      <mat-icon aria-hidden="false" aria-label="Example home icon" >home</mat-icon>-->
     </mat-card>
   </mat-grid-tile>
   <mat-grid-tile>
@@ -99,52 +98,52 @@
 </mat-horizontal-stepper>
 
 
-<mat-grid-list cols="2" rowHeight="1:1" >
+<mat-grid-list cols="2" rowHeight="1:1">
 
-  <mat-grid-tile >
+  <mat-grid-tile>
     <mat-horizontal-stepper #stepper>
-    <mat-step>
-      <ng-template matStepLabel>Contagiados</ng-template>
-      <div style="display: block; ">
-        <h1 style="text-align:center;"> La Paz</h1>
-        <canvas baseChart width="300" height="200"
-                [datasets]="LapazData"
-                [labels]="LapazLabel"
-                [colors]="lineChartColors"
-                [legend]="lineChartLegend"
-                [chartType]="lineChartType"
-                [plugins]="lineChartPlugins">
-        </canvas>
-      </div>
-    </mat-step>
-    <mat-step>
-      <ng-template matStepLabel>Muertos</ng-template>
-      <div style="display: block; ">
-        <h1 style="text-align:center;"> La Paz</h1>
-        <canvas baseChart width="300" height="200"
-                [datasets]="LapazDataDeath"
-                [labels]="LapazLabel"
-                [colors]="lineChartColorsDeath"
-                [legend]="lineChartLegend"
-                [chartType]="lineChartType"
-                [plugins]="lineChartPlugins">
-        </canvas>
-      </div>
-    </mat-step>
-    <mat-step>
-      <ng-template matStepLabel>Recuperados</ng-template>
-      <div style="display: block; ">
-        <h1 style="text-align:center;"> La Paz</h1>
-        <canvas baseChart width="300" height="200"
-                [datasets]="LapazDataRecovered"
-                [labels]="LapazLabel"
-                [colors]="lineChartColorsRecovered"
-                [legend]="lineChartLegend"
-                [chartType]="lineChartType"
-                [plugins]="lineChartPlugins">
-        </canvas>
-      </div>
-    </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Contagiados</ng-template>
+        <div style="display: block; ">
+          <h1 style="text-align:center;"> La Paz</h1>
+          <canvas baseChart width="300" height="200"
+                  [datasets]="LapazData"
+                  [labels]="LapazLabel"
+                  [colors]="lineChartColors"
+                  [legend]="lineChartLegend"
+                  [chartType]="lineChartType"
+                  [plugins]="lineChartPlugins">
+          </canvas>
+        </div>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Muertos</ng-template>
+        <div style="display: block; ">
+          <h1 style="text-align:center;"> La Paz</h1>
+          <canvas baseChart width="300" height="200"
+                  [datasets]="LapazDataDeath"
+                  [labels]="LapazLabel"
+                  [colors]="lineChartColorsDeath"
+                  [legend]="lineChartLegend"
+                  [chartType]="lineChartType"
+                  [plugins]="lineChartPlugins">
+          </canvas>
+        </div>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Recuperados</ng-template>
+        <div style="display: block; ">
+          <h1 style="text-align:center;"> La Paz</h1>
+          <canvas baseChart width="300" height="200"
+                  [datasets]="LapazDataRecovered"
+                  [labels]="LapazLabel"
+                  [colors]="lineChartColorsRecovered"
+                  [legend]="lineChartLegend"
+                  [chartType]="lineChartType"
+                  [plugins]="lineChartPlugins">
+          </canvas>
+        </div>
+      </mat-step>
       <mat-step>
         <ng-template matStepLabel>Vacunados</ng-template>
         <div style="display: block; ">
@@ -159,7 +158,7 @@
           </canvas>
         </div>
       </mat-step>
-  </mat-horizontal-stepper>
+    </mat-horizontal-stepper>
   </mat-grid-tile>
 
 

@@ -15,16 +15,16 @@ import {finalize} from 'rxjs/operators';
 
 export class NewdataComponent implements OnInit {
   departments: DepartmentModel[];
-  depselect:string;
-  muniselect:string;
+  depselect: string;
+  muniselect: string;
   departmentControl: FormControl;
-  dep:boolean;
-  mun:boolean;
+  dep: boolean;
+  mun: boolean;
   csvFile: File;
   @Input() requiredFileType: string;
   fileName = '';
   uploadProgress: number;
-  selected :string;
+  selected: string;
   uploadSub: Subscription;
 
   constructor(
