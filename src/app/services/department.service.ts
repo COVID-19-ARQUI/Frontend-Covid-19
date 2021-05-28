@@ -42,7 +42,7 @@ export class DepartmentService {
 
   //list of municipaliti data by id of deparmetn
   getmunicipalitidatabyidped(iddepartamento: number) {
-    return this.http.get<MunicipalitydataModel[]>(apikey.api + `/municipalities/deparmeten/${iddepartamento}`);
+    return this.http.get<MunicipalitydataModel[]>(apikey.api + `/municipalities/department/${iddepartamento}`);
   }
 
   // list department and municipalities
