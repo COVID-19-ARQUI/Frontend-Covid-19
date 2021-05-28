@@ -1,10 +1,8 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 import * as L from 'leaflet';
 import {PopupService} from './popup.service';
 import {DatosService} from './datos.service';
-import {Data} from '../models/data.model';
-import {logging} from 'protractor';
 import {DepartmentService} from './department.service';
 
 @Injectable({
@@ -13,9 +11,11 @@ import {DepartmentService} from './department.service';
 export class MarkerService {
   capitals = '/assets/data/bolivia.geojson';
   lista: any;
+
   constructor(private http: HttpClient, private popupService: PopupService,
               private datosService: DatosService,
-              private departmentService: DepartmentService) { }
+              private departmentService: DepartmentService) {
+  }
 
   static scaledRadius(val: number, maxVal: number): number {
     return 20 * (val / maxVal);
@@ -43,13 +43,13 @@ export class MarkerService {
 
 
         const circle = L.circleMarker([lat, lon], {
-          radius: MarkerService.scaledRadius(c.properties.contagios/500, maxPop)
+          radius: MarkerService.scaledRadius(c.properties.contagios / 500, maxPop)
         });
 
         console.log(c.properties.population);
-        console.log(this.getDataInDeparment(c.properties.population))
+        console.log(this.getDataInDeparment(c.properties.population));
 
-        circle.bindPopup(this.popupService.makeCapitalPopup(c.properties,this.getDataInDeparment(c.properties.population)));
+        circle.bindPopup(this.popupService.makeCapitalPopup(c.properties, this.getDataInDeparment(c.properties.population)));
 
         circle.addTo(map);
 
@@ -57,11 +57,12 @@ export class MarkerService {
 
     });
   }
-getDataInDeparment(iddep: number): any{
-  this.departmentService.getgenneralsum().subscribe(value => {
-    this.lista = value;
-  });
-  return this.lista;
 
-}
+  getDataInDeparment(iddep: number): any {
+    this.departmentService.getgenneralsum().subscribe(value => {
+      this.lista = value;
+    });
+    return this.lista;
+
+  }
 }

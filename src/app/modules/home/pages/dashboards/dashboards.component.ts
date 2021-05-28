@@ -226,7 +226,7 @@ export class DashboardsComponent implements OnInit {
   }
 
   async loaddata() {
-    var datos;
+    let datos;
     await this.servicedata.getBoliviaData().subscribe((value) => {
       datos = value;
       this.databolivia = value;
@@ -235,7 +235,7 @@ export class DashboardsComponent implements OnInit {
   }
 
   async loaddatadepartment() {
-    var depa;
+    let depa;
     await this.servicedash.getdatadepartments().subscribe((va) => {
       depa = va;
       this.dashboard = va;
@@ -258,21 +258,21 @@ export class DashboardsComponent implements OnInit {
     console.log(depa[9], 'holasdasdas');
 
     depa[9].datoDto.forEach(value => {
-      if (value.datatype == 'Confirmados') {
+      if (value.datatype === 'Confirmados') {
         this.Orurodatosc.push(value.data);
         this.Orurofecha.push(value.inDate);
       }
-      if (value.datatype== 'Muertos') {
+      if (value.datatype === 'Muertos') {
         this.Orurodatosm.push(value.data);
       }
-      if (value.datatype == 'Recuperados') {
+      if (value.datatype === 'Recuperados') {
         this.Orurodatosr.push(value.data);
       }
-      if (value.datatype == 'Vacuna 1ra Dosis') {
+      if (value.datatype === 'Vacuna 1ra Dosis') {
         this.Orurodatosv1.push(value.data);
         this.Orurofechav.push(value.inDate);
       }
-      if (value.datatype == 'Vacuna 2da Dosis') {
+      if (value.datatype === 'Vacuna 2da Dosis') {
         this.Orurodatosv2.push(value.data);
       }
     });
@@ -281,14 +281,14 @@ export class DashboardsComponent implements OnInit {
   loaddataChuqisaca(depa) {
 
     depa[8].datoDto.forEach(value => {
-      if (value.tipoDeDato == 'contagiados') {
+      if (value.tipoDeDato === 'contagiados') {
         this.Chuqisacadatosc.push(value.dato);
         this.Chuqisacafecha.push(value.fecha);
       }
-      if (value.tipoDeDato == 'muertos') {
+      if (value.tipoDeDato === 'muertos') {
         this.Chuqisacadatosm.push(value.dato);
       }
-      if (value.tipoDeDato == 'recuperados') {
+      if (value.tipoDeDato === 'recuperados') {
         this.Chuqisacadatosr.push(value.dato);
       }
     });
@@ -299,21 +299,21 @@ export class DashboardsComponent implements OnInit {
     console.log(depa[4], 'holasdasdas');
 
     depa[4].datoDto.forEach(value => {
-      if (value.tipoDeDato == 'contagiados') {
+      if (value.tipoDeDato === 'contagiados') {
         this.Potosidatosc.push(value.dato);
         this.Potosifecha.push(value.fecha);
       }
-      if (value.tipoDeDato == 'muertos') {
+      if (value.tipoDeDato === 'muertos') {
         this.Potosidatosm.push(value.dato);
       }
-      if (value.tipoDeDato == 'recuperados') {
+      if (value.tipoDeDato === 'recuperados') {
         this.Potosidatosr.push(value.dato);
       }
-      if (value.tipoDeDato == 'vacuna1') {
+      if (value.tipoDeDato === 'vacuna1') {
         this.Potosidatosv1.push(value.dato);
         this.Potosifechav.push(value.fecha);
       }
-      if (value.tipoDeDato == 'vacuna2') {
+      if (value.tipoDeDato === 'vacuna2') {
         this.Potosidatosv2.push(value.dato);
       }
     });
@@ -324,21 +324,21 @@ export class DashboardsComponent implements OnInit {
     console.log(depa[6], 'holasdasdas');
 
     depa[6].datoDto.forEach(value => {
-      if (value.tipoDeDato == 'contagiados') {
+      if (value.tipoDeDato === 'contagiados') {
         this.Benidatosc.push(value.dato);
         this.Benifecha.push(value.fecha);
       }
-      if (value.tipoDeDato == 'muertos') {
+      if (value.tipoDeDato === 'muertos') {
         this.Benidatosm.push(value.dato);
       }
-      if (value.tipoDeDato == 'recuperados') {
+      if (value.tipoDeDato === 'recuperados') {
         this.Benidatosr.push(value.dato);
       }
-      if (value.tipoDeDato == 'vacuna1') {
+      if (value.tipoDeDato === 'vacuna1') {
         this.Benidatosv1.push(value.dato);
         this.Benifechav.push(value.fecha);
       }
-      if (value.tipoDeDato == 'vacuna2') {
+      if (value.tipoDeDato === 'vacuna2') {
         this.Benidatosv2.push(value.dato);
       }
     });
@@ -349,21 +349,21 @@ export class DashboardsComponent implements OnInit {
     console.log(depa[3], 'holasdasdas');
 
     depa[3].datoDto.forEach(value => {
-      if (value.tipoDeDato == 'contagiados') {
+      if (value.tipoDeDato === 'contagiados') {
         this.SantaCruzdatosc.push(value.dato);
         this.SantaCruzfecha.push(value.fecha);
       }
-      if (value.tipoDeDato == 'muertos') {
+      if (value.tipoDeDato === 'muertos') {
         this.SantaCruzdatosm.push(value.dato);
       }
-      if (value.tipoDeDato == 'recuperados') {
+      if (value.tipoDeDato === 'recuperados') {
         this.SantaCruzdatosr.push(value.dato);
       }
-      if (value.tipoDeDato == 'vacuna1') {
+      if (value.tipoDeDato === 'vacuna1') {
         this.SantaCruzdatosv1.push(value.dato);
         this.SantaCruzfechav.push(value.fecha);
       }
-      if (value.tipoDeDato == 'vacuna2') {
+      if (value.tipoDeDato === 'vacuna2') {
         this.SantaCruzdatosv2.push(value.dato);
       }
     });
@@ -372,21 +372,21 @@ export class DashboardsComponent implements OnInit {
   loaddataLaPaz(depa) {
 
     depa[0].datoDto.forEach(value => {
-      if (value.tipoDeDato == 'contagiados') {
+      if (value.tipoDeDato === 'contagiados') {
         this.LaPazdatosc.push(value.dato);
         this.LaPazfecha.push(value.fecha);
       }
-      if (value.tipoDeDato == 'muertos') {
+      if (value.tipoDeDato === 'muertos') {
         this.LaPazdatosm.push(value.dato);
       }
-      if (value.tipoDeDato == 'recuperados') {
+      if (value.tipoDeDato === 'recuperados') {
         this.LaPazdatosr.push(value.dato);
       }
-      if (value.tipoDeDato == 'vacuna1') {
+      if (value.tipoDeDato === 'vacuna1') {
         this.LaPazdatosv1.push(value.dato);
         this.LaPazfechav.push(value.fecha);
       }
-      if (value.tipoDeDato == 'vacuna2') {
+      if (value.tipoDeDato === 'vacuna2') {
         this.LaPazdatosv2.push(value.dato);
       }
     });
@@ -395,21 +395,21 @@ export class DashboardsComponent implements OnInit {
   loaddataCochabamba(depa) {
 
     depa[1].datoDto.forEach(value => {
-      if (value.tipoDeDato == 'contagiados') {
+      if (value.tipoDeDato === 'contagiados') {
         this.Cochabambadatosc.push(value.dato);
         this.Cochabambafecha.push(value.fecha);
       }
-      if (value.tipoDeDato == 'muertos') {
+      if (value.tipoDeDato === 'muertos') {
         this.Cochabambadatosm.push(value.dato);
       }
-      if (value.tipoDeDato == 'recuperados') {
+      if (value.tipoDeDato === 'recuperados') {
         this.Cochabambadatosr.push(value.dato);
       }
-      if (value.tipoDeDato == 'vacuna1') {
+      if (value.tipoDeDato === 'vacuna1') {
         this.Cochabambadatosv1.push(value.dato);
         this.Cochabambafechav.push(value.fecha);
       }
-      if (value.tipoDeDato == 'vacuna2') {
+      if (value.tipoDeDato === 'vacuna2') {
         this.Cochabambadatosv2.push(value.dato);
       }
     });
@@ -418,21 +418,21 @@ export class DashboardsComponent implements OnInit {
   loaddataTarija(depa) {
 
     depa[2].datoDto.forEach(value => {
-      if (value.tipoDeDato == 'contagiados') {
+      if (value.tipoDeDato === 'contagiados') {
         this.Tarijadatosc.push(value.dato);
         this.Tarijafecha.push(value.fecha);
       }
-      if (value.tipoDeDato == 'muertos') {
+      if (value.tipoDeDato === 'muertos') {
         this.Tarijadatosm.push(value.dato);
       }
-      if (value.tipoDeDato == 'recuperados') {
+      if (value.tipoDeDato === 'recuperados') {
         this.Tarijadatosr.push(value.dato);
       }
-      if (value.tipoDeDato == 'vacuna1') {
+      if (value.tipoDeDato === 'vacuna1') {
         this.Tarijadatosv1.push(value.dato);
         this.Tarijafechav.push(value.fecha);
       }
-      if (value.tipoDeDato == 'vacuna2') {
+      if (value.tipoDeDato === 'vacuna2') {
         this.Tarijadatosv2.push(value.dato);
       }
     });
@@ -441,28 +441,28 @@ export class DashboardsComponent implements OnInit {
   loaddataPando(depa) {
 
     depa[5].datoDto.forEach(value => {
-      if (value.tipoDeDato == 'contagiados') {
+      if (value.tipoDeDato === 'contagiados') {
         this.Pandodatosc.push(value.dato);
         this.Pandofecha.push(value.fecha);
       }
-      if (value.tipoDeDato == 'muertos') {
+      if (value.tipoDeDato === 'muertos') {
         this.Pandodatosm.push(value.dato);
       }
-      if (value.tipoDeDato == 'recuperados') {
+      if (value.tipoDeDato === 'recuperados') {
         this.Pandodatosr.push(value.dato);
       }
-      if (value.tipoDeDato == 'vacuna1') {
+      if (value.tipoDeDato === 'vacuna1') {
         this.Pandodatosv1.push(value.dato);
         this.Pandofechav.push(value.fecha);
       }
-      if (value.tipoDeDato == 'vacuna2') {
+      if (value.tipoDeDato === 'vacuna2') {
         this.Pandodatosv2.push(value.dato);
       }
     });
   }
 
   async loadsuma() {
-    var suma;
+    let suma;
     await this.servicedepartment.getgenneralsum().subscribe((dash) => {
       suma = dash;
       this.dataSuma(suma);
@@ -473,13 +473,13 @@ export class DashboardsComponent implements OnInit {
   dataSuma(suma) {
 
     suma.map(value => {
-      if (value.tipoDeDato == 'contagiados') {
+      if (value.tipoDeDato === 'contagiados') {
         this.contagiados = value.dato;
       }
-      if (value.tipoDeDato == 'muertos') {
+      if (value.tipoDeDato === 'muertos') {
         this.muertos = value.dato;
       }
-      if (value.tipoDeDato == 'recuperados') {
+      if (value.tipoDeDato === 'recuperados') {
         this.recuperados = value.dato;
       }
 
@@ -592,7 +592,7 @@ export class DashboardsComponent implements OnInit {
     this.BeniLabel = this.Benifecha;
     this.BeniLabelv = this.Benifechav;
 
-//Chuqisaca
+    // Chuqisaca
     this.ChuqisacaData = [{data: this.Chuqisacadatosc, label: 'Contagiados'}];
     this.ChuqisacaDataM = [{data: this.Chuqisacadatosm, label: 'Muertos'}];
     this.ChuqisacaDataR = [{data: this.Chuqisacadatosr, label: 'Recuperados'}];
@@ -600,7 +600,7 @@ export class DashboardsComponent implements OnInit {
     this.ChuqisacaDataV1 = [{data: this.Chuqisacadatosv2, label: 'vacunado2'}];
     this.ChuqisacaLabel = this.Chuqisacafecha;
     this.ChuqisacaLabelv = this.Chuqisacafechav;
-//Oruro
+    // Oruro
     this.OruroData = [{data: this.Orurodatosc, label: 'Contagiados'}];
     this.OruroDataM = [{data: this.Orurodatosm, label: 'Muertos'}];
     this.OruroDataR = [{data: this.Orurodatosr, label: 'Recuperados'}];
@@ -615,17 +615,17 @@ export class DashboardsComponent implements OnInit {
 
   datatochart(datos) {
     datos.map((values) => {
-      if (values.tipoDeDato == 'contagiados') {
+      if (values.tipoDeDato === 'contagiados') {
         this.ndata.push(values.dato);
         this.date.push(values.fecha);
       }
-      if (values.tipoDeDato == 'muertos') {
+      if (values.tipoDeDato === 'muertos') {
         this.ddata.push(values.dato);
       }
-      if (values.tipoDeDato == 'recuperados') {
+      if (values.tipoDeDato === 'recuperados') {
         this.rdata.push(values.dato);
       }
-      if (values.tipoDeDato == 'vacuna1') {
+      if (values.tipoDeDato === 'vacuna1') {
         this.vdata.push(values.dato);
         this.vdate.push(values.fecha);
       }

@@ -6,7 +6,7 @@ import {Color, Label} from 'ng2-charts';
 import {DashboardService} from '../../../../services/dashboard.service';
 import {DatosService} from '../../../../services/datos.service';
 import {DepartmentService} from '../../../../services/department.service';
-import { ActivatedRoute } from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-department',
@@ -62,6 +62,7 @@ export class DepartmentComponent implements OnInit {
       backgroundColor: 'blue',
     },
   ];
+
   constructor(private servicedash: DashboardService,
               private servicedata: DatosService,
               private servicedepartment: DepartmentService,
@@ -76,7 +77,7 @@ export class DepartmentComponent implements OnInit {
     this.loadname();
   }
 
-  loadname(){
+  loadname() {
     var data;
     this.servicedepartment.getDepartments().subscribe((dash) => {
       data = dash;
@@ -84,6 +85,7 @@ export class DepartmentComponent implements OnInit {
       console.log(data);
     });
   }
+
   dataname(data) {
     const id = this.activatedRoute.snapshot.params.id;
     data.map(value => {
@@ -94,6 +96,7 @@ export class DepartmentComponent implements OnInit {
     });
 
   }
+
   async loadsuma() {
     var suma;
     const id = this.activatedRoute.snapshot.params.id;
@@ -139,6 +142,7 @@ export class DepartmentComponent implements OnInit {
       this.datatochart(datos);
     });
   }
+
   datatochart(datos) {
     console.log(datos);
 

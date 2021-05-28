@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {PredictionsService} from '../../../../services/predictions.service';
 import {Data} from '../../../../models/data.model';
 import {ChartDataSets} from 'chart.js';
@@ -40,21 +40,24 @@ export class PredictionsComponent implements OnInit {
       backgroundColor: 'green',
     },
   ];
-  constructor(private predictionsService:PredictionsService) { }
+
+  constructor(private predictionsService: PredictionsService) {
+  }
 
   ngOnInit(): void {
     this.getPredictions();
-    this.auxiliar()
+    this.auxiliar();
   }
 
-  async getPredictions(){
+  async getPredictions() {
     // await this.predictionsService.getPredictionsByDepartment(29,30).subscribe(value => {
     //   this.datatochart(value);
     // })
-    await this.predictionsService.getPredictionsByCountry(29,60).subscribe(value => {
+    await this.predictionsService.getPredictionsByCountry(29, 60).subscribe(value => {
       this.datatochart(value);
-    })
+    });
   }
+
   datatochart(datos) {
     console.log(datos);
 
@@ -74,6 +77,7 @@ export class PredictionsComponent implements OnInit {
     });
 
   }
+
   auxiliar() {
 
     this.lineChartData = [

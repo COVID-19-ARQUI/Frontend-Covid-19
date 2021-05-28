@@ -1,6 +1,5 @@
-
-import { NgModule, Component } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule, Component} from '@angular/core';
+import {Routes, RouterModule} from '@angular/router';
 import {MainComponent} from './layout/main/main.component';
 import {DashboardsComponent} from './modules/home/pages/dashboards/dashboards.component';
 import {DepartmentComponent} from './modules/home/pages/department/department.component';
@@ -12,7 +11,6 @@ import {DashboardseditComponent} from './modules/home/pages/dashboardsedit/dashb
 import {PredictionsComponent} from './modules/home/pages/predictions/predictions.component';
 import {ProfileComponent} from './modules/home/pages/profile/profile.component';
 import {AuthGuard} from '@auth0/auth0-angular';
-import {CountriesComponent} from './modules/home/pages/countries/countries.component';
 
 const routes: Routes = [
   {
@@ -27,6 +25,7 @@ const routes: Routes = [
       {
         path: 'profile',
         component: ProfileComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'principal',
@@ -59,10 +58,6 @@ const routes: Routes = [
       {
         path: 'predict',
         component: PredictionsComponent
-      },
-      {
-        path: 'countries',
-        component: CountriesComponent
       }
     ]
   },
@@ -88,4 +83,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule {
+}

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Dashboard} from '../../../../models/dashboard.model';
 import {Data} from '../../../../models/data.model';
 import {ChartDataSets} from 'chart.js';
@@ -63,15 +63,17 @@ export class DashboardsboliviaComponent implements OnInit {
 
   constructor(private servicedash: DashboardService,
               private servicedata: DatosService,
-              private servicedepartment: DepartmentService) { }
+              private servicedepartment: DepartmentService) {
+  }
 
   ngOnInit(): void {
     this.loaddata();
     this.loadsuma();
     this.auxiliar();
   }
+
   async loadsuma() {
-    var suma;
+    let suma;
     await this.servicedepartment.getgenneralsum().subscribe((dash) => {
       suma = dash;
       this.dataSuma(suma);
@@ -82,19 +84,19 @@ export class DashboardsboliviaComponent implements OnInit {
   dataSuma(suma) {
 
     suma.map(value => {
-      if (value.datatype == 'Confirmados') {
+      if (value.datatype === 'Confirmados') {
         this.contagiados = value.data;
       }
-      if (value.datatype == 'Muertos') {
+      if (value.datatype === 'Muertos') {
         this.muertos = value.data;
       }
-      if (value.datatype == 'Recuperados') {
+      if (value.datatype === 'Recuperados') {
         this.recuperados = value.data;
       }
-      if (value.datatype == 'Vacuna 1ra Dosis') {
+      if (value.datatype === 'Vacuna 1ra Dosis') {
         this.vacu1 = value.data;
       }
-      if (value.datatype == 'Vacuna 2da Dosis') {
+      if (value.datatype === 'Vacuna 2da Dosis') {
         this.vacu2 = value.data;
       }
 
@@ -111,25 +113,26 @@ export class DashboardsboliviaComponent implements OnInit {
       this.datatochart(datos);
     });
   }
+
   datatochart(datos) {
     console.log(datos);
 
     datos.map((values) => {
-      if (values.datatype == 'Confirmados') {
+      if (values.datatype === 'Confirmados') {
         this.ndata.push(values.data);
         this.date.push(values.inDate);
       }
-      if (values.datatype == 'Muertos') {
+      if (values.datatype === 'Muertos') {
         this.ddata.push(values.data);
       }
-      if (values.datatype == 'Recuperados') {
+      if (values.datatype === 'Recuperados') {
         this.rdata.push(values.data);
       }
-      if (values.datatype == 'Vacuna 1ra Dosis') {
+      if (values.datatype === 'Vacuna 1ra Dosis') {
         this.vdata.push(values.data);
         this.vdate.push(values.inDate);
       }
-      if (values.datatype == 'Vacuna 2da Dosis') {
+      if (values.datatype === 'Vacuna 2da Dosis') {
         this.v2data.push(values.data);
       }
     });

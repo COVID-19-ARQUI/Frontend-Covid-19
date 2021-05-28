@@ -1,30 +1,31 @@
 <div class="example-flex-container" style="align-content: center">
 
-    <button mat-icon-button color="primary">
-      <mat-icon>save</mat-icon>
-    </button>
-    <button mat-icon-button color="primary" [disabled]="isCheckedbar" (click)="isCheckedbar=true">
-      <mat-icon>bar_chart</mat-icon>
-    </button>
-    <button mat-icon-button color="primary" >
-      <mat-icon>donut_large</mat-icon>
-    </button>
+  <button mat-icon-button color="primary">
+    <mat-icon>save</mat-icon>
+  </button>
+  <button mat-icon-button color="primary" [disabled]="isCheckedbar" (click)="isCheckedbar=true">
+    <mat-icon>bar_chart</mat-icon>
+  </button>
+  <button mat-icon-button color="primary">
+    <mat-icon>donut_large</mat-icon>
+  </button>
 
-    <button mat-icon-button color="primary" [disabled]="isCheckedpie" (click)="isCheckedpie=true">
-      <mat-icon>pie_chart</mat-icon>
-    </button>
-    <button mat-icon-button color="primary" (click)="exportAsPDF('print');">
-      <mat-icon>print</mat-icon>
-    </button>
+  <button mat-icon-button color="primary" [disabled]="isCheckedpie" (click)="isCheckedpie=true">
+    <mat-icon>pie_chart</mat-icon>
+  </button>
+  <button mat-icon-button color="primary"
+          (click)="exportAsPDF('graphics-contagiados', 'graphics-muertos','graphics-recuperados');">
+    <mat-icon>print</mat-icon>
+  </button>
 
 </div>
 
 <div id="print">
 
 
-  <div  *ngIf="isCheckedbar" class="Bararas">
+  <div *ngIf="isCheckedbar" class="Bararas">
 
-    <mat-slide-toggle [(ngModel)]="isCheckedbar" color="primary" >Eliminar</mat-slide-toggle>
+    <mat-slide-toggle [(ngModel)]="isCheckedbar" color="primary">Eliminar</mat-slide-toggle>
 
     <div class="example-flex-container">
 
@@ -43,8 +44,8 @@
 
     </div>
     <div *ngIf="isCheckedbarcon">
-      <h1 style="text-align:center;" >Contagiados</h1>
-      <mat-slide-toggle [(ngModel)]="isCheckedbarcon" color="primary" >Eliminar</mat-slide-toggle>
+      <h1 style="text-align:center;">Contagiados</h1>
+      <mat-slide-toggle [(ngModel)]="isCheckedbarcon" color="primary">Eliminar</mat-slide-toggle>
       <canvas baseChart width="1500" height="500"
               [datasets]="lineChartData"
               [labels]="lineChartLabels"
@@ -55,8 +56,8 @@
       </canvas>
     </div>
     <div *ngIf="isCheckedbardead">
-      <mat-slide-toggle [(ngModel)]="isCheckedbardead" color="primary" >Eliminar</mat-slide-toggle>
-      <h1 style="text-align:center;" >Muertos</h1>
+      <mat-slide-toggle [(ngModel)]="isCheckedbardead" color="primary">Eliminar</mat-slide-toggle>
+      <h1 style="text-align:center;">Muertos</h1>
 
       <canvas baseChart width="1500" height="500"
               [datasets]="lineChartDatadead"
@@ -68,8 +69,8 @@
       </canvas>
     </div>
     <div *ngIf="isCheckedbarrec">
-      <mat-slide-toggle [(ngModel)]="isCheckedbarrec" color="primary" >Eliminar</mat-slide-toggle>
-      <h1 style="text-align:center;" >Recuperados</h1>
+      <mat-slide-toggle [(ngModel)]="isCheckedbarrec" color="primary">Eliminar</mat-slide-toggle>
+      <h1 style="text-align:center;">Recuperados</h1>
       <canvas baseChart width="1500" height="500"
               [datasets]="lineChartDatarec"
               [labels]="lineChartLabels"
@@ -80,19 +81,19 @@
       </canvas>
     </div>
   </div>
-<br>
+  <br>
   <div *ngIf="isCheckedpie" class="Pie">
 
-    <mat-slide-toggle [(ngModel)]="isCheckedpie" color="primary">Eliminar </mat-slide-toggle>
-    <mat-slide-toggle [(ngModel)]="isCheckedC" color="primary">Contaguiados </mat-slide-toggle>
-    <mat-slide-toggle [(ngModel)]="isCheckedM" color="primary">Muertos </mat-slide-toggle>
-    <mat-slide-toggle [(ngModel)]="isCheckedR" color="primary">Recuperados </mat-slide-toggle>
+    <mat-slide-toggle [(ngModel)]="isCheckedpie" color="primary">Eliminar</mat-slide-toggle>
+    <mat-slide-toggle [(ngModel)]="isCheckedC" color="primary">Contaguiados</mat-slide-toggle>
+    <mat-slide-toggle [(ngModel)]="isCheckedM" color="primary">Muertos</mat-slide-toggle>
+    <mat-slide-toggle [(ngModel)]="isCheckedR" color="primary">Recuperados</mat-slide-toggle>
 
     <mat-horizontal-stepper #stepper>
 
       <mat-step *ngIf="isCheckedC">
-        <ng-template matStepLabel>Contagiados</ng-template>
-        <div style="display: block;">
+        <ng-template matStepLabel id="selected">Contagiados</ng-template>
+        <div style="display: block;" id="graphics-contagiados">
           <canvas baseChart
                   [data]="pieChartData"
                   [labels]="pieChartLabels"
@@ -108,7 +109,7 @@
       <mat-step *ngIf="isCheckedM">
         <ng-template matStepLabel>Muertos</ng-template>
 
-        <div style="display: block;">
+        <div style="display: block;" id="graphics-muertos">
           <canvas baseChart
                   [data]="pieChartDataM"
                   [labels]="pieChartLabels"
@@ -123,7 +124,7 @@
       <mat-step *ngIf="isCheckedR">
         <ng-template matStepLabel>Recuperados</ng-template>
 
-        <div style="display: block;">
+        <div style="display: block;" id="graphics-recuperados">
           <canvas baseChart
                   [data]="pieChartDataR"
                   [labels]="pieChartLabels"
@@ -141,8 +142,6 @@
   </div>
 
 </div>
-
-
 
 
 <div class="donut">

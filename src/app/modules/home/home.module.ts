@@ -27,14 +27,13 @@ import {NoticiasComponent} from './pages/noticias/noticias.component';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatCardModule} from '@angular/material/card';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
-import { DashboardsboliviaComponent } from './pages/dashboardsbolivia/dashboardsbolivia.component';
-import { DashboardseditComponent } from './pages/dashboardsedit/dashboardsedit.component';
-import { PredictionsComponent } from './pages/predictions/predictions.component';
+import {MatNativeDateModule} from '@angular/material/core';
+import {DashboardsboliviaComponent} from './pages/dashboardsbolivia/dashboardsbolivia.component';
+import {DashboardseditComponent} from './pages/dashboardsedit/dashboardsedit.component';
+import {PredictionsComponent} from './pages/predictions/predictions.component';
 import {FormsModule} from '@angular/forms';
 import {BrowserModule} from '@angular/platform-browser';
-import { ProfileComponent } from './pages/profile/profile.component';
-import { CountriesComponent } from './pages/countries/countries.component';
+import {ProfileComponent} from './pages/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +51,6 @@ import { CountriesComponent } from './pages/countries/countries.component';
     DashboardseditComponent,
     PredictionsComponent,
     ProfileComponent,
-    CountriesComponent,
   ],
   imports: [
     CommonModule,

@@ -30,12 +30,13 @@ export class SideBarComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  loginWithRedirect():void{
+
+  loginWithRedirect(): void {
     this.auth.loginWithRedirect();
   }
-  logout():void{
-    this.auth.logout({returnTo: document.location.origin})
 
+  logout(): void {
+    this.auth.logout({returnTo: document.location.origin});
   }
 
 
