@@ -19,7 +19,7 @@ export class NewdataComponent implements OnInit {
   departments: DepartmentModel[];
   depselect:string;
   muniselect:string;
-  fecha:string;
+  fecha:Date;
   departmentControl: FormControl;
   dep:boolean;
   mun:boolean;
@@ -44,12 +44,18 @@ export class NewdataComponent implements OnInit {
     console.log(this.csvFile);
   }
 
-  signup(): void {
-
+  dataform(): void {
+    if(this.dep===false){
+      this.depselect="0";
+      this.muniselect=null;
+    }
+    if(this.mun===false){
+      this.muniselect=null;
+    }
     const data: dataupload={
       idData:0,
       data: 0,
-      inDate: this.fecha,
+      inDate: this.fecha.getFullYear()+"-"+(this.fecha.getMonth()+1)+"-"+this.fecha.getDate(),
       dataType: parseInt(this.selected),
       idcountry: 29,
       iddepartment: parseInt(this.depselect),
@@ -60,8 +66,8 @@ export class NewdataComponent implements OnInit {
   }
 
 
-  getDepartment(): DepartmentModel[] {
-    this.departmentService.getDepartments().subscribe(value => {
+  async getDepartment(): Promise<DepartmentModel[]> {
+    await this.departmentService.getDepartments().subscribe(value => {
       this.departments = value;
     });
     return this.departments;

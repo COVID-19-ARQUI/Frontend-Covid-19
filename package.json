@@ -22,6 +22,7 @@
     "@angular/platform-browser-dynamic": "~11.2.9",
     "@angular/router": "~11.2.9",
     "@auth0/auth0-angular": "^1.5.0",
+    "axios": "^0.21.1",
     "chart.js": "^2.9.4",
     "html2canvas": "^1.0.0-rc.7",
     "jspdf": "^2.3.1",

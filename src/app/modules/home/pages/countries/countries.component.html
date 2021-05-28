@@ -1,0 +1,26 @@
+<table >
+  <tr>
+    <th >Pais</th>
+    <th >Casos</th>
+    <th >Muertes</th>
+    <th >Recuperados</th>
+    <th >Casos nuevos</th>
+    <th >Criticos</th>
+    <th >Casos activos</th>
+
+  </tr>
+  <tr *ngFor="let a of dataCountries">
+    <td >{{a.country_name}}</td>
+    <td >{{a.cases}}</td>
+    <td >{{a.deaths}}</td>
+    <td >{{a.total_recovered}}</td>
+    <td >{{a.new_cases}}</td>
+    <td >{{a.serious_critical}}</td>
+    <td >{{a.active_cases}}</td>
+  </tr>
+
+</table>
+
+<!--<div *ngFor="let a of dataCountries">-->
+<!--  {{a.country_name}} - {{a.cases}}-->
+<!--</div>-->

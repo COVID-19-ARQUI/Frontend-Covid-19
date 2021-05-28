@@ -10,7 +10,7 @@
     <div class="sidebar-logo"></div>
     <mat-nav-list>
       <button (click)="loginWithRedirect()" *ngIf="(auth.isAuthenticated$ | async) === false ">Log-in</button>
-      <button (click)="logout()" *ngIf="(auth.isAuthenticated$ | async) === true ">Logout</button>
+      <button (click)="logout()" *ngIf="(auth.isAuthenticated$ | async) === true">Logout</button>
       <a
         mat-list-item
         routerLink="/main/dashbolivia"
