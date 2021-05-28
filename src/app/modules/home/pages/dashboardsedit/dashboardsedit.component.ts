@@ -125,15 +125,53 @@ export class DashboardseditComponent implements OnInit {
     this.auxiliar();
   }
 
-  exportAsPDF(divId) {
-    let data = document.getElementById(divId);
-    html2canvas(data).then(canvas => {
-      const contentDataURL = canvas.toDataURL('image/png')
-      let pdf = new jsPDF('l', 'cm', 'a4'); //Generates PDF in landscape mode
-      // let pdf = new jspdf('p', 'cm', 'a4'); Generates PDF in portrait mode
-      pdf.addImage(contentDataURL, 'PNG', 0, 0, 29.7, 21.0);
-      pdf.save('Dashboard.pdf');
-    });
+  exportAsPDF(divId1, divId2, divId3) {
+
+    let pdf = new jsPDF('l', 'cm', 'a4'); //Generates PDF in landscape mode
+    let data1 = document.getElementById(divId1);
+    let data2 = document.getElementById(divId2);
+    let data3 = document.getElementById(divId3);
+
+    /***
+    console.log(data1);
+    console.log(data2);
+    console.log(data3);*/
+
+
+    console.log("DATOS");
+    console.log(this.pieChartData);
+    console.log(this.pieChartDataM);
+    console.log(this.pieChartDataR);
+
+    if(this.isCheckedC && this.pieChartData){
+      html2canvas(data1).then(canvas => {
+        const contentDataURL = canvas.toDataURL('image/png')
+        pdf.addImage(contentDataURL, 'PNG', 0, 0, 29.7, 21.0);
+        pdf.save('confirmados.pdf');
+      });
+    }
+
+    if(this.isCheckedM && this.pieChartDataM){
+      html2canvas(data2).then(canvas => {
+        const contentDataURL = canvas.toDataURL('image/png')
+        pdf.addImage(contentDataURL, 'PNG', 0, 0, 29.7, 21.0);
+        pdf.save('decesos.pdf');
+      });
+    }
+
+
+    if(this.isCheckedR && this.pieChartDataR){
+      //console.log(this.pieChartDataR)
+      html2canvas(data3).then(canvas => {
+        const contentDataURL = canvas.toDataURL('image/png')
+        pdf.addImage(contentDataURL, 'PNG', 0, 0, 29.7, 21.0);
+        pdf.save('recuperados.pdf');
+      });
+    }
+
+
+
+
   }
   async loadsuma() {
     var suma;

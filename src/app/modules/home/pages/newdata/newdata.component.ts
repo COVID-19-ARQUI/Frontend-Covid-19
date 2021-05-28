@@ -1,13 +1,11 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {DepartmentService} from '../../../../services/department.service';
 import {DepartmentModel} from '../../../../models/department.model';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormControl} from '@angular/forms';
 import {HttpErrorResponse, HttpEventType} from '@angular/common/http';
 import {FilesService} from '../../../../services/files.service';
 import {Subscription} from 'rxjs';
 import {finalize} from 'rxjs/operators';
-import {dataupload} from '../../../../models/dataupload.model';
-import {DatosService} from '../../../../services/datos.service';
 
 @Component({
   selector: 'app-newdata',
@@ -16,11 +14,9 @@ import {DatosService} from '../../../../services/datos.service';
 })
 
 export class NewdataComponent implements OnInit {
-  form: FormGroup;
   departments: DepartmentModel[];
   depselect:string;
   muniselect:string;
-  fecha:Date;
   departmentControl: FormControl;
   dep:boolean;
   mun:boolean;
@@ -32,7 +28,6 @@ export class NewdataComponent implements OnInit {
   uploadSub: Subscription;
 
   constructor(
-    private dataService: DatosService,
     private departmentService: DepartmentService,
     private filesService: FilesService
   ) {
@@ -46,31 +41,8 @@ export class NewdataComponent implements OnInit {
     console.log(this.csvFile);
   }
 
-  dataform(): void {
-    if(this.dep===false){
-      this.depselect="0";
-      this.muniselect=null;
-    }
-    if(this.mun===false){
-      this.muniselect=null;
-    }
-    const data: dataupload={
-      idData:0,
-      data: 0,
-      inDate: this.fecha.getFullYear()+"-"+(this.fecha.getMonth()+1)+"-"+this.fecha.getDate(),
-      dataType: parseInt(this.selected),
-      idcountry: 29,
-      iddepartment: parseInt(this.depselect),
-      idmunicipality: this.muniselect,
-    }
-    this.dataService.postNewData(data).subscribe(value => {
-      alert("Registro exitoso")
-    });
-  }
-
-
-  async getDepartment(): Promise<DepartmentModel[]> {
-    await this.departmentService.getDepartments().subscribe(value => {
+  getDepartment(): DepartmentModel[] {
+    this.departmentService.getDepartments().subscribe(value => {
       this.departments = value;
     });
     return this.departments;

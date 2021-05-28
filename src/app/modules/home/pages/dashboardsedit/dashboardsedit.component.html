@@ -13,7 +13,7 @@
     <button mat-icon-button color="primary" [disabled]="isCheckedpie" (click)="isCheckedpie=true">
       <mat-icon>pie_chart</mat-icon>
     </button>
-    <button mat-icon-button color="primary" (click)="exportAsPDF('print');">
+    <button mat-icon-button color="primary" (click)="exportAsPDF('graphics-contagiados', 'graphics-muertos','graphics-recuperados');">
       <mat-icon>print</mat-icon>
     </button>
 
@@ -88,11 +88,11 @@
     <mat-slide-toggle [(ngModel)]="isCheckedM" color="primary">Muertos </mat-slide-toggle>
     <mat-slide-toggle [(ngModel)]="isCheckedR" color="primary">Recuperados </mat-slide-toggle>
 
-    <mat-horizontal-stepper #stepper>
+    <mat-horizontal-stepper #stepper >
 
-      <mat-step *ngIf="isCheckedC">
-        <ng-template matStepLabel>Contagiados</ng-template>
-        <div style="display: block;">
+      <mat-step *ngIf="isCheckedC" >
+        <ng-template matStepLabel id="selected">Contagiados</ng-template>
+        <div style="display: block;" id="graphics-contagiados">
           <canvas baseChart
                   [data]="pieChartData"
                   [labels]="pieChartLabels"
@@ -108,7 +108,7 @@
       <mat-step *ngIf="isCheckedM">
         <ng-template matStepLabel>Muertos</ng-template>
 
-        <div style="display: block;">
+        <div style="display: block;" id="graphics-muertos">
           <canvas baseChart
                   [data]="pieChartDataM"
                   [labels]="pieChartLabels"
@@ -123,7 +123,7 @@
       <mat-step *ngIf="isCheckedR">
         <ng-template matStepLabel>Recuperados</ng-template>
 
-        <div style="display: block;">
+        <div style="display: block;" id="graphics-recuperados">
           <canvas baseChart
                   [data]="pieChartDataR"
                   [labels]="pieChartLabels"

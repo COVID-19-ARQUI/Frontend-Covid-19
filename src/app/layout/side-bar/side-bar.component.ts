@@ -35,7 +35,6 @@ export class SideBarComponent implements OnInit {
   }
   logout():void{
     this.auth.logout({returnTo: document.location.origin})
-
   }
 
 

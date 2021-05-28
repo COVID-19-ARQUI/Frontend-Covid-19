@@ -12,7 +12,6 @@ import {DashboardseditComponent} from './modules/home/pages/dashboardsedit/dashb
 import {PredictionsComponent} from './modules/home/pages/predictions/predictions.component';
 import {ProfileComponent} from './modules/home/pages/profile/profile.component';
 import {AuthGuard} from '@auth0/auth0-angular';
-import {CountriesComponent} from './modules/home/pages/countries/countries.component';
 
 const routes: Routes = [
   {
@@ -27,6 +26,7 @@ const routes: Routes = [
       {
         path: 'profile',
         component: ProfileComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'principal',
@@ -59,10 +59,6 @@ const routes: Routes = [
       {
         path: 'predict',
         component: PredictionsComponent
-      },
-      {
-        path: 'countries',
-        component: CountriesComponent
       }
     ]
   },

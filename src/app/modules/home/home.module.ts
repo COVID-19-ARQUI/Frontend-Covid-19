@@ -34,7 +34,6 @@ import { PredictionsComponent } from './pages/predictions/predictions.component'
 import {FormsModule} from '@angular/forms';
 import {BrowserModule} from '@angular/platform-browser';
 import { ProfileComponent } from './pages/profile/profile.component';
-import { CountriesComponent } from './pages/countries/countries.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +51,6 @@ import { CountriesComponent } from './pages/countries/countries.component';
     DashboardseditComponent,
     PredictionsComponent,
     ProfileComponent,
-    CountriesComponent,
   ],
   imports: [
     CommonModule,
