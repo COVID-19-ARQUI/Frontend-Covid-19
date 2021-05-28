@@ -1,4 +1,4 @@
-<div class="form_data">
+<mat-card class="form_data">
   <div>
     <mat-form-field appearance="outline">
       <mat-label>Datos a ingresar</mat-label>
@@ -67,7 +67,15 @@
 
   </div>
 
-</div>
+
+  <button mat-raised-button color="primary" (click)="dataform()">
+    Guardar
+  </button
+  >
+  <br/>
+
+</mat-card>
+
 
 <div id="csv">
   <input type="file" class="file-input" (change)="onFileSelected($event)" #fileUpload>

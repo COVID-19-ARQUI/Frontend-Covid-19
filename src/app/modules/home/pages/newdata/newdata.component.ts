@@ -7,6 +7,8 @@ import {FilesService} from '../../../../services/files.service';
 import {Subscription} from 'rxjs';
 import {finalize} from 'rxjs/operators';
 import {dataupload} from '../../../../models/dataupload.model';
+import {DatosService} from '../../../../services/datos.service';
+
 
 @Component({
   selector: 'app-newdata',
@@ -17,17 +19,17 @@ import {dataupload} from '../../../../models/dataupload.model';
 export class NewdataComponent implements OnInit {
   form: FormGroup;
   departments: DepartmentModel[];
-  depselect:string;
-  muniselect:string;
-  fecha:Date;
+  depselect: string;
+  muniselect: string;
+  fecha: Date;
   departmentControl: FormControl;
-  dep:boolean;
-  mun:boolean;
+  dep: boolean;
+  mun: boolean;
   csvFile: File;
   @Input() requiredFileType: string;
   fileName = '';
   uploadProgress: number;
-  selected :string;
+  selected: string;
   uploadSub: Subscription;
 
   constructor(
@@ -46,24 +48,24 @@ export class NewdataComponent implements OnInit {
   }
 
   dataform(): void {
-    if(this.dep===false){
-      this.depselect="0";
-      this.muniselect=null;
+    if (this.dep === false) {
+      this.depselect = '0';
+      this.muniselect = null;
     }
-    if(this.mun===false){
-      this.muniselect=null;
+    if (this.mun === false) {
+      this.muniselect = null;
     }
-    const data: dataupload={
-      idData:0,
+    const data: dataupload = {
+      idData: 0,
       data: 0,
-      inDate: this.fecha.getFullYear()+"-"+(this.fecha.getMonth()+1)+"-"+this.fecha.getDate(),
+      inDate: this.fecha.getFullYear() + '-' + (this.fecha.getMonth() + 1) + '-' + this.fecha.getDate(),
       dataType: parseInt(this.selected),
       idcountry: 29,
       iddepartment: parseInt(this.depselect),
       idmunicipality: this.muniselect,
-    }
+    };
     console.log(data);
-    alert("llego ")
+    alert('llego ');
   }
 
 
