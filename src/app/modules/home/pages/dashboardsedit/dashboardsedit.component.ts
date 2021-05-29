@@ -245,9 +245,11 @@ export class DashboardseditComponent implements OnInit {
         }
         if (value.datatype === 'Muertos') {
           this.SingleDataSetM.push(value.data);
+          console.log(value.data,"m");
         }
         if (value.datatype === 'Recuperados') {
           this.SingleDataSetR.push(value.data);
+          console.log(value.data,"m");
         }
       }
       if (i === 2) {
@@ -256,7 +258,8 @@ export class DashboardseditComponent implements OnInit {
           this.pieChartColors[0].backgroundColor.push('rgba(6,215,239,0.3)');
           this.labels.push('Cochabamba');
           this.SingleDataSet.push(value.data);
-          //this.resultsDepartment.push({data:value.data,department:'Cochabamba'});
+
+         // this.resultsDepartment.push({data:value.data,department:'Cochabamba'});
         }
         if (value.datatype === 'Muertos') {
           this.SingleDataSetM.push(value.data);
@@ -288,6 +291,7 @@ export class DashboardseditComponent implements OnInit {
           this.labels.push('Santa Cruz');
 
           //this.resultsDepartment.push({data:value.data,department:'Santa Cruz'});
+
         }
         if (value.datatype === 'Muertos') {
           this.SingleDataSetM.push(value.data);
@@ -302,8 +306,8 @@ export class DashboardseditComponent implements OnInit {
           this.SingleDataSet.push(value.data);
           this.pieChartColors[0].backgroundColor.push('rgba(239,126,6,0.3)');
           this.labels.push('Potosí');
-
           //this.resultsDepartment.push({data:value.data,department:'Potosi'});
+
         }
         if (value.datatype === 'Muertos') {
           this.SingleDataSetM.push(value.data);
@@ -318,8 +322,8 @@ export class DashboardseditComponent implements OnInit {
           this.SingleDataSet.push(value.data);
           this.pieChartColors[0].backgroundColor.push('rgba(6,239,212,0.3)');
           this.labels.push('Pando');
-
           //this.resultsDepartment.push({data:value.data,department:'Pando'});
+
         }
         if (value.datatype === 'Muertos') {
           this.SingleDataSetM.push(value.data);
@@ -335,6 +339,7 @@ export class DashboardseditComponent implements OnInit {
           this.pieChartColors[0].backgroundColor.push('rgba(196,6,239,0.3)');
           this.labels.push('Beni');
           //this.resultsDepartment.push({data:value.data,department:'Beni'});
+
         }
         if (value.datatype === 'Muertos') {
           this.SingleDataSetM.push(value.data);
@@ -349,7 +354,6 @@ export class DashboardseditComponent implements OnInit {
           this.pieChartColors[0].backgroundColor.push('rgba(6,64,239,0.3)');
           this.labels.push('Oruro');
           this.SingleDataSet.push(value.data);
-
           //this.resultsDepartment.push({data:value.data,department:'Oruro'});
         }
         if (value.datatype === 'Muertos') {
@@ -365,7 +369,6 @@ export class DashboardseditComponent implements OnInit {
           this.pieChartColors[0].backgroundColor.push('rgba(239,200,6,0.3)');
           this.labels.push('Chuquisaca');
           this.SingleDataSet.push(value.data);
-
           //this.resultsDepartment.push({data:value.data,department:'Chuquisaca'});
         }
         if (value.datatype === 'Muertos') {
@@ -379,6 +382,8 @@ export class DashboardseditComponent implements OnInit {
     });
 
   }
+
+
 
   async loaddata() {
     let datos;
@@ -399,6 +404,7 @@ export class DashboardseditComponent implements OnInit {
         if (values.datatype === 'Confirmados') {
           this.ndata.push(values.data);
           this.date.push(values.inDate);
+
         }
         if (values.datatype === 'Muertos') {
           this.ddata.push(values.data);
@@ -502,6 +508,7 @@ export class DashboardseditComponent implements OnInit {
   }
 
   auxiliar() {
+
     this.lineChartData = [
       {data: this.ndata, label: 'La Paz'},
       {data: this.ndata3, label: 'Cochabamba'},
@@ -537,9 +544,9 @@ export class DashboardseditComponent implements OnInit {
       {data: this.rdata10, label: 'Chuquisaca'},
     ];
     this.lineChartLabels = this.date;
-    // console.log(this.SingleDataSetM,"fafafas");
-    // console.log(this.SingleDataSetR);
-    // console.log(this.SingleDataSet);
+    console.log(this.SingleDataSetM,"muertos");
+    console.log(this.SingleDataSetR);
+    console.log(this.SingleDataSet);
     this.pieChartData = this.SingleDataSet;
     this.pieChartDataM = this.SingleDataSetM;
     this.pieChartDataR = this.SingleDataSetR;

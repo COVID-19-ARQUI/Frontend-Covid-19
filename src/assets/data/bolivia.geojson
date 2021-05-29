@@ -13,7 +13,7 @@
       "properties": {
         "state": "Bolivia",
         "name": "Beni",
-        "population": 8,
+        "population": 7,
         "contagios":5289,
         "Muertes":291,
         "recuperados":289
@@ -31,7 +31,7 @@
       "properties": {
         "state": "Bolivia",
         "name": "Chuquisaca",
-        "population": 10,
+        "population": 9,
         "contagios":1826,
         "Muertes":108,
         "recuperados":108
@@ -49,7 +49,7 @@
       "properties": {
         "state": "Bolivia",
         "name": "Cochabamba",
-        "population": 3,
+        "population": 2,
         "contagios":6246,
         "Muertes":603,
         "recuperados":571
@@ -67,7 +67,7 @@
       "properties": {
         "state": "Bolivia",
         "name": "La Paz",
-        "population": 2,
+        "population": 1,
        "contagios":13371,
         "Muertes":218,
         "recuperados":226
@@ -85,7 +85,7 @@
       "properties": {
         "state": "Bolivia",
         "name": "Oruro",
-        "population": 9,
+        "population": 8,
        "contagios":2287,
         "Muertes":179,
         "recuperados":191
@@ -103,7 +103,7 @@
       "properties": {
         "state": "Bolivia",
         "name": "Pando",
-        "population": 7,
+        "population": 6,
          "contagios":1365,
          "Muertes":117,
          "recuperados":117
@@ -121,7 +121,7 @@
       "properties": {
         "state": "Bolivia",
         "name": "Potosi",
-        "population": 6,
+        "population": 5,
          "contagios":1289,
          "Muertes":49,
          "recuperados":52
@@ -140,7 +140,7 @@
       "properties": {
         "state": "Bolivia",
         "name": "Santa Cruz",
-        "population": 5,
+        "population": 4,
          "contagios":30243,
           "Muertes":967,
           "recuperados":928
@@ -158,7 +158,7 @@
       "properties": {
         "state": "Bolivia",
         "name": "Tarija",
-        "population": 4,
+        "population": 3,
          "contagios":2825,
           "Muertes":80,
           "recuperados":76

@@ -15,13 +15,16 @@ export class PopupService {
   constructor(private http: HttpClient, private servicedata: DatosService) {
   }
 
-  makeCapitalPopup(data: any, data2: any): string {
+  makeCapitalPopup(data: any,suma: any): string {
+    //console.log(suma[0]);
 
     return `` +
       `<div >Capital: ${data.name}</div>` +
-      `<div>State: ${data.state}</div>` +
-      `<div>contagios:${data.contagios} </div>
-         <div>Muertes:${data.Muertes} </div>
-        <div>recuperados:${data.recuperados} </div>`;
+      `<div>contagios:${suma[0].data} </div>
+      <div>Muertes:${suma[1].data} </div>
+      <div>Recuperados:${suma[2].data} </div>
+      <div>Vacuna primera dosis:${suma[3].data} </div>
+      <div>Vacuna segunda dosis :${suma[4].data} </div>`
+    ;
   }
 }
