@@ -1,10 +1,44 @@
-<mat-grid-list [cols]="10" rowHeight="4rem">
-  <mat-grid-tile [colspan]="10" [rowspan]="1">
 
-    <h1>Mapa covid Bolivia</h1>
+<mat-card-title align="center">Mapa Bolivia</mat-card-title>
+<mat-grid-list cols="5" rowHeight="5:2">
+  <mat-grid-tile>
+    <mat-card>
+      <mat-card-title>Contagiados</mat-card-title>
+      <mat-card-content align="center">{{contagiados}}</mat-card-content>
 
-    <h1>Bolivia</h1>
+    </mat-card>
   </mat-grid-tile>
+  <mat-grid-tile>
+    <mat-card>
+      <mat-card-title>Muertos</mat-card-title>
+      <mat-card-content align="center">{{muertos}}</mat-card-content>
+
+
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <mat-card>
+      <mat-card-title>Recuperados</mat-card-title>
+      <mat-card-content align="center">{{recuperados}}</mat-card-content>
+      <!--      <mat-icon aria-hidden="false" aria-label="Example home icon" >home</mat-icon>-->
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <mat-card>
+      <mat-card-title>Primera Dosis</mat-card-title>
+      <mat-card-content align="center">{{vacu1}}</mat-card-content>
+      <!--      <mat-icon aria-hidden="false" aria-label="Example home icon" >home</mat-icon>-->
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <mat-card>
+      <mat-card-title>Segunda Dosis</mat-card-title>
+      <mat-card-content align="center">{{vacu2}}</mat-card-content>
+      <!--      <mat-icon aria-hidden="false" aria-label="Example home icon" >home</mat-icon>-->
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+<mat-grid-list [cols]="10" rowHeight="4rem">
 
 
   <mat-grid-tile [colspan]="10" [rowspan]="10">
@@ -16,16 +50,6 @@
     </div>
   </mat-grid-tile>
 
-  <mat-grid-tile [colspan]="10" [rowspan]="5">
-    <table>
-      <td>Tipo de dato</td>
-      <td>Dato</td>
-      <tr *ngFor="let dash of lista">
-        <td>{{ dash.datatype}}</td>
-        <td>{{ dash.data}}</td>
-      </tr>
-    </table>
-  </mat-grid-tile>
 </mat-grid-list>
 
 

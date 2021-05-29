@@ -27,15 +27,12 @@ L.Marker.prototype.options.icon = iconDefault;
   styleUrls: ['./principal.component.css']
 })
 export class PrincipalComponent implements OnInit {
-  databolivia: Data[] = [];
-  lista: any;
-  listav1: Data;
-  listav2: Data;
+  contagiados: number;
+  muertos: number;
+  recuperados: number;
+  vacu1: number;
+  vacu2: number;
   private map;
-  ndata: number[] = [];
-  nddata: number[] = [];
-  zona: number[] = [];
-
   private initMap(): void {
     this.map = L.map('map', {
       center: [-16.290154, -63.588653],
@@ -56,63 +53,46 @@ export class PrincipalComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.loadsuma();
     this.initMap();
     // this.markerService.makeCapitalMarkers(this.map);
-    this.listdatos();
-    this.listdatosv1();
-    this.listdatosv2();
-    for (let _i = 0; _i < 9; _i++) {
-      this.listdatodepa(_i);
-    }
-    this.auxiliar();
-    this.markerService.makeCapitalCircleMarkers(this.map, this.zona, this.ndata, this.nddata);
-    // console.log(this.lista);
+    this.markerService.makeCapitalCircleMarkers(this.map,this.contagiados);
+
   }
 
-  listdatos(): any {
-    this.departmentService.getgenneralsum().subscribe(value => {
-      this.lista = value;
-    });
-    return this.lista;
-  }
 
-  listdatosv1(): any {
-    this.departmentService.getgenneralvaccine().subscribe(value => {
-      this.listav1 = value;
-    });
-    return this.lista;
-  }
-
-  listdatosv2(): any {
-    this.departmentService.getgenneralvaccine2().subscribe(value => {
-      this.listav2 = value;
-    });
-    return this.lista;
-  }
-
-  // tslint:disable-next-line:typedef
-  async listdatodepa(ndep: number) {
-    let datos;
-    await this.departmentService.getgenneralsumdep(ndep).subscribe((value) => {
-      datos = value;
-      this.databolivia = value;
-      this.datatochart(datos);
+  async loadsuma() {
+    let suma;
+    await this.departmentService.getgenneralsum().subscribe((dash) => {
+      suma = dash;
+      this.dataSuma(suma);
+      //console.log(dash ,"rtr");
     });
   }
 
-  // tslint:disable-next-line:typedef
-  datatochart(datos) {
-    datos.map((values) => {
-      this.ndata.push(values.dato);
-      this.nddata.push(values.tipoDeDato);
-      this.zona.push(values.zonaId);
+  dataSuma(suma) {
+    suma.map(value => {
+      if (value.datatype === 'Confirmados') {
+        this.contagiados = value.data;
+      }
+      if (value.datatype === 'Muertos') {
+        this.muertos = value.data;
+      }
+      if (value.datatype === 'Recuperados') {
+        this.recuperados = value.data;
+      }
+      if (value.datatype === 'Vacuna 1ra Dosis') {
+        this.vacu1 = value.data;
+      }
+      if (value.datatype === 'Vacuna 2da Dosis') {
+        this.vacu2 = value.data;
+      }
+
     });
+
   }
 
-  // tslint:disable-next-line:typedef
-  auxiliar() {
-    console.log(this.ndata);
-    console.log(this.nddata);
-    console.log(this.zona);
-  }
+
+
+
 }
