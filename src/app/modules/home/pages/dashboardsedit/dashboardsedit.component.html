@@ -14,7 +14,7 @@
     <mat-icon>pie_chart</mat-icon>
   </button>
   <button mat-icon-button color="primary"
-          (click)="exportAsPDF('graphics-contagiados', 'graphics-muertos','graphics-recuperados');">
+          (click)="exportAsPDF();">
     <mat-icon>print</mat-icon>
   </button>
 
@@ -23,122 +23,140 @@
 <div id="print">
 
 
-  <div *ngIf="isCheckedbar" class="Bararas">
+  <div id="Bararas">
+    <div *ngIf="isCheckedbar"  >
 
-    <mat-slide-toggle [(ngModel)]="isCheckedbar" color="primary">Eliminar</mat-slide-toggle>
+      <mat-slide-toggle  [(ngModel)]="isCheckedbar" color="primary" data-html2canvas-ignore="true">Eliminar</mat-slide-toggle>
 
-    <div class="example-flex-container">
+      <div class="example-flex-container" data-html2canvas-ignore="true">
 
-      <button mat-icon-button color="accent" [disabled]="isCheckedbarcon" (click)="isCheckedbarcon=true">
-        Contaguiados
-        <mat-icon>warning icon</mat-icon>
-      </button>
-      <br>
-      <button mat-icon-button color="warn" [disabled]="isCheckedbardead" (click)="isCheckedbardead=true"> Muertos
-        <mat-icon>error icon</mat-icon>
-      </button>
-      <br>
-      <button mat-icon-button color="primary" [disabled]="isCheckedbarrec" (click)="isCheckedbarrec=true"> Recuperados
-        <mat-icon>done</mat-icon>
-      </button>
+        <button mat-icon-button color="accent" [disabled]="isCheckedbarcon" (click)="isCheckedbarcon=true">
+          Contaguiados
+          <mat-icon>warning icon</mat-icon>
+        </button>
+        <br>
+        <button mat-icon-button color="warn" [disabled]="isCheckedbardead" (click)="isCheckedbardead=true"> Muertos
+          <mat-icon>error icon</mat-icon>
+        </button>
+        <br>
+        <button mat-icon-button color="primary" [disabled]="isCheckedbarrec" (click)="isCheckedbarrec=true"> Recuperados
+          <mat-icon>done</mat-icon>
+        </button>
 
-    </div>
-    <div *ngIf="isCheckedbarcon">
-      <h1 style="text-align:center;">Contagiados</h1>
-      <mat-slide-toggle [(ngModel)]="isCheckedbarcon" color="primary">Eliminar</mat-slide-toggle>
-      <canvas baseChart width="1500" height="500"
-              [datasets]="lineChartData"
-              [labels]="lineChartLabels"
-              [colors]="lineChartColors"
-              [legend]="lineChartLegend"
-              [chartType]="lineChartType"
-              [plugins]="lineChartPlugins">
-      </canvas>
-    </div>
-    <div *ngIf="isCheckedbardead">
-      <mat-slide-toggle [(ngModel)]="isCheckedbardead" color="primary">Eliminar</mat-slide-toggle>
-      <h1 style="text-align:center;">Muertos</h1>
+      </div>
 
-      <canvas baseChart width="1500" height="500"
-              [datasets]="lineChartDatadead"
-              [labels]="lineChartLabels"
-              [colors]="lineChartColors"
-              [legend]="lineChartLegend"
-              [chartType]="lineChartType"
-              [plugins]="lineChartPlugins">
-      </canvas>
-    </div>
-    <div *ngIf="isCheckedbarrec">
-      <mat-slide-toggle [(ngModel)]="isCheckedbarrec" color="primary">Eliminar</mat-slide-toggle>
-      <h1 style="text-align:center;">Recuperados</h1>
-      <canvas baseChart width="1500" height="500"
-              [datasets]="lineChartDatarec"
-              [labels]="lineChartLabels"
-              [colors]="lineChartColors"
-              [legend]="lineChartLegend"
-              [chartType]="lineChartType"
-              [plugins]="lineChartPlugins">
-      </canvas>
+      <div id="bar-contagiados">
+        <div *ngIf="isCheckedbarcon" >
+          <h1 style="text-align:center;">Contagiados</h1>
+          <mat-slide-toggle [(ngModel)]="isCheckedbarcon" color="primary" data-html2canvas-ignore="true" >Eliminar</mat-slide-toggle>
+          <canvas baseChart width="1500" height="500"
+                  [datasets]="lineChartData"
+                  [labels]="lineChartLabels"
+                  [colors]="lineChartColors"
+                  [legend]="lineChartLegend"
+                  [chartType]="lineChartType"
+                  [plugins]="lineChartPlugins">
+          </canvas>
+        </div>
+      </div>
+
+      <div id="bar-muertos">
+        <div *ngIf="isCheckedbardead">
+          <mat-slide-toggle [(ngModel)]="isCheckedbardead" color="primary" data-html2canvas-ignore="true">Eliminar</mat-slide-toggle>
+          <h1 style="text-align:center;">Muertos</h1>
+
+          <canvas baseChart width="1500" height="500"
+                  [datasets]="lineChartDatadead"
+                  [labels]="lineChartLabels"
+                  [colors]="lineChartColors"
+                  [legend]="lineChartLegend"
+                  [chartType]="lineChartType"
+                  [plugins]="lineChartPlugins">
+          </canvas>
+        </div>
+      </div>
+
+      <div id="bar-recuperados">
+        <div *ngIf="isCheckedbarrec">
+          <mat-slide-toggle [(ngModel)]="isCheckedbarrec" color="primary" data-html2canvas-ignore="true">Eliminar</mat-slide-toggle>
+          <h1 style="text-align:center;">Recuperados</h1>
+          <canvas baseChart width="1500" height="500"
+                  [datasets]="lineChartDatarec"
+                  [labels]="lineChartLabels"
+                  [colors]="lineChartColors"
+                  [legend]="lineChartLegend"
+                  [chartType]="lineChartType"
+                  [plugins]="lineChartPlugins">
+          </canvas>
+        </div>
+      </div>
+
+
     </div>
   </div>
+
   <br>
-  <div *ngIf="isCheckedpie" class="Pie">
 
-    <mat-slide-toggle [(ngModel)]="isCheckedpie" color="primary">Eliminar</mat-slide-toggle>
-    <mat-slide-toggle [(ngModel)]="isCheckedC" color="primary">Contaguiados</mat-slide-toggle>
-    <mat-slide-toggle [(ngModel)]="isCheckedM" color="primary">Muertos</mat-slide-toggle>
-    <mat-slide-toggle [(ngModel)]="isCheckedR" color="primary">Recuperados</mat-slide-toggle>
+  <div id="pie-imagen">
+    <div *ngIf="isCheckedpie" class="Pie">
 
-    <mat-horizontal-stepper #stepper>
+      <mat-slide-toggle [(ngModel)]="isCheckedpie" color="primary" data-html2canvas-ignore="true">Eliminar</mat-slide-toggle>
+      <mat-slide-toggle [(ngModel)]="isCheckedC" color="primary" data-html2canvas-ignore="true">Contagiados</mat-slide-toggle>
+      <mat-slide-toggle [(ngModel)]="isCheckedM" color="primary" data-html2canvas-ignore="true">Muertos</mat-slide-toggle>
+      <mat-slide-toggle [(ngModel)]="isCheckedR" color="primary" data-html2canvas-ignore="true">Recuperados</mat-slide-toggle>
 
-      <mat-step *ngIf="isCheckedC">
-        <ng-template matStepLabel id="selected">Contagiados</ng-template>
-        <div style="display: block;" id="graphics-contagiados">
-          <canvas baseChart id="canvas-contagiados"
-                  [data]="pieChartData"
-                  [labels]="pieChartLabels"
-                  [chartType]="pieChartType"
-                  [options]="pieChartOptions"
-                  [plugins]="pieChartPlugins"
-                  [colors]="pieChartColors"
-                  [legend]="pieChartLegend">
-          </canvas>
-        </div>
+      <mat-horizontal-stepper #stepper>
 
-      </mat-step>
-      <mat-step *ngIf="isCheckedM">
-        <ng-template matStepLabel>Muertos</ng-template>
+        <mat-step *ngIf="isCheckedC">
+          <ng-template matStepLabel>Contagiados</ng-template>
+          <div style="display: block;" id="graphics-contagiados">
+            <canvas baseChart id="canvas-contagiados"
+                    [data]="pieChartData"
+                    [labels]="pieChartLabels"
+                    [chartType]="pieChartType"
+                    [options]="pieChartOptions"
+                    [plugins]="pieChartPlugins"
+                    [colors]="pieChartColors"
+                    [legend]="pieChartLegend">
+            </canvas>
+          </div>
 
-        <div style="display: block;" id="graphics-muertos">
-          <canvas baseChart id="canvas-muertos"
-                  [data]="pieChartDataM"
-                  [labels]="pieChartLabels"
-                  [chartType]="pieChartType"
-                  [options]="pieChartOptions"
-                  [plugins]="pieChartPlugins"
-                  [colors]="pieChartColors"
-                  [legend]="pieChartLegend">
-          </canvas>
-        </div>
-      </mat-step>
-      <mat-step *ngIf="isCheckedR">
-        <ng-template matStepLabel>Recuperados</ng-template>
+        </mat-step>
 
-        <div style="display: block;" id="graphics-recuperados">
-          <canvas baseChart id="canvas-recuperados"
-                  [data]="pieChartDataR"
-                  [labels]="pieChartLabels"
-                  [chartType]="pieChartType"
-                  [options]="pieChartOptions"
-                  [plugins]="pieChartPlugins"
-                  [colors]="pieChartColors"
-                  [legend]="pieChartLegend">
-          </canvas>
-        </div>
-      </mat-step>
+        <mat-step *ngIf="isCheckedM" >
+          <ng-template matStepLabel>Muertos</ng-template>
 
-    </mat-horizontal-stepper>
+          <div style="display: block;" id="graphics-muertos">
+            <canvas baseChart id="canvas-muertos"
+                    [data]="pieChartDataM"
+                    [labels]="pieChartLabels"
+                    [chartType]="pieChartType"
+                    [options]="pieChartOptions"
+                    [plugins]="pieChartPlugins"
+                    [colors]="pieChartColors"
+                    [legend]="pieChartLegend">
+            </canvas>
+          </div>
+        </mat-step>
+        <mat-step *ngIf="isCheckedR" >
+          <ng-template matStepLabel >Recuperados</ng-template>
 
+          <div style="display: block;" id="graphics-recuperados">
+            <canvas baseChart id="canvas-recuperados"
+                    [data]="pieChartDataR"
+                    [labels]="pieChartLabels"
+                    [chartType]="pieChartType"
+                    [options]="pieChartOptions"
+                    [plugins]="pieChartPlugins"
+                    [colors]="pieChartColors"
+                    [legend]="pieChartLegend">
+            </canvas>
+          </div>
+        </mat-step>
+
+      </mat-horizontal-stepper>
+
+    </div>
   </div>
 
 </div>

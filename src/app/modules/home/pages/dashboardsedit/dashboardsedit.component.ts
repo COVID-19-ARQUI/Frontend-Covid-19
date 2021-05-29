@@ -156,72 +156,65 @@ export class DashboardseditComponent implements OnInit {
     return result;
   };
 
-  exportAsPDF(divId1, divId2, divId3) {
+  exportAsPDF() {
 
-    let pdf = new jsPDF('l', 'cm', 'a4'); // Generates PDF in landscape mode
-    let data1 = document.getElementById(divId1);
-    let data2 = document.getElementById(divId2);
-    let data3 = document.getElementById(divId3);
+    let pdf = new jsPDF('l', 'cm', 'a4');
 
-    let canvas1 = document.getElementById('canvas-contagiados');
-    let canvas2 = document.getElementById('canvas-muertos');
-    let canvas3 = document.getElementById('canvas-recuperados');
+    let pieGraphic = document.getElementById('pie-imagen');
+    let graphicsContagiados = document.getElementById('bar-contagiados');
+    let graphicsMuertos = document.getElementById('bar-muertos');
+    let graphicsRecuperados = document.getElementById('bar-recuperados');
 
-    console.log("DATOS");
-    console.log(data1);
-    console.log(data2);
-    console.log(data3);
-
-    let aux1;
-    let aux2;
-    let aux3;
-
-    pdf.setFontSize(20);
-    pdf.text("CASOS CONFIRMADOS", 12, 1);
-    if (data1!=null) {
-      html2canvas(data1).then(canvas => {
-        const contentDataURL = canvas.toDataURL('image/png');
-        pdf.text("CASOS CONFIRMADOS", 35, 25);
-        pdf.addImage(contentDataURL, 'PNG', 0, 1.5, 30.0, 15.0);
-        /***pdf.addPage("a4", "l");
-        var headers = {dato:"DATO",department:"DEPARTAMENTO"};
-        pdf.table(1, 1, this.generarTable(), this.headers, { autoSize: true });
+    console.log(graphicsContagiados);
+    console.log(graphicsMuertos);
+    console.log(graphicsRecuperados);
+    console.log(pieGraphic);
 
 
-        let cont=0;
-        for(let item of this.SingleDataSet){
-          var result : DataModelTable;
-          result.data = item;
-          result.department = <string>this.pieChartLabels[cont];
-          results.push(result);
-          cont++;
-        }
-        for(let item of results){
-          console.log("datos: "+item.data+"\t"+item.department);
-        }*/
+    var imgGraphContagiados = '';
+    var imgGraphMuertos = '';
+    var imgGraphRecuperados = '';
+    var imgPie = '';
 
 
-        //pdf.table(0,0,this.lineChartData,null,{autoSize:true})
-        pdf.save('confirmados.pdf');
+    html2canvas(graphicsContagiados).then(canvas => {
+      imgGraphContagiados = canvas.toDataURL('image/png');
+      html2canvas(graphicsContagiados).then(canvas => {
+        imgGraphMuertos = canvas.toDataURL('image/png');
+        html2canvas(graphicsContagiados).then(canvas => {
+          imgGraphRecuperados = canvas.toDataURL('image/png');
+          html2canvas(pieGraphic).then(canvas => {
+            imgPie = canvas.toDataURL('image/png');
+            //console.log("el tamaño de imagen 1 es: "+imgGraphContagiados.length);
+            //console.log("el tamaño de imagen 2 es: "+imgGraphMuertos.length);
+            if(imgGraphContagiados.length>10){
+              pdf.addImage(imgGraphContagiados, 'PNG', 0, 4.5, 29.0, 18.0);
+              pdf.addPage();
+            }
+            if(imgGraphMuertos.length>10){
+              pdf.addImage(imgGraphMuertos, 'PNG', 0, 1.5, 29.0, 18.0);
+              pdf.addPage();
+            }
+            if(imgGraphRecuperados.length>10){
+              pdf.addImage(imgGraphRecuperados, 'PNG', 0, 1.5, 29.0, 18.0);
+              pdf.addPage();
+            }
+            if(imgPie.length>10){
+              pdf.addImage(imgPie, 'PNG', 0, 1.5, 29.0, 18.0);
+            }
+            //console.log("el tamaño de las hojas son: "+pdf.getNumberOfPages());
+            pdf.save('confirmados.pdf');
+          });
+        });
+
       });
-    }
-    if (data2!=null) {
-      html2canvas(data2).then(canvas => {
-        const contentDataURL = canvas.toDataURL('image/png');
-        pdf.addImage(contentDataURL, 'PNG', 0, 0, 30.0, 15.0);
-        //pdf.addPage("a4", "l");
-        pdf.save('decesos.pdf');
-      });
-    }
-    if (data3!=null) {
-      html2canvas(data3).then(canvas => {
-        const contentDataURL = canvas.toDataURL('image/png');
-        //console.log(contentDataURL);
-        //pdf.addImage(contentDataURL, 'PNG', 0, 0, 30.0, 15.0);
-        //pdf.save('recuperados.pdf');
-      });
-    }
-    //pdf.save('reporte.pdf');
+
+    });
+
+
+
+
+
 
   }
 
@@ -248,7 +241,7 @@ export class DashboardseditComponent implements OnInit {
           this.SingleDataSet.push(value.data);
           this.pieChartColors[0].backgroundColor.push('rgba(241,5,5,0.3)');
           this.labels.push('La Paz');
-          this.resultsDepartment.push({data:value.data,department:'La Paz'});
+          //this.resultsDepartment.push({data:value.data,department:'La Paz'});
         }
         if (value.datatype === 'Muertos') {
           this.SingleDataSetM.push(value.data);
@@ -263,7 +256,7 @@ export class DashboardseditComponent implements OnInit {
           this.pieChartColors[0].backgroundColor.push('rgba(6,215,239,0.3)');
           this.labels.push('Cochabamba');
           this.SingleDataSet.push(value.data);
-          this.resultsDepartment.push({data:value.data,department:'Cochabamba'});
+          //this.resultsDepartment.push({data:value.data,department:'Cochabamba'});
         }
         if (value.datatype === 'Muertos') {
           this.SingleDataSetM.push(value.data);
@@ -278,7 +271,7 @@ export class DashboardseditComponent implements OnInit {
           this.pieChartColors[0].backgroundColor.push('rgba(142,6,239,0.3)');
           this.labels.push('Tarija');
           this.SingleDataSet.push(value.data);
-          this.resultsDepartment.push({data:value.data,department:'Tarija'});
+          //this.resultsDepartment.push({data:value.data,department:'Tarija'});
         }
         if (value.datatype === 'Muertos') {
           this.SingleDataSetM.push(value.data);
@@ -294,7 +287,7 @@ export class DashboardseditComponent implements OnInit {
           this.pieChartColors[0].backgroundColor.push('rgba(89,189,20,0.3)');
           this.labels.push('Santa Cruz');
 
-          this.resultsDepartment.push({data:value.data,department:'Santa Cruz'});
+          //this.resultsDepartment.push({data:value.data,department:'Santa Cruz'});
         }
         if (value.datatype === 'Muertos') {
           this.SingleDataSetM.push(value.data);
@@ -310,7 +303,7 @@ export class DashboardseditComponent implements OnInit {
           this.pieChartColors[0].backgroundColor.push('rgba(239,126,6,0.3)');
           this.labels.push('Potosí');
 
-          this.resultsDepartment.push({data:value.data,department:'Potosi'});
+          //this.resultsDepartment.push({data:value.data,department:'Potosi'});
         }
         if (value.datatype === 'Muertos') {
           this.SingleDataSetM.push(value.data);
@@ -326,7 +319,7 @@ export class DashboardseditComponent implements OnInit {
           this.pieChartColors[0].backgroundColor.push('rgba(6,239,212,0.3)');
           this.labels.push('Pando');
 
-          this.resultsDepartment.push({data:value.data,department:'Pando'});
+          //this.resultsDepartment.push({data:value.data,department:'Pando'});
         }
         if (value.datatype === 'Muertos') {
           this.SingleDataSetM.push(value.data);
@@ -341,7 +334,7 @@ export class DashboardseditComponent implements OnInit {
           this.SingleDataSet.push(value.data);
           this.pieChartColors[0].backgroundColor.push('rgba(196,6,239,0.3)');
           this.labels.push('Beni');
-          this.resultsDepartment.push({data:value.data,department:'Beni'});
+          //this.resultsDepartment.push({data:value.data,department:'Beni'});
         }
         if (value.datatype === 'Muertos') {
           this.SingleDataSetM.push(value.data);
@@ -357,7 +350,7 @@ export class DashboardseditComponent implements OnInit {
           this.labels.push('Oruro');
           this.SingleDataSet.push(value.data);
 
-          this.resultsDepartment.push({data:value.data,department:'Oruro'});
+          //this.resultsDepartment.push({data:value.data,department:'Oruro'});
         }
         if (value.datatype === 'Muertos') {
           this.SingleDataSetM.push(value.data);
@@ -373,7 +366,7 @@ export class DashboardseditComponent implements OnInit {
           this.labels.push('Chuquisaca');
           this.SingleDataSet.push(value.data);
 
-          this.resultsDepartment.push({data:value.data,department:'Chuquisaca'});
+          //this.resultsDepartment.push({data:value.data,department:'Chuquisaca'});
         }
         if (value.datatype === 'Muertos') {
           this.SingleDataSetM.push(value.data);
