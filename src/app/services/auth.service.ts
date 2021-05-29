@@ -18,7 +18,7 @@ export class AuthService {
   public logIn(logInUser: userLogin): Observable<any> {
 
     const credenciales = btoa(
-      'covidtracerapp' + ':' + 'covidtracerplatform12345'
+      'covidtracerapp' + ':' + 'testcovid12345'
     );
     const httpHeaders = new HttpHeaders({
       'Content-Type': 'application/x-www-form-urlencoded',

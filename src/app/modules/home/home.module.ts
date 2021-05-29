@@ -31,10 +31,11 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {DashboardsboliviaComponent} from './pages/dashboardsbolivia/dashboardsbolivia.component';
 import {DashboardseditComponent} from './pages/dashboardsedit/dashboardsedit.component';
 import {PredictionsComponent} from './pages/predictions/predictions.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BrowserModule} from '@angular/platform-browser';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { CountriesComponent } from './pages/countries/countries.component';
+import { LoginComponent } from './alerts/login/login.component';
 
 @NgModule({
   declarations: [
@@ -53,33 +54,35 @@ import { CountriesComponent } from './pages/countries/countries.component';
     PredictionsComponent,
     ProfileComponent,
     CountriesComponent,
+    LoginComponent,
   ],
-  imports: [
-    CommonModule,
-    BrowserModule,
-    FormsModule,
-    RouterModule,
-    MatSidenavModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatListModule,
-    MatSliderModule,
-    ChartsModule,
-    MatRippleModule,
-    MatButtonModule,
-    MatListModule,
-    MatTableModule,
-    MatFormFieldModule,
-    MatSelectModule,
-    MatGridListModule,
-    MatInputModule,
-    MatMenuModule,
-    MatStepperModule,
-    MatCardModule,
-    MatSlideToggleModule,
-    MatDatepickerModule,
-    MatNativeDateModule
-  ],
+    imports: [
+        CommonModule,
+        BrowserModule,
+        FormsModule,
+        RouterModule,
+        MatSidenavModule,
+        MatToolbarModule,
+        MatIconModule,
+        MatListModule,
+        MatSliderModule,
+        ChartsModule,
+        MatRippleModule,
+        MatButtonModule,
+        MatListModule,
+        MatTableModule,
+        MatFormFieldModule,
+        MatSelectModule,
+        MatGridListModule,
+        MatInputModule,
+        MatMenuModule,
+        MatStepperModule,
+        MatCardModule,
+        MatSlideToggleModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        ReactiveFormsModule
+    ],
   entryComponents: [],
 })
 export class HomeModule {
