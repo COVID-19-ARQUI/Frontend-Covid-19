@@ -12,6 +12,7 @@ import {PredictionsComponent} from './modules/home/pages/predictions/predictions
 import {ProfileComponent} from './modules/home/pages/profile/profile.component';
 import {AuthGuard} from '@auth0/auth0-angular';
 import {CountriesComponent} from './modules/home/pages/countries/countries.component';
+import {LoginComponent} from './modules/home/alerts/login/login.component';
 
 const routes: Routes = [
   {
@@ -24,8 +25,8 @@ const routes: Routes = [
     component: MainComponent,
     children: [
       {
-        path: 'profile',
-        component: ProfileComponent,
+        path: 'user',
+        component: ProfileComponent
       },
       {
         path: 'principal',
@@ -65,7 +66,10 @@ const routes: Routes = [
       }
     ]
   },
-
+  {
+    path: 'login',
+    component: LoginComponent
+  },
 
   // {
   //   path: 'user',

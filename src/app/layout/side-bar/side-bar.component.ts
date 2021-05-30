@@ -22,23 +22,13 @@ export class SideBarComponent implements OnInit {
 
 
   constructor(
-    @Inject(DOCUMENT) public document: Document,
     private breakpointObserver: BreakpointObserver,
-    public auth: AuthService,
   ) {
   }
 
   ngOnInit(): void {
   }
 
-  loginWithRedirect(): void {
-    this.auth.loginWithRedirect();
-  }
-
-  logout(): void {
-    this.auth.logout({returnTo: document.location.origin});
-
-  }
 
 
 }
