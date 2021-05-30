@@ -66,16 +66,17 @@ const routes: Routes = [
         component: CountriesComponent
       }
       ,
-      {
-        path: 'noticiasBing',
-        component: NoticiasBingComponent
-      }
+
     ]
   },
   {
     path: 'login',
     component: LoginComponent
   },
+  {
+    path: 'noticiasBing',
+    component: NoticiasBingComponent
+  }
 
   // {
   //   path: 'user',

@@ -29,6 +29,7 @@
     "jspdf": "^2.3.1",
     "leaflet": "^1.7.1",
     "ng2-charts": "^2.4.2",
+    "ngx-drag-scroll": "^11.0.0-beta.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.3"

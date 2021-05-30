@@ -37,7 +37,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { CountriesComponent } from './pages/countries/countries.component';
 import { LoginComponent } from './alerts/login/login.component';
 import { NoticiasBingComponent } from './pages/noticias-bing/noticias-bing.component';
-
+import { DragScrollModule } from 'ngx-drag-scroll';
 @NgModule({
   declarations: [
     HomeComponent,
@@ -83,7 +83,8 @@ import { NoticiasBingComponent } from './pages/noticias-bing/noticias-bing.compo
         MatSlideToggleModule,
         MatDatepickerModule,
         MatNativeDateModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        DragScrollModule
     ],
   entryComponents: [],
 })
