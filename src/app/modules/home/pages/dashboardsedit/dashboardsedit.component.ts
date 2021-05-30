@@ -165,10 +165,7 @@ export class DashboardseditComponent implements OnInit {
     let graphicsMuertos = document.getElementById('bar-muertos');
     let graphicsRecuperados = document.getElementById('bar-recuperados');
 
-    console.log(graphicsContagiados);
-    console.log(graphicsMuertos);
-    console.log(graphicsRecuperados);
-    console.log(pieGraphic);
+
 
 
     var imgGraphContagiados = '';
@@ -179,29 +176,31 @@ export class DashboardseditComponent implements OnInit {
 
     html2canvas(graphicsContagiados).then(canvas => {
       imgGraphContagiados = canvas.toDataURL('image/png');
-      html2canvas(graphicsContagiados).then(canvas => {
+      if(this.isCheckedbarcon){
+        pdf.addImage(imgGraphContagiados, 'PNG', 0, 2.5, 29.0, 18.0);
+      }
+      html2canvas(graphicsMuertos).then(canvas => {
         imgGraphMuertos = canvas.toDataURL('image/png');
-        html2canvas(graphicsContagiados).then(canvas => {
+        html2canvas(graphicsRecuperados).then(canvas => {
           imgGraphRecuperados = canvas.toDataURL('image/png');
           html2canvas(pieGraphic).then(canvas => {
             imgPie = canvas.toDataURL('image/png');
-            //console.log("el tamaño de imagen 1 es: "+imgGraphContagiados.length);
-            //console.log("el tamaño de imagen 2 es: "+imgGraphMuertos.length);
-            if(imgGraphContagiados.length>10){
-              pdf.addImage(imgGraphContagiados, 'PNG', 0, 4.5, 29.0, 18.0);
-              pdf.addPage();
-            }
-            if(imgGraphMuertos.length>10){
+            if(this.isCheckedbardead){
               pdf.addImage(imgGraphMuertos, 'PNG', 0, 1.5, 29.0, 18.0);
-              pdf.addPage();
+
             }
-            if(imgGraphRecuperados.length>10){
+            if(this.isCheckedbarrec){
+              pdf.addPage("a4", "l");
               pdf.addImage(imgGraphRecuperados, 'PNG', 0, 1.5, 29.0, 18.0);
-              pdf.addPage();
             }
-            if(imgPie.length>10){
+            if(this.isCheckedpie){
+              pdf.addPage("a4", "l");
               pdf.addImage(imgPie, 'PNG', 0, 1.5, 29.0, 18.0);
             }
+            console.log(imgGraphContagiados.length);
+            console.log(imgGraphMuertos.length);
+            console.log(imgGraphRecuperados.length);
+            console.log(imgPie.length);
             //console.log("el tamaño de las hojas son: "+pdf.getNumberOfPages());
             pdf.save('confirmados.pdf');
           });

@@ -19,7 +19,6 @@
 
 <div id="print">
 
-
   <div id="Bararas">
     <div *ngIf="isCheckedbar"  >
 
@@ -43,10 +42,14 @@
       </div>
 
       <div id="bar-contagiados">
+        <br><br><br><br><br><br><br>
         <div *ngIf="isCheckedbarcon" >
+
           <h1 style="text-align:center;">Contagiados</h1>
           <mat-slide-toggle [(ngModel)]="isCheckedbarcon" color="primary" data-html2canvas-ignore="true" >Eliminar</mat-slide-toggle>
+
           <canvas baseChart width="1500" height="500"
+
                   [datasets]="lineChartData"
                   [labels]="lineChartLabels"
                   [colors]="lineChartColors"
@@ -54,11 +57,14 @@
                   [chartType]="lineChartType"
                   [plugins]="lineChartPlugins">
           </canvas>
+
         </div>
       </div>
 
       <div id="bar-muertos">
+
         <div *ngIf="isCheckedbardead">
+          <br><br><br><br><br><br><br><br><br>
           <mat-slide-toggle [(ngModel)]="isCheckedbardead" color="primary" data-html2canvas-ignore="true">Eliminar</mat-slide-toggle>
           <h1 style="text-align:center;">Muertos</h1>
 
@@ -74,7 +80,9 @@
       </div>
 
       <div id="bar-recuperados">
+
         <div *ngIf="isCheckedbarrec">
+          <br><br><br><br><br><br><br><br><br><br>
           <mat-slide-toggle [(ngModel)]="isCheckedbarrec" color="primary" data-html2canvas-ignore="true">Eliminar</mat-slide-toggle>
           <h1 style="text-align:center;">Recuperados</h1>
           <canvas baseChart width="1500" height="500"
@@ -95,6 +103,7 @@
   <br>
 
   <div id="pie-imagen">
+    <br><br><br><br><br><br><br><br><br><br><br>
     <div *ngIf="isCheckedpie" class="Pie">
 
       <mat-slide-toggle [(ngModel)]="isCheckedpie" color="primary" data-html2canvas-ignore="true">Eliminar</mat-slide-toggle>
