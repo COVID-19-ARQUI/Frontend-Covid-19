@@ -5,5 +5,5 @@ export interface dataupload {
   dataType: number;
   idcountry: number;
   iddepartment: number;
-  idmunicipality: string;
+  idmunicipality: number;
 }

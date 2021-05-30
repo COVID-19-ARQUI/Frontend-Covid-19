@@ -19,9 +19,10 @@ import {DatosService} from '../../../../services/datos.service';
 export class NewdataComponent implements OnInit {
   form: FormGroup;
   departments: DepartmentModel[];
-  depselect: string;
-  muniselect: string;
-  fecha: Date;
+  depselect: string = '0';
+  muniselect: string = '0';
+  fecha: string;
+  dato: number
   departmentControl: FormControl;
   dep: boolean;
   mun: boolean;
@@ -50,22 +51,34 @@ export class NewdataComponent implements OnInit {
   dataform(): void {
     if (this.dep === false) {
       this.depselect = '0';
-      this.muniselect = null;
+      this.muniselect = '0';
     }
     if (this.mun === false) {
-      this.muniselect = null;
+      this.muniselect = '0';
     }
+    console.log(this.depselect);
+    console.log(this.fecha);
+
     const data: dataupload = {
       idData: 0,
-      data: 0,
-      inDate: this.fecha.getFullYear() + '-' + (this.fecha.getMonth() + 1) + '-' + this.fecha.getDate(),
+      data: this.dato,
+      inDate: this.fecha,
       dataType: parseInt(this.selected),
       idcountry: 29,
       iddepartment: parseInt(this.depselect),
-      idmunicipality: this.muniselect,
+      idmunicipality: parseInt(this.muniselect),
     };
     console.log(data);
-    alert('llego ');
+    alert('Registro en proceso');
+
+    this.dataService.postNewData(data).subscribe(
+      value => {
+      alert("Registro exitoso");
+      },
+      error =>{
+        alert("Ha ocurrido un error");
+      });
+
   }
 
 
