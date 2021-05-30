@@ -29,9 +29,9 @@ export class TokenService {
     return sessionStorage.getItem(USERNAME_KEY);
   }
 
-  public setUserId(userId: string): void {
+  public setUserId(idUser: string): void {
     window.sessionStorage.removeItem(USERID_KEY);
-    window.sessionStorage.setItem(USERID_KEY, userId);
+    window.sessionStorage.setItem(USERID_KEY, idUser);
   }
   public getUserId(): any {
     return sessionStorage.getItem(USERID_KEY);

@@ -7,9 +7,9 @@
         The username and password were not recognized
       </mat-error>
       <mat-form-field class="full-width-input">
-        <input matInput placeholder="Email" formControlName="username" required>
+        <input matInput placeholder="Username" formControlName="username" required>
         <mat-error>
-          Please provide a valid email address
+          Please provide a valid username address
         </mat-error>
       </mat-form-field>
       <mat-form-field class="full-width-input">
@@ -24,17 +24,66 @@
   </mat-step>
   <mat-step label="Sign-Up">
     <form [formGroup]="signup" (ngSubmit)="onSignUp()">
-      <mat-form-field>
-        <mat-label>Nombre</mat-label>
-        <input matInput formControlName="name" required>
+      <mat-form-field class="form-input">
+        <mat-label class="form-letter">Nombre</mat-label>
+        <input
+          type="text"
+          matInput
+          formControlName="name"
+          placeholder="Nombre"
+          required
+        />
       </mat-form-field>
-      <mat-form-field>
-        <mat-label>Email</mat-label>
-        <input matInput formControlName="email" required>
+      <mat-form-field class="form-input">
+        <mat-label class="form-letter">Apellidos</mat-label>
+        <input
+          type="text"
+          matInput
+          formControlName="surname"
+          placeholder="Apellido Paterno"
+          required
+        />
       </mat-form-field>
-      <mat-form-field>
-        <mat-label>Password</mat-label>
-        <input matInput formControlName="password" required>
+      <mat-form-field class="form-input">
+        <mat-label class="form-letter">Nombre de Usuario</mat-label>
+        <input
+          type="text"
+          matInput
+          formControlName="username"
+          placeholder="Nombre de Usuario"
+          required
+        />
+      </mat-form-field>
+      <mat-form-field class="form-input">
+        <mat-label class="form-letter">Email</mat-label>
+        <input
+          type="text"
+          matInput
+          formControlName="email"
+          placeholder="Email"
+          required
+          type="email"
+        />
+      </mat-form-field>
+      <mat-form-field class="form-input">
+        <mat-label class="form-letter">Contraseña</mat-label>
+        <input
+          matInput
+          formControlName="password"
+          placeholder="Contraseña"
+          required
+          type="password"
+        />
+      </mat-form-field>
+      <mat-form-field class="form-input">
+        <mat-label class="form-letter">Confirmar Contraseña</mat-label>
+        <input
+          matInput
+          formControlName="confirmPassword"
+          placeholder="Confirmar Contraseña"
+          required
+          type="password"
+        />
       </mat-form-field>
       <button mat-raised-button color="primary">Signup</button>
     </form>

@@ -30,7 +30,7 @@ export class AuthService {
 
     let params = new URLSearchParams();
     params.set('grant_type', 'password');
-    params.set('username', logInUser.email);
+    params.set('username', logInUser.username);
     params.set('password', logInUser.password);
     // var userParams = params.toString().replace(/%40/gi, '@');
 
@@ -40,6 +40,6 @@ export class AuthService {
   }
 
   createUser(user: User) {
-    return this.httpClient.post(apikey.api + '/api/v1/user', user);
+    return this.httpClient.post(apikey.api + '/person', user);
   }
 }

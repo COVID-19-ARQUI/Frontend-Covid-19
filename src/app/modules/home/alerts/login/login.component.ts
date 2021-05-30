@@ -5,6 +5,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {userLogin} from '../../../../models/UserLogin';
 import {TokenService} from '../../../../services/token.service';
 import {MatDialogRef} from '@angular/material/dialog';
+import {User} from '../../../../models/User';
 
 @Component({
   selector: 'app-login',
@@ -21,6 +22,7 @@ export class LoginComponent implements OnInit {
 
   isLinear = false;
   constructor(
+    private fromBuilder: FormBuilder,
     private fb: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
@@ -37,13 +39,11 @@ export class LoginComponent implements OnInit {
       this.isLoginFail = false;
     }
     this.form = this.fb.group({
-      username: ['', Validators.email],
+      username: ['', Validators.required],
       password: ['', Validators.required]
     });
-    this.signup = this.fb.group({
-      username: ['', Validators.email],
-      password: ['', Validators.required]
-    });
+    this.formsubmit();
+
   }
 
   async onSubmit(): Promise<void> {
@@ -54,7 +54,7 @@ export class LoginComponent implements OnInit {
         const username = this.form.get('username')?.value;
         const password = this.form.get('password')?.value;
         const user: userLogin = {
-          email: username,
+          username: username,
           password: password
         };
         await this.login(user);
@@ -79,13 +79,13 @@ export class LoginComponent implements OnInit {
 
         this.tokenService.getAuthorities().forEach((rol) => {
           const currentUrl = this.router.url;
-          if (rol == 'ROLE_ADMIN') {
+          if (rol == 'admin') {
             this.router
               .navigateByUrl('/', { skipLocationChange: true })
               .then(() => {
                 this.router.navigate([currentUrl]);
               });
-          } else if (rol == 'ROLE_USER') {
+          } else if (rol == 'user') {
             this.router
               .navigateByUrl('/', { skipLocationChange: true })
               .then(() => {
@@ -103,6 +103,85 @@ export class LoginComponent implements OnInit {
   }
 
   onSignUp() {
+    this.saveUser();
+  }
+  confirmPasswordMatch(controlName: string, matchingControlName: string) {
+    return (formGroup: FormGroup) => {
+      // console.log(controlName, matchingControlName)
+      const control = formGroup.controls[controlName];
+      const matchingControl = formGroup.controls[matchingControlName];
 
+      // set error on matchingControl if validation fails
+      if (control.value !== matchingControl.value) {
+        matchingControl.setErrors({ confirmPasswordMatch: true });
+      } else {
+        matchingControl.setErrors(null);
+      }
+    };
+  }
+  saveUser(): void {
+    if (this.signup.valid) {
+      const client = this.signup.value;
+      const key = 'confirmPassword';
+      delete client[key];
+      this.createUser(client);
+    } else {
+      console.log('Algo salio mal');
+    }
+  }
+  createUser(newUser: User): void {
+    this.authService.createUser(newUser).subscribe((user) => {
+      console.log(user);
+      this.dialog.close(false);
+    });
+  }
+
+  formsubmit(){
+    this.signup = this.fromBuilder.group(
+      {
+        name: [
+          '',
+          [
+            Validators.required,
+            Validators.minLength(3),
+            Validators.maxLength(25),
+          ],
+        ],
+        surname: [
+          '',
+          [
+            Validators.required,
+            Validators.minLength(3),
+            Validators.maxLength(25),
+          ],
+        ],
+        email: [
+          '',
+          [
+            Validators.required,
+            Validators.email,
+            Validators.maxLength(50),
+            Validators.minLength(6),
+          ],
+        ],
+        username: [
+          '',
+          [
+            Validators.required,
+            Validators.maxLength(20),
+            Validators.minLength(6),
+          ],
+        ],
+        role: [2, [Validators.required]],
+        password: [
+          '',
+          Validators.compose([Validators.required, Validators.minLength(8)]),
+        ],
+        confirmPassword: ['', Validators.compose([Validators.required])],
+      },
+      {
+        validator: this.confirmPasswordMatch('password', 'confirmPassword'),
+      }
+    );
   }
 }
