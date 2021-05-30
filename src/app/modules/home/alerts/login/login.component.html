@@ -1,21 +1,42 @@
-<mat-card-content>
-  <form [formGroup]="form" (ngSubmit)="onSubmit()">
-    <h2>Log In</h2>
-    <mat-error *ngIf="loginInvalid">
-      The username and password were not recognized
-    </mat-error>
-    <mat-form-field class="full-width-input">
-      <input matInput placeholder="Email" formControlName="username" required>
-      <mat-error>
-        Please provide a valid email address
+<mat-horizontal-stepper [linear]="isLinear" #stepper>
+  <mat-step>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <ng-template matStepLabel>Log-In</ng-template>
+      <h2>Log In</h2>
+      <mat-error *ngIf="loginInvalid">
+        The username and password were not recognized
       </mat-error>
-    </mat-form-field>
-    <mat-form-field class="full-width-input">
-      <input matInput type="password" placeholder="Password" formControlName="password" required>
-      <mat-error>
-        Please provide a valid password
-      </mat-error>
-    </mat-form-field>
-    <button mat-raised-button color="primary">Login</button>
-  </form>
-</mat-card-content>
+      <mat-form-field class="full-width-input">
+        <input matInput placeholder="Email" formControlName="username" required>
+        <mat-error>
+          Please provide a valid email address
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width-input">
+        <input matInput type="password" placeholder="Password" formControlName="password" required>
+        <mat-error>
+          Please provide a valid password
+        </mat-error>
+      </mat-form-field>
+      <button mat-raised-button color="primary">Login</button>
+    </form>
+
+  </mat-step>
+  <mat-step label="Sign-Up">
+    <form [formGroup]="signup" (ngSubmit)="onSignUp()">
+      <mat-form-field>
+        <mat-label>Nombre</mat-label>
+        <input matInput formControlName="name" required>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" required>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input matInput formControlName="password" required>
+      </mat-form-field>
+      <button mat-raised-button color="primary">Signup</button>
+    </form>
+  </mat-step>
+</mat-horizontal-stepper>
