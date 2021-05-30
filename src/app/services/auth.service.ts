@@ -1,15 +1,18 @@
-import { Observable } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import {Observable} from 'rxjs';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Injectable} from '@angular/core';
 import apikey from '../shared/apikey';
 import {userLogin} from '../models/UserLogin';
 import {User} from '../models/User';
+
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   authURL = apikey.api + '/oauth/token';
-  constructor(private httpClient: HttpClient) {}
+
+  constructor(private httpClient: HttpClient) {
+  }
 
   // public signUp(newUser: Client): Observable<any> {
   //   return this.httpClient.post<any>(this.authURL + 'new', newUser);
@@ -18,7 +21,7 @@ export class AuthService {
   public logIn(logInUser: userLogin): Observable<any> {
 
     const credenciales = btoa(
-      'covidtracerapp' + ':' + 'testcovid12345'
+      'testcovid' + ':' + 'testcovid12345'
     );
     const httpHeaders = new HttpHeaders({
       'Content-Type': 'application/x-www-form-urlencoded',

@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../../../../services/auth.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {userLogin} from '../../../../models/UserLogin';
@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
   private formSubmitAttempt = false;
   isLogged = false;
   isLoginFail = false;
+
   isLinear = false;
   constructor(
     private fb: FormBuilder,
@@ -30,7 +31,7 @@ export class LoginComponent implements OnInit {
 
   }
 
-  ngOnInit(): void{
+  ngOnInit(): void {
     if (this.tokenService.getToken()) {
       this.isLogged = true;
       this.isLoginFail = false;
@@ -44,6 +45,7 @@ export class LoginComponent implements OnInit {
       password: ['', Validators.required]
     });
   }
+
   async onSubmit(): Promise<void> {
     this.loginInvalid = false;
     this.formSubmitAttempt = false;
@@ -51,7 +53,7 @@ export class LoginComponent implements OnInit {
       try {
         const username = this.form.get('username')?.value;
         const password = this.form.get('password')?.value;
-        const user : userLogin = {
+        const user: userLogin = {
           email: username,
           password: password
         };

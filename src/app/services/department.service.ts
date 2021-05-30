@@ -18,11 +18,11 @@ export class DepartmentService {
   }
 
   getgenneralvaccine() {
-    return this.http.get<Data>(apikey.api + '/department/departmentvacuna/1');
+    return this.http.get<Data>(apikey.api + '/department/first/vaccinated/1');
   }
 
   getgenneralvaccine2() {
-    return this.http.get<Data>(apikey.api + '/department/departmentvacuna2/1');
+    return this.http.get<Data>(apikey.api + '/department/second/vaccinated/1');
   }
 
   // move to datos servises dont forget
