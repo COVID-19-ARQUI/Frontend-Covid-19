@@ -10,10 +10,10 @@ import {DashboardsboliviaComponent} from './modules/home/pages/dashboardsbolivia
 import {DashboardseditComponent} from './modules/home/pages/dashboardsedit/dashboardsedit.component';
 import {PredictionsComponent} from './modules/home/pages/predictions/predictions.component';
 import {ProfileComponent} from './modules/home/pages/profile/profile.component';
-import {AuthGuard} from '@auth0/auth0-angular';
 import {CountriesComponent} from './modules/home/pages/countries/countries.component';
 import {LoginComponent} from './modules/home/alerts/login/login.component';
 import {NoticiasBingComponent} from "./modules/home/pages/noticias-bing/noticias-bing.component";
+import {AuthGuard} from './shared/auth.guard';
 
 const routes: Routes = [
   {
@@ -27,7 +27,8 @@ const routes: Routes = [
     children: [
       {
         path: 'user',
-        component: ProfileComponent
+        component: ProfileComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'principal',
@@ -44,6 +45,7 @@ const routes: Routes = [
       {
         path: 'data',
         component: NewdataComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'noticia',
@@ -77,21 +79,6 @@ const routes: Routes = [
     path: 'noticiasBing',
     component: NoticiasBingComponent
   }
-
-  // {
-  //   path: 'user',
-  //   component: MainComponent,
-  //   children: [
-  //     {
-  //       path: 'myprojects',
-  //       component: MyprojectsComponent,
-  //     },
-  //     {
-  //       path: 'feed',
-  //       component: FeedComponent,
-  //     }
-  //   ]
-  // },
 ];
 
 @NgModule({

@@ -17,13 +17,7 @@ export class SideBarComponent implements OnInit {
   showFiller = false;
   resultMsg: string;
   Autheticated = false;
-  isHandset$: Observable<boolean> = this.breakpointObserver
-    .observe(Breakpoints.Handset)
-    .pipe(
-      map((result) => result.matches),
-      shareReplay()
-    );
-
+  role: string[];
 
   constructor(
     private tokenService: TokenService,
@@ -34,6 +28,8 @@ export class SideBarComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.role = this.tokenService.getAuthorities();
+    console.log(this.role[0]);
     if (this.tokenService.getToken()){
       this.Autheticated=true;
     }

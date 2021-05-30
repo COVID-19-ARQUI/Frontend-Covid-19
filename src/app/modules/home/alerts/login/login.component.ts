@@ -69,12 +69,10 @@ export class LoginComponent implements OnInit {
     await this.authService.logIn(user).subscribe(data => {
         this.isLogged = true;
         this.isLoginFail = false;
-
         console.log(data);
-
         this.tokenService.setToken(data.access_token);
-        this.tokenService.setUserId(data.userId);
-        this.tokenService.setUserName(data.userName);
+        this.tokenService.setUserId(data.idUser);
+        this.tokenService.setUserName(data.username);
         this.tokenService.setAuthorities(data.role);
 
         this.tokenService.getAuthorities().forEach((rol) => {
@@ -98,6 +96,7 @@ export class LoginComponent implements OnInit {
       },
       (err) => {
         this.isLogged = false;
+        alert("Usuario y contraseña no coinciden")
         this.isLoginFail = true;
     });
   }
