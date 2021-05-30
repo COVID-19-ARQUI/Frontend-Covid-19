@@ -13,6 +13,7 @@ import {ProfileComponent} from './modules/home/pages/profile/profile.component';
 import {AuthGuard} from '@auth0/auth0-angular';
 import {CountriesComponent} from './modules/home/pages/countries/countries.component';
 import {LoginComponent} from './modules/home/alerts/login/login.component';
+import {NoticiasBingComponent} from "./modules/home/pages/noticias-bing/noticias-bing.component";
 
 const routes: Routes = [
   {
@@ -63,6 +64,11 @@ const routes: Routes = [
       {
         path: 'countries',
         component: CountriesComponent
+      }
+      ,
+      {
+        path: 'noticiasBing',
+        component: NoticiasBingComponent
       }
     ]
   },

@@ -36,6 +36,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { CountriesComponent } from './pages/countries/countries.component';
 import { LoginComponent } from './alerts/login/login.component';
+import { NoticiasBingComponent } from './pages/noticias-bing/noticias-bing.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { LoginComponent } from './alerts/login/login.component';
     ProfileComponent,
     CountriesComponent,
     LoginComponent,
+    NoticiasBingComponent,
   ],
     imports: [
         CommonModule,
