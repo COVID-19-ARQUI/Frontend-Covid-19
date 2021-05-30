@@ -62,10 +62,10 @@
         <div>
           <a mat-button [routerLink]="'/main/principal'"> Mapas </a>
           <a mat-button [routerLink]="'/main/dashbolivia'"> Gráficos </a>
-          <a mat-button [routerLink]="'/main/dashedit'"> Personlizar </a>
+          <a mat-button [routerLink]="'/main/dashedit'" *ngIf="Autheticated"> Personalizar </a>
           <a mat-button [routerLink]="'/main/noticia'"> Noticias </a>
           <a mat-button [routerLink]="'/main/predict'"> Predicciones </a>
-
+          <a mat-button [routerLink]="'/main/data'" *ngIf="role[0]==='admin'"> Ingresar datos nuevos </a>
         </div>
         <button mat-button *ngIf="!Autheticated" (click)="loginDialog()">
           LogIn
