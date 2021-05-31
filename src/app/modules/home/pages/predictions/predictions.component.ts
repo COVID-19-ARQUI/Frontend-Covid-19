@@ -222,46 +222,46 @@ export class PredictionsComponent implements OnInit {
     this.lineChartLabels = this.date;
 
     this.LinealData = [
-      {data: this.ndata, label: 'Contagiados'},
+      {data: this.lndata, label: 'Contagiados'},
     ];
     this.LinealDataDeath = [
-      {data: this.ddata, label: 'Muertos'},
+      {data: this.lddata, label: 'Muertos'},
     ];
     this.LinealDataRecovered = [
-      {data: this.rdata, label: 'Recuperados'},
+      {data: this.lrdata, label: 'Recuperados'},
     ];
     this.LinealLabel = this.regdate;
 
     this.PowData = [
-      {data: this.ndata, label: 'Contagiados'},
+      {data: this.pndata, label: 'Contagiados'},
     ];
     this.PowDataDeath = [
-      {data: this.ddata, label: 'Muertos'},
+      {data: this.pddata, label: 'Muertos'},
     ];
     this.PowDataRecovered = [
-      {data: this.rdata, label: 'Recuperados'},
+      {data: this.prdata, label: 'Recuperados'},
     ];
     this.PowLabel = this.regdate;
 
     this.LogData = [
-      {data: this.ndata, label: 'Contagiados'},
+      {data: this.logndata, label: 'Contagiados'},
     ];
     this.LogDataDeath = [
-      {data: this.ddata, label: 'Muertos'},
+      {data: this.logddata, label: 'Muertos'},
     ];
     this.LogDataRecovered = [
-      {data: this.rdata, label: 'Recuperados'},
+      {data: this.logrdata, label: 'Recuperados'},
     ];
     this.LogLabel = this.regdate;
 
     this.ExpData = [
-      {data: this.ndata, label: 'Contagiados'},
+      {data: this.endata, label: 'Contagiados'},
     ];
     this.ExpDataDeath = [
-      {data: this.ddata, label: 'Muertos'},
+      {data: this.eddata, label: 'Muertos'},
     ];
     this.ExpDataRecovered = [
-      {data: this.rdata, label: 'Recuperados'},
+      {data: this.erdata, label: 'Recuperados'},
     ];
     this.ExpLabel = this.regdate;
   }
