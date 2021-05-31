@@ -9,20 +9,20 @@
         <span class="example-spacer"></span>
         <div>
           <a mat-button [routerLink]="'/main/principal'"> Mapa </a>
-          <a mat-button [routerLink]="'/main/dashbolivia'"> Gráficos </a>
+          <a mat-button [routerLink]="'/main/dashbolivia'"> Bolivia </a>
           <a mat-button [routerLink]="'/main/dashedit'" *ngIf="role[0]==='user'"> Personalizar </a>
-          <a mat-button [routerLink]="'/main/noticia'"> Noticias </a>
+<!--          <a mat-button [routerLink]="'/main/noticia'"> Noticias </a>-->
           <a mat-button [routerLink]="'/main/countries'"> Datos </a>
           <a mat-button [routerLink]="'/main/predict'"> Predicciones </a>
           <a mat-button [routerLink]="'/main/data'" *ngIf="role[0]==='admin'"> Ingresar datos nuevos </a>
         </div>
         <span class="example-spacer"></span>
         <a mat-button [matMenuTriggerFor]="menu" *ngIf="Autheticated">
-          <img src="{{user?.url_photo}}" alt="Avatar" class="avatar" />
+          <img src="{{user?.urlPhoto}}" alt="Avatar" class="avatar" />
         </a>
         <mat-menu #menu="matMenu">
           <span class="user-name">{{user?.username}}</span>
-          <button mat-menu-item>Ver perfil</button>
+          <button mat-menu-item [routerLink]="'/main/user'">Ver perfil</button>
         </mat-menu>
         <button mat-button *ngIf="!Autheticated" (click)="loginDialog()">
           LogIn

@@ -44,7 +44,6 @@ export class CountriesComponent implements OnInit {
     await axios.get('https://corona-virus-world-and-india-data.p.rapidapi.com/api', options ).then((response) => {
       this.dataCountries = response.data.countries_stat;
       // this.concatData(r);
-
     }).catch((error) => {
       console.error(error);
     });
