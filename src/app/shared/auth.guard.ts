@@ -24,7 +24,8 @@ export class AuthGuard implements CanActivate {
     | boolean
     | UrlTree {
     const token = this.tokenService.getToken();
-    if (token) {
+    const role = this.tokenService.getAuthorities()
+    if (token && role[0]=== 'admin') {
       this.redirect(true);
       return true;
     } else {
