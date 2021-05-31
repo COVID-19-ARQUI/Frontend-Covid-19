@@ -93,28 +93,28 @@ export class PredictionsComponent implements OnInit {
     this.auxiliar();
   }
   async getPredictions() {
-    await this.predictionsService.getPredictionsByCountry(29, 10).subscribe(value => {
+    await this.predictionsService.getPredictionsByCountry(29, 20).subscribe(value => {
       this.datatochart(value);
     });
   }
 
   async getPredictionslin() {
-    await this.predictionsService.getPredictionsByCountrylin(29, 10).subscribe(value => {
+    await this.predictionsService.getPredictionsByCountrylin(29, 20).subscribe(value => {
       this.datatochartlin(value);
     });
   }
   async getPredictionsexp() {
-    await this.predictionsService.getPredictionsByCountryexp(29, 100).subscribe(value => {
+    await this.predictionsService.getPredictionsByCountryexp(29, 20).subscribe(value => {
       this.datatochartexp(value);
     });
   }
   async getPredictionspow() {
-    await this.predictionsService.getPredictionsByCountrypow(29, 100).subscribe(value => {
+    await this.predictionsService.getPredictionsByCountrypow(29, 20).subscribe(value => {
       this.datatochartpow(value);
     });
   }
   async getPredictionslog() {
-    await this.predictionsService.getPredictionsByCountrylog(29, 100).subscribe(value => {
+    await this.predictionsService.getPredictionsByCountrylog(29, 20).subscribe(value => {
       this.datatochartlog(value);
     });
   }
