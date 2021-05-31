@@ -38,8 +38,6 @@
   </mat-grid-tile>
 </mat-grid-list>
 
-
-
 <mat-horizontal-stepper #stepper>
   <mat-step>
     <ng-template matStepLabel>Contagiados</ng-template>
@@ -100,132 +98,136 @@
 </mat-horizontal-stepper>
 
 
-<mat-grid-list cols="3" rowHeight="1:1">
-  <mat-grid-tile>
-    <div class="box one">
-      <h1>
-        <a
+
+    <mat-grid-list cols="5" >
+    <mat-grid-tile>
+      <div class="box one">
+        <h1>
+          <a
+            mat-list-item
+            routerLink="/main/department/1"
+            routerLinkActive="active"
+          >La Paz</a>
+        </h1>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="box two ">
+
+        <h1><a
           mat-list-item
-          routerLink="/main/department/1"
+          routerLink="/main/department/4"
           routerLinkActive="active"
-        >La Paz</a>
-      </h1>
-    </div>
-  </mat-grid-tile>
+        >santa cruz</a>
+        </h1>
+      </div>
 
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="box three ">
+        <h1>
+          <a
+            mat-list-item
+            routerLink="/main/department/8"
+            routerLinkActive="active"
+          >oruro</a>
+        </h1>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="box five ">
+        <h1>
+          <a
+            mat-list-item
+            routerLink="/main/department/2"
+            routerLinkActive="active"
+          >Cochabamba</a></h1>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="box six ">
+        <h1>
+          <a
+            mat-list-item
+            routerLink="/main/department/3"
+            routerLinkActive="active"
+          >Tarija</a></h1>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="box seven ">
+        <h1>
+          <a
+            mat-list-item
+            routerLink="/main/department/5"
+            routerLinkActive="active"
+          >Potosí</a></h1>
+      </div>
 
-  <mat-grid-tile>
-    <div class="box two ">
-
-      <h1><a
-        mat-list-item
-        routerLink="/main/department/4"
-        routerLinkActive="active"
-      >santa cruz</a>
-      </h1>
-    </div>
-
-  </mat-grid-tile>
-
-  <mat-grid-tile>
-    <div class="box three ">
-      <h1>
-        <a
-          mat-list-item
-          routerLink="/main/department/8"
-          routerLinkActive="active"
-        >oruro</a>
-      </h1>
-    </div>
-  </mat-grid-tile>
-  <mat-grid-tile>
-    <div class="box five ">
-      <h1>
-        <a
-          mat-list-item
-          routerLink="/main/department/2"
-          routerLinkActive="active"
-        >Cochabamba</a></h1>
-    </div>
-  </mat-grid-tile>
-  <mat-grid-tile>
-    <div class="box six ">
-      <h1>
-        <a
-          mat-list-item
-          routerLink="/main/department/3"
-          routerLinkActive="active"
-        >Tarija</a></h1>
-    </div>
-  </mat-grid-tile>
-  <mat-grid-tile>
-    <div class="box seven ">
-      <h1>
-        <a
-          mat-list-item
-          routerLink="/main/department/5"
-          routerLinkActive="active"
-        >Potosí</a></h1>
-    </div>
-
-  </mat-grid-tile>
-
-  <mat-grid-tile>
-    <div class="box eight ">
-      <h1>
-        <a
-          mat-list-item
-          routerLink="/main/department/6"
-          routerLinkActive="active"
-        >Pando</a></h1>
-    </div>
-  </mat-grid-tile>
-
-  <mat-grid-tile>
-    <div class="box nine ">
-      <h1>
-        <a
-          mat-list-item
-          routerLink="/main/department/7"
-          routerLinkActive="active"
-        >Beni</a></h1>
-    </div>
-  </mat-grid-tile>
-
-  <mat-grid-tile>
-    <div class="box ten ">
-      <h1>
-        <a
-          mat-list-item
-          routerLink="/main/department/9"
-          routerLinkActive="active"
-        >Chuquisaca</a></h1>
-    </div>
-  </mat-grid-tile>
-
-</mat-grid-list>
-
-
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="box eight ">
+        <h1>
+          <a
+            mat-list-item
+            routerLink="/main/department/6"
+            routerLinkActive="active"
+          >Pando</a></h1>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="box nine ">
+        <h1>
+          <a
+            mat-list-item
+            routerLink="/main/department/7"
+            routerLinkActive="active"
+          >Beni</a></h1>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="box ten ">
+        <h1>
+          <a
+            mat-list-item
+            routerLink="/main/department/9"
+            routerLinkActive="active"
+          >Chuquisaca</a></h1>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
 <br>
-<mat-card-title align="center">Noticia</mat-card-title>
-<mat-grid-list  cols="4" >
-  <mat-grid-tile *ngFor="let a of datanews">
-    <mat-card class="example-card" style="width: 450px; height: 100%">
-      <mat-card-header>
-        <mat-card-title>{{a.name}} </mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <p>
-          {{a.description}}
-        </p>
-      </mat-card-content>
-      <mat-card-actions>
-        <a mat-raised-button href="{{a.url}}" color="primary" target="_blank">Mas informacion</a>
-      </mat-card-actions>
-    </mat-card>
-  </mat-grid-tile>
+<mat-card-title style="text-align: center"> Noticias</mat-card-title>
+    <mat-grid-list  cols="5" >
+    <mat-grid-tile *ngFor="let a of datanews">
+      <mat-card class="example-card" style="width: 450px; height: 300px">
+        <mat-card-header>
+          <mat-card-title>{{a.name}} </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>
+            {{a.description}}
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <a mat-raised-button href="{{a.url}}" color="primary" target="_blank">Mas informacion</a>
+        </mat-card-actions>
+      </mat-card>
+    </mat-grid-tile>
 
-</mat-grid-list>
+  </mat-grid-list>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
