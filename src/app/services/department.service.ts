@@ -44,6 +44,12 @@ export class DepartmentService {
   getmunicipalitidatabyidped(iddepartamento: number) {
     return this.http.get<MunicipalitydataModel[]>(apikey.api + `/municipalities/department/${iddepartamento}`);
   }
+  getMunicipalityDataByDepartment(nameMunicipio: string, iddepartamento: number){
+    let urls = apikey.api + `/municipalities/${nameMunicipio}/${iddepartamento}`;
+    console.log("la url es: "+urls);
+
+    return this.http.get<MunicipalitydataModel[]>(apikey.api + `/municipalities/${nameMunicipio}/${iddepartamento}`);
+  }
 
   // list department and municipalities
   getlistofdep() {

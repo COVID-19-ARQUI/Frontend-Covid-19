@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {Dashboard} from '../../../../models/dashboard.model';
 import {Data} from '../../../../models/data.model';
 import {ChartDataSets} from 'chart.js';
@@ -8,7 +8,9 @@ import {DatosService} from '../../../../services/datos.service';
 import {DepartmentService} from '../../../../services/department.service';
 import {ActivatedRoute} from '@angular/router';
 import {MunicipalitydataModel} from '../../../../models/municipalitydata.model';
-
+import { MatTableDataSource } from '@angular/material/table';
+import { MatSort } from '@angular/material/sort';
+import { MatPaginator} from '@angular/material/paginator';
 @Component({
   selector: 'app-department',
   templateUrl: './department.component.html',
@@ -32,6 +34,7 @@ export class DepartmentComponent implements OnInit {
   v2data: number[] = [];
   vdate: string[] = [];
   date: string[] = [];
+  filterMunicipality: string;
   public lineChartData: ChartDataSets[];
   public lineChartDataDeath: ChartDataSets[];
   public lineChartDataRecovered: ChartDataSets[];
@@ -65,6 +68,11 @@ export class DepartmentComponent implements OnInit {
       backgroundColor: 'blue',
     },
   ];
+  listData: MatTableDataSource<any>;
+  displayedColumns: string[] = ['MUNICIPIO', 'DATO'];
+  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  searchKey: string;
 
   constructor(private servicedash: DashboardService,
               private servicedata: DatosService,
@@ -79,6 +87,15 @@ export class DepartmentComponent implements OnInit {
     this.auxiliar();
     this.loadname();
     this.loadmunicipio();
+
+    this.listData = new MatTableDataSource(this.municipio);
+    this.listData.sort = this.sort;
+    this.listData.paginator = this.paginator;
+    this.listData.filterPredicate = (data, filter) => {
+      return this.displayedColumns.some(ele => {
+        return ele != 'actions' && data[ele].toLowerCase().indexOf(filter) != -1;
+      });
+    };
   }
 loadmunicipio(){
   const id = this.activatedRoute.snapshot.params.id;
@@ -205,5 +222,36 @@ loadmunicipio(){
     this.lineChartLabels = this.date;
     this.lineChartLabelsVa = this.vdate;
   }
+  onSearchClear() {
+    this.searchKey = "";
+    this.applyFilter();
+  }
+
+  applyFilter() {
+    this.listData.filter = this.searchKey.trim().toLowerCase();
+  }
+  token: number;
+  generateFilter(){
+    console.log(this.activatedRoute.snapshot.paramMap.get('id'));
+    let idDepartment: number = parseInt(this.activatedRoute.snapshot.paramMap.get('id'))
+    console.log(this.filterMunicipality);
+
+    this.servicedepartment.getMunicipalityDataByDepartment(this.filterMunicipality,idDepartment).subscribe(value => {
+      this.municipio = value;
+      console.log(value.length);
+      if(value.length==0){
+        this.muni=false;
+      }else {
+        this.muni=true;
+      }
+      console.log(value);
+    });
+
+    if(!this.filterMunicipality){
+      this.loadmunicipio();
+    }
+    return this.municipio;
+  }
+
 
 }

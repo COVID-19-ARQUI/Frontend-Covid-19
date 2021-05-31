@@ -1,3 +1,8 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+
 <mat-card-title align="center">Dashboard {{name}}</mat-card-title>
 <mat-grid-list cols="5" rowHeight="5:2">
   <mat-grid-tile>
@@ -97,20 +102,83 @@
   </mat-step>
 </mat-horizontal-stepper>
 
+<!--
+<div class="mat-elevation-z8">
+  <mat-table [dataSource]="listData"  matSort>
+    <ng-container matColumnDef="fullName">
+      <mat-header-cell *matHeaderCellDef  mat-sort-header>Full Name</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{element.data}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="email">
+      <mat-header-cell *matHeaderCellDef  mat-sort-header>Email</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{element.municipality}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef></mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <button mat-icon-button><mat-icon>launch</mat-icon></button>
+        <button mat-icon-button color="warn"><mat-icon>delete_outline</mat-icon></button>
+      </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="loading">
+      <mat-footer-cell *matFooterCellDef colspan="6">
+        Loading data...
+      </mat-footer-cell>
+    </ng-container>
+    <ng-container matColumnDef="noData">
+      <mat-footer-cell *matFooterCellDef colspan="6">
+        No data.
+      </mat-footer-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    <mat-footer-row *matFooterRowDef="['loading']" [ngClass]="{'hide':listData!=null}"></mat-footer-row>
+    <mat-footer-row *matFooterRowDef="['noData']" [ngClass]="{'hide':!(listData!=null && listData.data.length==0)}"></mat-footer-row>
+  </mat-table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" [pageSize]="5" showFirstLastButtons></mat-paginator>
+</div>
 
-<table>
-  <tr>
-    <th >municipio</th>
-    <th >Casos</th>
+-->
 
-  </tr>
-  <tr *ngFor="let a of municipio">
-    <td >{{a.municipality}}</td>
-    <td >{{a.dato}}</td>
+<div class="card" align="center" style="margin-left: 300px; margin-right: 300px">
+  <div class="card-header">
 
-  </tr>
+    <div class="container">
+      <div class="row">
+        <div class="col-8">
 
-</table>
+          <mat-form-field appearance="legacy" style="width: 300px">
+            <mat-icon matSuffix>search</mat-icon>
+            <mat-label>Filtro por municipio</mat-label>
+            <input [(ngModel)]="filterMunicipality" matInput placeholder="Ingrese el nombre de un municipio">
+          </mat-form-field>
+
+        </div>
+        <div class="col-4 left" style="margin-top: 5px; border: black">
+          <button (click)="generateFilter()" mat-raised-button color="primary">Buscar</button>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+  <div class="card-body" align="center">
+    <table align="center">
+      <tr>
+        <th >municipio</th>
+        <th >Casos</th>
+
+      </tr>
+      <tr *ngFor="let a of municipio">
+        <td >{{a.municipality}}</td>
+        <td >{{a.dato}}</td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+
+
 <h1 *ngIf="muni==false">NO hay Datos</h1>
 
 
