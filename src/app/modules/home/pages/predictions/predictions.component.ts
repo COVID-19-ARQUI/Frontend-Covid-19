@@ -93,7 +93,7 @@ export class PredictionsComponent implements OnInit {
     this.auxiliar();
   }
   async getPredictions() {
-    await this.predictionsService.getPredictionsByCountry(29, 60).subscribe(value => {
+    await this.predictionsService.getPredictionsByCountry(29, 10).subscribe(value => {
       this.datatochart(value);
     });
   }
@@ -104,12 +104,12 @@ export class PredictionsComponent implements OnInit {
     });
   }
   async getPredictionsexp() {
-    await this.predictionsService.getPredictionsByCountryexp(29, 10).subscribe(value => {
+    await this.predictionsService.getPredictionsByCountryexp(29, 100).subscribe(value => {
       this.datatochartexp(value);
     });
   }
   async getPredictionspow() {
-    await this.predictionsService.getPredictionsByCountrypow(29, 10).subscribe(value => {
+    await this.predictionsService.getPredictionsByCountrypow(29, 100).subscribe(value => {
       this.datatochartpow(value);
     });
   }

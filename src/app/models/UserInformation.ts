@@ -3,6 +3,6 @@ export interface UserInformation{
   name: string,
   surname: string,
   email: string,
-  url_photo: string,
+  urlPhoto: string,
   role: string
 }
