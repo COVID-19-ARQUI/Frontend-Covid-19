@@ -6,6 +6,9 @@ import {TokenService} from '../../services/token.service';
 import {MatDialog} from '@angular/material/dialog';
 import {LoginComponent} from '../../modules/home/alerts/login/login.component';
 import {Router} from '@angular/router';
+import {UserService} from '../../services/user.service';
+import {User} from '../../models/User';
+import {UserInformation} from '../../models/UserInformation';
 
 
 @Component({
@@ -18,12 +21,13 @@ export class SideBarComponent implements OnInit {
   resultMsg: string;
   Autheticated = false;
   role: string[];
-
+  user: UserInformation;
   constructor(
     private tokenService: TokenService,
     private breakpointObserver: BreakpointObserver,
     public dialog: MatDialog,
-    private router: Router
+    private router: Router,
+    private userService: UserService
   ) {
   }
 
@@ -33,8 +37,13 @@ export class SideBarComponent implements OnInit {
     if (this.tokenService.getToken()){
       this.Autheticated=true;
     }
+    this.getUserInfo();
   }
-
+  getUserInfo(){
+    this.userService.getuserbyId(this.tokenService.getUserId()).subscribe(value => {
+      this.user=value;
+    });
+  }
   loginDialog(){
     const dialog = this.dialog.open(LoginComponent,{
       width: '700px'

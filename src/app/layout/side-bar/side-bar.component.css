@@ -14,3 +14,11 @@
 .example-sidenav {
   padding: 20px;
 }
+
+a:hover{
+  color: white;
+  text-decoration: none;
+}
+.example-spacer {
+  flex: 1 1 auto;
+}

@@ -2,71 +2,27 @@
 
 
 <mat-sidenav-container class="sidenav-container">
-<!--  <mat-sidenav-->
-<!--    #drawer-->
-<!--    class="sidenav"-->
-<!--    fixedInViewport-->
-<!--    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"-->
-<!--    [mode]="(isHandset$ | async) ? 'over' : 'side'"-->
-<!--    [opened]="(isHandset$ | async) === false"-->
-<!--  >-->
-<!--    <div class="sidebar-logo"></div>-->
-<!--    <mat-nav-list>-->
-
-<!--      <a-->
-<!--        mat-list-item-->
-<!--        routerLink="/main/dashbolivia"-->
-<!--        routerLinkActive="active"-->
-<!--      >Gráficos</a-->
-<!--      >-->
-<!--      <a mat-list-item-->
-<!--         routerLink="/main/data"-->
-<!--         routerLinkActive="active"-->
-<!--      >Ingresar datos nuevos</a-->
-<!--      >-->
-<!--      <a-->
-<!--        mat-list-item-->
-<!--        routerLink="/main/principal"-->
-<!--        routerLinkActive="active"-->
-<!--      >Mapas</a-->
-<!--      >-->
-<!--      <a-->
-<!--        mat-list-item-->
-<!--        routerLink="/main/dashedit"-->
-<!--        routerLinkActive="active"-->
-<!--      >Personlizar</a-->
-<!--      >-->
-<!--      <a-->
-<!--        mat-list-item-->
-<!--        routerLink="/main/noticia"-->
-<!--        routerLinkActive="active"-->
-<!--      >Noticias</a-->
-<!--      >-->
-<!--      <a-->
-<!--        mat-list-item-->
-<!--        routerLink="/main/predict"-->
-<!--        routerLinkActive="active"-->
-<!--      >Predicciones</a>-->
-<!--      <a-->
-<!--        mat-list-item-->
-<!--        routerLink="/main/profile"-->
-<!--        routerLinkActive="active"-->
-<!--      >Profile</a>-->
-<!--    </mat-nav-list>-->
-<!--  </mat-sidenav>-->
   <mat-sidenav-content>
     <mat-toolbar color="primary">
       <mat-toolbar-row>
         <h1>Covid-19</h1>
-        <span class="menu-spacer"></span>
+        <span class="example-spacer"></span>
         <div>
           <a mat-button [routerLink]="'/main/principal'"> Mapas </a>
           <a mat-button [routerLink]="'/main/dashbolivia'"> Gráficos </a>
-          <a mat-button [routerLink]="'/main/dashedit'" *ngIf="Autheticated"> Personalizar </a>
+          <a mat-button [routerLink]="'/main/dashedit'" *ngIf="role[0]==='user'"> Personalizar </a>
           <a mat-button [routerLink]="'/main/noticia'"> Noticias </a>
           <a mat-button [routerLink]="'/main/predict'"> Predicciones </a>
           <a mat-button [routerLink]="'/main/data'" *ngIf="role[0]==='admin'"> Ingresar datos nuevos </a>
         </div>
+        <span class="example-spacer"></span>
+        <a mat-button [matMenuTriggerFor]="menu" *ngIf="Autheticated">
+          <img src="{{user?.url_photo}}" alt="Avatar" class="avatar" />
+        </a>
+        <mat-menu #menu="matMenu">
+          <span class="user-name">{{user?.username}}</span>
+          <button mat-menu-item>Ver perfil</button>
+        </mat-menu>
         <button mat-button *ngIf="!Autheticated" (click)="loginDialog()">
           LogIn
         </button>
