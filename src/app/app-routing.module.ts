@@ -1,7 +1,6 @@
 import {NgModule, Component} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {MainComponent} from './layout/main/main.component';
-import {DashboardsComponent} from './modules/home/pages/dashboards/dashboards.component';
 import {DepartmentComponent} from './modules/home/pages/department/department.component';
 import {PrincipalComponent} from './modules/home/pages/principal/principal.component';
 import {NewdataComponent} from './modules/home/pages/newdata/newdata.component';
@@ -33,10 +32,6 @@ const routes: Routes = [
       {
         path: 'principal',
         component: PrincipalComponent,
-      },
-      {
-        path: 'graphics',
-        component: DashboardsComponent,
       },
       {
         path: 'department/:id',

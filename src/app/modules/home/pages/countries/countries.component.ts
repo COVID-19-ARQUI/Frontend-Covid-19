@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 
 import axios from 'axios';
+import {MatTableDataSource} from '@angular/material/table';
 
 export interface DataCOUNTRIES {
   country_name: string;
@@ -23,17 +24,16 @@ export interface DataCOUNTRIES {
 })
 
 export class CountriesComponent implements OnInit {
-  dataCountries: any[] = [];
-  displayedColumns: string[] = ['country_name', 'cases', 'deaths', 'region', 'total_recovered', 'new_deaths', 'new_cases', 'serious_critical', 'active_cases', 'total_cases_per_1m_population'];
-
+  dataCountries: DataCOUNTRIES[] = [];
+  displayedColumns: string[] = ['country_name', 'cases', 'deaths', 'total_recovered', 'new_deaths', 'new_cases', 'serious_critical', 'active_cases', 'total_cases_per_1m_population'];
   constructor(private http: HttpClient) {
   }
 
-  ngOnInit(): void {
-    this.data();
+  async ngOnInit(): Promise<any> {
+    await this.data();
   }
 
-  data() {
+  async data() {
     const options = {
       headers: {
         'x-rapidapi-key': 'a066813794msh04c81690e3bac14p1f5223jsnba955b90169e',
@@ -41,9 +41,9 @@ export class CountriesComponent implements OnInit {
       }
     };
     var r;
-    axios.get('https://corona-virus-world-and-india-data.p.rapidapi.com/api', options ).then((response) => {
-      r = response.data.countries_stat;
-      this.concatData(r);
+    await axios.get('https://corona-virus-world-and-india-data.p.rapidapi.com/api', options ).then((response) => {
+      this.dataCountries = response.data.countries_stat;
+      // this.concatData(r);
 
     }).catch((error) => {
       console.error(error);

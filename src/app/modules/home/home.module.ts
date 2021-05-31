@@ -2,7 +2,6 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {SideBarComponent} from '../../layout/side-bar/side-bar.component';
 import {MainComponent} from '../../layout/main/main.component';
-import {DashboardsComponent} from './pages/dashboards/dashboards.component';
 import {RouterModule} from '@angular/router';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -43,11 +42,9 @@ import { DragScrollModule } from 'ngx-drag-scroll';
     HomeComponent,
     SideBarComponent,
     MainComponent,
-    DashboardsComponent,
     DepartmentComponent,
     PrincipalComponent,
     DepartmentComponent,
-    DashboardsComponent,
     NewdataComponent,
     NoticiasComponent,
     DashboardsboliviaComponent,

@@ -8,10 +8,11 @@
         <h1>Covid-19</h1>
         <span class="example-spacer"></span>
         <div>
-          <a mat-button [routerLink]="'/main/principal'"> Mapas </a>
+          <a mat-button [routerLink]="'/main/principal'"> Mapa </a>
           <a mat-button [routerLink]="'/main/dashbolivia'"> Gráficos </a>
           <a mat-button [routerLink]="'/main/dashedit'" *ngIf="role[0]==='user'"> Personalizar </a>
           <a mat-button [routerLink]="'/main/noticia'"> Noticias </a>
+          <a mat-button [routerLink]="'/main/countries'"> Datos </a>
           <a mat-button [routerLink]="'/main/predict'"> Predicciones </a>
           <a mat-button [routerLink]="'/main/data'" *ngIf="role[0]==='admin'"> Ingresar datos nuevos </a>
         </div>
