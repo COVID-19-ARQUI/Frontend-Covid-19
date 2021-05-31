@@ -11,13 +11,20 @@ import {MunicipalitydataModel} from '../../../../models/municipalitydata.model';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { MatPaginator} from '@angular/material/paginator';
+import axios from 'axios';
+import {DataCOUNTRIES} from "../countries/countries.component";
+
+
 @Component({
   selector: 'app-department',
   templateUrl: './department.component.html',
   styleUrls: ['./department.component.css']
 })
+
+
 export class DepartmentComponent implements OnInit {
-  municipio: MunicipalitydataModel[];
+  displayedColumns: string[] = ['municipality','dato'];
+  listMunicipio: MunicipalitydataModel[];
   muni:boolean;
   contagiados: number;
   muertos: number;
@@ -68,11 +75,8 @@ export class DepartmentComponent implements OnInit {
       backgroundColor: 'blue',
     },
   ];
-  listData: MatTableDataSource<any>;
-  displayedColumns: string[] = ['MUNICIPIO', 'DATO'];
-  @ViewChild(MatSort) sort: MatSort;
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  searchKey: string;
+
+
 
   constructor(private servicedash: DashboardService,
               private servicedata: DatosService,
@@ -80,36 +84,29 @@ export class DepartmentComponent implements OnInit {
               private activatedRoute: ActivatedRoute) {
   }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<any>{
 
     this.loaddata();
     this.loadsuma();
     this.auxiliar();
     this.loadname();
-    this.loadmunicipio();
+    await this.loadmunicipio();
 
-    this.listData = new MatTableDataSource(this.municipio);
-    this.listData.sort = this.sort;
-    this.listData.paginator = this.paginator;
-    this.listData.filterPredicate = (data, filter) => {
-      return this.displayedColumns.some(ele => {
-        return ele != 'actions' && data[ele].toLowerCase().indexOf(filter) != -1;
-      });
-    };
   }
-loadmunicipio(){
+async loadmunicipio(){
   const id = this.activatedRoute.snapshot.params.id;
   this.servicedepartment.getmunicipalitidatabyidped(id).subscribe(value => {
-    this.municipio = value;
+
+    this.listMunicipio = value;
     console.log(value.length);
     if(value.length==0){
       this.muni=false;
     }else {
       this.muni=true;
     }
-    console.log(value);
+    console.log(this.listMunicipio);
   });
-  return this.municipio;
+  return this.listMunicipio;
 }
 
   loadname() {
@@ -222,14 +219,6 @@ loadmunicipio(){
     this.lineChartLabels = this.date;
     this.lineChartLabelsVa = this.vdate;
   }
-  onSearchClear() {
-    this.searchKey = "";
-    this.applyFilter();
-  }
-
-  applyFilter() {
-    this.listData.filter = this.searchKey.trim().toLowerCase();
-  }
   token: number;
   generateFilter(){
     console.log(this.activatedRoute.snapshot.paramMap.get('id'));
@@ -237,7 +226,7 @@ loadmunicipio(){
     console.log(this.filterMunicipality);
 
     this.servicedepartment.getMunicipalityDataByDepartment(this.filterMunicipality,idDepartment).subscribe(value => {
-      this.municipio = value;
+      this.listMunicipio = value;
       console.log(value.length);
       if(value.length==0){
         this.muni=false;
@@ -250,7 +239,7 @@ loadmunicipio(){
     if(!this.filterMunicipality){
       this.loadmunicipio();
     }
-    return this.municipio;
+    return this.listMunicipio;
   }
 
 
