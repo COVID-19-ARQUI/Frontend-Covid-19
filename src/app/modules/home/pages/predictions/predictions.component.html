@@ -1,47 +1,3 @@
-<!--<mat-horizontal-stepper #stepper>-->
-<!--  <mat-step>-->
-<!--    <ng-template matStepLabel>Contagiados</ng-template>-->
-<!--    <div style="display: block; ">-->
-<!--      <h1 style="text-align:center;"> Contagiados</h1>-->
-<!--      <canvas baseChart width="1500" height="500"-->
-<!--              [datasets]="lineChartData"-->
-<!--              [labels]="lineChartLabels"-->
-<!--              [colors]="lineChartColors"-->
-<!--              [legend]="lineChartLegend"-->
-<!--              [chartType]="lineChartType"-->
-<!--              [plugins]="lineChartPlugins">-->
-<!--      </canvas>-->
-<!--    </div>-->
-<!--  </mat-step>-->
-<!--  <mat-step>-->
-<!--    <ng-template matStepLabel>Muertos</ng-template>-->
-<!--    <div style="display: block; ">-->
-<!--      <h1 style="text-align:center;"> Muertos</h1>-->
-<!--      <canvas baseChart width="1500" height="500"-->
-<!--              [datasets]="lineChartDataDeath"-->
-<!--              [labels]="lineChartLabels"-->
-<!--              [colors]="lineChartColorsDeath"-->
-<!--              [legend]="lineChartLegend"-->
-<!--              [chartType]="lineChartType"-->
-<!--              [plugins]="lineChartPlugins">-->
-<!--      </canvas>-->
-<!--    </div>-->
-<!--  </mat-step>-->
-<!--  <mat-step>-->
-<!--    <ng-template matStepLabel>Recuperados</ng-template>-->
-<!--    <div style="display: block; ">-->
-<!--      <h1 style="text-align:center;"> Recuperados</h1>-->
-<!--      <canvas baseChart width="1500" height="500"-->
-<!--              [datasets]="lineChartDataRecovered"-->
-<!--              [labels]="lineChartLabels"-->
-<!--              [colors]="lineChartColorsRecovered"-->
-<!--              [legend]="lineChartLegend"-->
-<!--              [chartType]="lineChartType"-->
-<!--              [plugins]="lineChartPlugins">-->
-<!--      </canvas>-->
-<!--    </div>-->
-<!--  </mat-step>-->
-<!--</mat-horizontal-stepper>-->
 
 <mat-horizontal-stepper #stepper>
 
@@ -50,6 +6,7 @@
     <div style="display: block; ">
 
       <h1 style="text-align:center;"> Lineal</h1>
+
       <canvas baseChart width="300" height="200"
               [datasets]="LinealData"
               [labels]="LinealLabel"
@@ -93,7 +50,7 @@
 
 </mat-horizontal-stepper>
 
-<mat-horizontal-stepper #stepper>
+<mat-horizontal-stepper #stepper >
   <mat-step>
     <ng-template matStepLabel>Contagiados</ng-template>
     <div style="display: block; ">

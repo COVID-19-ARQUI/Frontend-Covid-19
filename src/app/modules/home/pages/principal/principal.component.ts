@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, AfterViewInit} from '@angular/core';
 import * as L from 'leaflet';
 import {MarkerService} from '../../../../services/marker.service';
 import {Data} from '../../../../models/data.model';
@@ -26,7 +26,7 @@ L.Marker.prototype.options.icon = iconDefault;
   templateUrl: './principal.component.html',
   styleUrls: ['./principal.component.css']
 })
-export class PrincipalComponent implements OnInit {
+export class PrincipalComponent implements AfterViewInit {
   contagiados: number;
   muertos: number;
   recuperados: number;
@@ -52,7 +52,7 @@ export class PrincipalComponent implements OnInit {
               private departmentService: DepartmentService) {
   }
 
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
     this.loadsuma();
     this.initMap();
     // this.markerService.makeCapitalMarkers(this.map);

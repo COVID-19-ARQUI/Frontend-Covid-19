@@ -43,8 +43,8 @@ export class DepartmentComponent implements OnInit {
   public lineChartPlugins = [];
   public lineChartColors: Color[] = [
     {
-      borderColor: 'rgba(50,222,209,0.3)',
-      backgroundColor: 'rgba(50,222,209,0.3)',
+      borderColor: 'rgb(50,222,209)',
+      backgroundColor: 'rgb(50,222,209)',
     },
   ];
   public lineChartColorsDeath: Color[] = [

@@ -62,8 +62,8 @@ export class PredictionsComponent implements OnInit {
 
   public lineChartColors: Color[] = [
     {
-      borderColor: 'rgba(50,222,209,0.3)',
-      backgroundColor: 'rgba(50,222,209,0.3)',
+      borderColor: 'rgba(8,74,231,0.3)',
+      backgroundColor: 'rgba(8,74,231,0.3)',
     },
   ];
   public lineChartColorsDeath: Color[] = [
@@ -90,10 +90,8 @@ export class PredictionsComponent implements OnInit {
     this.getPredictionspow();
     this.getPredictionslog();
 
-
     this.auxiliar();
   }
-
   async getPredictions() {
     await this.predictionsService.getPredictionsByCountry(29, 60).subscribe(value => {
       this.datatochart(value);
@@ -101,25 +99,22 @@ export class PredictionsComponent implements OnInit {
   }
 
   async getPredictionslin() {
-    await this.predictionsService.getPredictionsByCountrylin(29, 20).subscribe(value => {
+    await this.predictionsService.getPredictionsByCountrylin(29, 10).subscribe(value => {
       this.datatochartlin(value);
     });
   }
-
   async getPredictionsexp() {
-    await this.predictionsService.getPredictionsByCountryexp(29, 20).subscribe(value => {
+    await this.predictionsService.getPredictionsByCountryexp(29, 10).subscribe(value => {
       this.datatochartexp(value);
     });
   }
-
   async getPredictionspow() {
-    await this.predictionsService.getPredictionsByCountrypow(29, 20).subscribe(value => {
+    await this.predictionsService.getPredictionsByCountrypow(29, 10).subscribe(value => {
       this.datatochartpow(value);
     });
   }
-
   async getPredictionslog() {
-    await this.predictionsService.getPredictionsByCountrylog(29, 60).subscribe(value => {
+    await this.predictionsService.getPredictionsByCountrylog(29, 100).subscribe(value => {
       this.datatochartlog(value);
     });
   }

@@ -208,11 +208,24 @@
 
 <br>
 <mat-card-title align="center">Noticia</mat-card-title>
-  <iframe
-          src="http://localhost:4200/noticiasBing"
-          width="100%"
-          height="300px"
-          frameborder="0" scrolling="yes"></iframe>
+<mat-grid-list  cols="4" >
+  <mat-grid-tile *ngFor="let a of datanews">
+    <mat-card class="example-card" style="width: 450px; height: 100%">
+      <mat-card-header>
+        <mat-card-title>{{a.name}} </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>
+          {{a.description}}
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <a mat-raised-button href="{{a.url}}" color="primary" target="_blank">Mas informacion</a>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+
+</mat-grid-list>
 
 
 

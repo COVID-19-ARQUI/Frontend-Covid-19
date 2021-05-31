@@ -1,40 +1,39 @@
 <div class="example-flex-container" style="align-content: center">
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button mat-icon-button color="primary" [disabled]="isCheckedbar" (click)="isCheckedbar=true"> Grafico de baras
+        <mat-icon>bar_chart</mat-icon>
+      </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-<!--  <button mat-icon-button color="primary">-->
-<!--    <mat-icon>save</mat-icon>-->
-<!--  </button>-->
-  <button mat-icon-button color="primary" [disabled]="isCheckedbar" (click)="isCheckedbar=true">
-    <mat-icon>bar_chart</mat-icon>
-  </button>
+        <button mat-icon-button color="primary" [disabled]="isCheckedpie" (click)="isCheckedpie=true"> Grafico de torta
+        <mat-icon>pie_chart</mat-icon>
+      </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-  <button mat-icon-button color="primary" [disabled]="isCheckedpie" (click)="isCheckedpie=true">
-    <mat-icon>pie_chart</mat-icon>
-  </button>
-  <button mat-icon-button color="primary"
-          (click)="exportAsPDF();">
-    <mat-icon>print</mat-icon>
-  </button>
+        <button mat-icon-button color="primary"
+                    (click)="exportAsPDF();"> Imprimir
+        <mat-icon>print</mat-icon>
+      </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
 
 </div>
 
 <div id="print">
-
   <div id="Bararas">
     <div *ngIf="isCheckedbar"  >
-
-      <mat-slide-toggle  [(ngModel)]="isCheckedbar" color="primary" data-html2canvas-ignore="true">Eliminar</mat-slide-toggle>
-
+      <button mat-icon-button color="warn" [disabled]="isCheckedbar==false" (click)="isCheckedbar=false"> Borrar grafico
+        <mat-icon>delete</mat-icon>
+      </button>
       <div class="example-flex-container" data-html2canvas-ignore="true">
-
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <button mat-icon-button color="accent" [disabled]="isCheckedbarcon" (click)="isCheckedbarcon=true">
           Contaguiados
           <mat-icon>warning icon</mat-icon>
         </button>
-        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <button mat-icon-button color="warn" [disabled]="isCheckedbardead" (click)="isCheckedbardead=true"> Muertos
           <mat-icon>error icon</mat-icon>
         </button>
-        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
         <button mat-icon-button color="primary" [disabled]="isCheckedbarrec" (click)="isCheckedbarrec=true"> Recuperados
           <mat-icon>done</mat-icon>
         </button>
@@ -42,11 +41,15 @@
       </div>
 
       <div id="bar-contagiados">
-        <br><br><br><br><br><br><br>
+        <br><br><br><br>
         <div *ngIf="isCheckedbarcon" >
 
           <h1 style="text-align:center;">Contagiados</h1>
-          <mat-slide-toggle [(ngModel)]="isCheckedbarcon" color="primary" data-html2canvas-ignore="true" >Eliminar</mat-slide-toggle>
+
+          <button mat-icon-button color="warn" [disabled]="isCheckedbarcon==false" (click)="isCheckedbarcon=false"> Borrar
+            <mat-icon>delete</mat-icon>
+          </button>
+
 
           <canvas baseChart width="1500" height="500"
 
@@ -64,10 +67,13 @@
       <div id="bar-muertos">
 
         <div *ngIf="isCheckedbardead">
-          <br><br><br><br><br><br><br><br><br>
-          <mat-slide-toggle [(ngModel)]="isCheckedbardead" color="primary" data-html2canvas-ignore="true">Eliminar</mat-slide-toggle>
-          <h1 style="text-align:center;">Muertos</h1>
+          <br><br><br><br>
 
+         <h1 style="text-align:center;">Muertos</h1>
+
+          <button mat-icon-button color="warn" [disabled]="isCheckedbardead==false" (click)="isCheckedbardead=false"> Borrar
+            <mat-icon>delete</mat-icon>
+          </button>
           <canvas baseChart width="1500" height="500"
                   [datasets]="lineChartDatadead"
                   [labels]="lineChartLabels"
@@ -82,9 +88,12 @@
       <div id="bar-recuperados">
 
         <div *ngIf="isCheckedbarrec">
-          <br><br><br><br><br><br><br><br><br><br>
-          <mat-slide-toggle [(ngModel)]="isCheckedbarrec" color="primary" data-html2canvas-ignore="true">Eliminar</mat-slide-toggle>
+          <br><br><br><br><br>
+
           <h1 style="text-align:center;">Recuperados</h1>
+          <button mat-icon-button color="warn" [disabled]="isCheckedbarrec==false" (click)="isCheckedbarrec=false"> Borrar
+            <mat-icon>delete</mat-icon>
+          </button>
           <canvas baseChart width="1500" height="500"
                   [datasets]="lineChartDatarec"
                   [labels]="lineChartLabels"
@@ -101,15 +110,19 @@
   </div>
 
   <br>
+  <br>
+  <br>
+  <br>
 
   <div id="pie-imagen">
-    <br><br><br><br><br><br><br><br><br><br><br>
-    <div *ngIf="isCheckedpie" class="Pie">
 
-      <mat-slide-toggle [(ngModel)]="isCheckedpie" color="primary" data-html2canvas-ignore="true">Eliminar</mat-slide-toggle>
-      <mat-slide-toggle [(ngModel)]="isCheckedC" color="primary" data-html2canvas-ignore="true">Contagiados</mat-slide-toggle>
-      <mat-slide-toggle [(ngModel)]="isCheckedM" color="primary" data-html2canvas-ignore="true">Muertos</mat-slide-toggle>
-      <mat-slide-toggle [(ngModel)]="isCheckedR" color="primary" data-html2canvas-ignore="true">Recuperados</mat-slide-toggle>
+    <div *ngIf="isCheckedpie" id="Pie">
+
+      <mat-slide-toggle [(ngModel)]="isCheckedpie" color="warn" data-html2canvas-ignore="true">Eliminar</mat-slide-toggle>
+      <br>
+      <mat-slide-toggle [(ngModel)]="isCheckedC" color="accent" data-html2canvas-ignore="true">Contagiados</mat-slide-toggle>
+      <mat-slide-toggle [(ngModel)]="isCheckedM" color="accent" data-html2canvas-ignore="true">Muertos</mat-slide-toggle>
+      <mat-slide-toggle [(ngModel)]="isCheckedR" color="accent" data-html2canvas-ignore="true">Recuperados</mat-slide-toggle>
 
       <mat-horizontal-stepper #stepper>
 

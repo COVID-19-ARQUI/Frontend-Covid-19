@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild } from '@angular/core';
 import {Dashboard} from '../../../../models/dashboard.model';
 import {Data} from '../../../../models/data.model';
 import {ChartDataSets} from 'chart.js';
@@ -6,6 +6,8 @@ import {Color, Label} from 'ng2-charts';
 import {DashboardService} from '../../../../services/dashboard.service';
 import {DatosService} from '../../../../services/datos.service';
 import {DepartmentService} from '../../../../services/department.service';
+import axios from 'axios';
+import {DragScrollComponent} from 'ngx-drag-scroll';
 
 @Component({
   selector: 'app-dashboardsbolivia',
@@ -18,6 +20,7 @@ export class DashboardsboliviaComponent implements OnInit {
   recuperados: number;
   vacu1: number;
   vacu2: number;
+  datanews:any;
   dashboard: Dashboard[];
   databolivia: Data[] = [];
   ndata: number[] = [];
@@ -38,8 +41,8 @@ export class DashboardsboliviaComponent implements OnInit {
   public lineChartPlugins = [];
   public lineChartColors: Color[] = [
     {
-      borderColor: 'rgba(50,222,209,0.3)',
-      backgroundColor: 'rgba(50,222,209,0.3)',
+      borderColor: 'rgb(50,222,209)',
+      backgroundColor: 'rgb(50,222,209)',
     },
   ];
   public lineChartColorsDeath: Color[] = [
@@ -61,6 +64,7 @@ export class DashboardsboliviaComponent implements OnInit {
     },
   ];
 
+  @ViewChild('nav', { read: DragScrollComponent, static: true }) ds: DragScrollComponent;
   constructor(private servicedash: DashboardService,
               private servicedata: DatosService,
               private servicedepartment: DepartmentService) {
@@ -70,6 +74,7 @@ export class DashboardsboliviaComponent implements OnInit {
     this.loaddata();
     this.loadsuma();
     this.auxiliar();
+    this.getData();
   }
 
   async loadsuma() {
@@ -159,4 +164,28 @@ export class DashboardsboliviaComponent implements OnInit {
     this.lineChartLabelsVa = this.vdate;
   }
 
+  getData(){
+
+
+    let searchTerm = 'Covid-19 bolivia';
+    var r;
+
+    axios.get('https://api.bing.microsoft.com/v7.0/news/search?q='+searchTerm, {
+      headers: {
+        'Ocp-Apim-Subscription-Key': 'd9fb5e0085a246ab880455bef594d06d'
+      },
+      params: {
+        count: 20,
+        mkt: 'en-US',
+      }
+    }).then((response) => {
+      r = response.data.value;
+      this.datanews=r;
+
+
+    }).catch((error) => {
+      console.error(error);
+    });
+
+  }
 }

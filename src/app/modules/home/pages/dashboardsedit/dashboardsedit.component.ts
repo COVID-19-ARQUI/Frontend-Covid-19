@@ -85,8 +85,8 @@ export class DashboardseditComponent implements OnInit {
   public lineChartPlugins = [];
   public lineChartColors: Color[] = [
     {
-      borderColor: 'rgba(50,222,209,0.3)',
-      backgroundColor: 'rgba(50,222,209,0.3)',
+      borderColor: 'rgba(50,222,209,0.93)',
+      backgroundColor: 'rgba(50,222,209,0.98)',
     },
   ];
   // pie char data
@@ -160,7 +160,7 @@ export class DashboardseditComponent implements OnInit {
 
     let pdf = new jsPDF('l', 'cm', 'a4');
 
-    let pieGraphic = document.getElementById('pie-imagen');
+    let pieGraphic = document.getElementById('Pie');
     let graphicsContagiados = document.getElementById('bar-contagiados');
     let graphicsMuertos = document.getElementById('bar-muertos');
     let graphicsRecuperados = document.getElementById('bar-recuperados');
@@ -202,7 +202,7 @@ export class DashboardseditComponent implements OnInit {
             console.log(imgGraphRecuperados.length);
             console.log(imgPie.length);
             //console.log("el tamaño de las hojas son: "+pdf.getNumberOfPages());
-            pdf.save('confirmados.pdf');
+            pdf.save('dashboards.pdf');
           });
         });
 

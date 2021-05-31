@@ -1,14 +1,9 @@
-<mat-grid-list  cols="3" >
-
+<mat-grid-list  cols="4" >
   <mat-grid-tile *ngFor="let a of datanews">
     <mat-card class="example-card" >
     <mat-card-header>
       <mat-card-title>{{a.name}} </mat-card-title>
     </mat-card-header>
-<!--      <div >-->
-<!--        <img mat-card-image  src="{{a.image.thumbnail.contentUrl}}"  alt="{{a.name}}" style="width: fit-content;">-->
-
-<!--      </div>-->
     <mat-card-content>
       <p>
         {{a.description}}
@@ -20,5 +15,5 @@
   </mat-card>
   </mat-grid-tile>
 
-</mat-grid-list>>
+</mat-grid-list>
 
