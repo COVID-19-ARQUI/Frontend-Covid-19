@@ -8,11 +8,11 @@ import {DatosService} from '../../../../services/datos.service';
 import {DepartmentService} from '../../../../services/department.service';
 import {ActivatedRoute} from '@angular/router';
 import {MunicipalitydataModel} from '../../../../models/municipalitydata.model';
-import { MatTableDataSource } from '@angular/material/table';
-import { MatSort } from '@angular/material/sort';
-import { MatPaginator} from '@angular/material/paginator';
+import {MatTableDataSource} from '@angular/material/table';
+import {MatSort} from '@angular/material/sort';
+import {MatPaginator} from '@angular/material/paginator';
 import axios from 'axios';
-import {DataCOUNTRIES} from "../countries/countries.component";
+import {DataCOUNTRIES} from '../countries/countries.component';
 
 
 @Component({
@@ -23,9 +23,10 @@ import {DataCOUNTRIES} from "../countries/countries.component";
 
 
 export class DepartmentComponent implements OnInit {
-  displayedColumns: string[] = ['municipality','dato'];
+  displayedColumns: string[] = ['municipality', 'dato'];
   listMunicipio: MunicipalitydataModel[];
-  muni:boolean;
+  dataSource ;
+  muni: boolean;
   contagiados: number;
   muertos: number;
   recuperados: number;
@@ -77,14 +78,13 @@ export class DepartmentComponent implements OnInit {
   ];
 
 
-
   constructor(private servicedash: DashboardService,
               private servicedata: DatosService,
               private servicedepartment: DepartmentService,
               private activatedRoute: ActivatedRoute) {
   }
 
-  async ngOnInit(): Promise<any>{
+  async ngOnInit(): Promise<any> {
 
     this.loaddata();
     this.loadsuma();
@@ -93,21 +93,23 @@ export class DepartmentComponent implements OnInit {
     await this.loadmunicipio();
 
   }
-async loadmunicipio(){
-  const id = this.activatedRoute.snapshot.params.id;
-  this.servicedepartment.getmunicipalitidatabyidped(id).subscribe(value => {
 
-    this.listMunicipio = value;
-    console.log(value.length);
-    if(value.length==0){
-      this.muni=false;
-    }else {
-      this.muni=true;
-    }
-    console.log(this.listMunicipio);
-  });
-  return this.listMunicipio;
-}
+  async loadmunicipio() {
+    const id = this.activatedRoute.snapshot.params.id;
+    this.servicedepartment.getmunicipalitidatabyidped(id).subscribe(value => {
+
+      this.listMunicipio = value;
+      this.dataSource = new MatTableDataSource(this.listMunicipio);
+      console.log(value.length);
+      if (value.length == 0) {
+        this.muni = false;
+      } else {
+        this.muni = true;
+      }
+      console.log(this.listMunicipio);
+    });
+    return this.listMunicipio;
+  }
 
   loadname() {
     var data;
@@ -122,7 +124,7 @@ async loadmunicipio(){
     const id = this.activatedRoute.snapshot.params.id;
     data.map(value => {
       if (value.idDepartment == id) {
-       // console.log(value.department);
+        // console.log(value.department);
         this.name = value.department;
       }
     });
@@ -219,28 +221,34 @@ async loadmunicipio(){
     this.lineChartLabels = this.date;
     this.lineChartLabelsVa = this.vdate;
   }
+
   token: number;
-  generateFilter(){
+
+  generateFilter() {
     console.log(this.activatedRoute.snapshot.paramMap.get('id'));
-    let idDepartment: number = parseInt(this.activatedRoute.snapshot.paramMap.get('id'))
+    let idDepartment: number = parseInt(this.activatedRoute.snapshot.paramMap.get('id'));
     console.log(this.filterMunicipality);
 
-    this.servicedepartment.getMunicipalityDataByDepartment(this.filterMunicipality,idDepartment).subscribe(value => {
+    this.servicedepartment.getMunicipalityDataByDepartment(this.filterMunicipality, idDepartment).subscribe(value => {
       this.listMunicipio = value;
       console.log(value.length);
-      if(value.length==0){
-        this.muni=false;
-      }else {
-        this.muni=true;
+      if (value.length == 0) {
+        this.muni = false;
+      } else {
+        this.muni = true;
       }
       console.log(value);
     });
 
-    if(!this.filterMunicipality){
+    if (!this.filterMunicipality) {
       this.loadmunicipio();
     }
     return this.listMunicipio;
   }
 
 
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
 }
