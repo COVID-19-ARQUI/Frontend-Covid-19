@@ -62,7 +62,7 @@ export class SideBarComponent implements OnInit {
   logout(){
     const currentUrl = this.router.url;
     this.tokenService.logOut();
-    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+    this.router.navigateByUrl('/main', { skipLocationChange: true }).then(() => {
       this.router.navigate([currentUrl]);
     });
     this.Autheticated = false;
