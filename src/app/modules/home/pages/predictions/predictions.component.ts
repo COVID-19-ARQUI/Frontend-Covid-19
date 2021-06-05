@@ -20,7 +20,6 @@ export class PredictionsComponent implements OnInit {
   public lineChartPlugins = [];
 
 
-
   ndata: number[] = [];
   ddata: number[] = [];
   rdata: number[] = [];
@@ -92,29 +91,33 @@ export class PredictionsComponent implements OnInit {
 
     this.auxiliar();
   }
+
   async getPredictions() {
-    await this.predictionsService.getPredictionsByCountry(29, 20).subscribe(value => {
+    await this.predictionsService.getPredictionsByCountry(29, 30).subscribe(value => {
       this.datatochart(value);
     });
   }
 
   async getPredictionslin() {
-    await this.predictionsService.getPredictionsByCountrylin(29, 20).subscribe(value => {
+    await this.predictionsService.getPredictionsByCountrylin(29, 30).subscribe(value => {
       this.datatochartlin(value);
     });
   }
+
   async getPredictionsexp() {
-    await this.predictionsService.getPredictionsByCountryexp(29, 20).subscribe(value => {
+    await this.predictionsService.getPredictionsByCountryexp(29, 30).subscribe(value => {
       this.datatochartexp(value);
     });
   }
+
   async getPredictionspow() {
-    await this.predictionsService.getPredictionsByCountrypow(29, 20).subscribe(value => {
+    await this.predictionsService.getPredictionsByCountrypow(29, 30).subscribe(value => {
       this.datatochartpow(value);
     });
   }
+
   async getPredictionslog() {
-    await this.predictionsService.getPredictionsByCountrylog(29, 20).subscribe(value => {
+    await this.predictionsService.getPredictionsByCountrylog(29, 30).subscribe(value => {
       this.datatochartlog(value);
     });
   }
@@ -137,6 +140,7 @@ export class PredictionsComponent implements OnInit {
     });
 
   }
+
   datatochartexp(datos) {
     //console.log(datos);
     datos.map((values) => {
@@ -154,6 +158,7 @@ export class PredictionsComponent implements OnInit {
     });
 
   }
+
   datatochartpow(datos) {
     //console.log(datos);
     datos.map((values) => {
@@ -171,6 +176,7 @@ export class PredictionsComponent implements OnInit {
     });
 
   }
+
   datatochartlog(datos) {
     //console.log(datos);
     datos.map((values) => {
@@ -190,7 +196,7 @@ export class PredictionsComponent implements OnInit {
   }
 
   datatochart(datos) {
-    //console.log(datos);
+    // console.log(datos);
     datos.map((values) => {
       if (values.datatype == '1') {
         this.ndata.push(values.data);
