@@ -3,6 +3,8 @@ import {PredictionsService} from '../../../../services/predictions.service';
 import {Data} from '../../../../models/data.model';
 import {ChartDataSets} from 'chart.js';
 import {Color, Label} from 'ng2-charts';
+import {DepartmentModel} from '../../../../models/department.model';
+import {DepartmentService} from '../../../../services/department.service';
 
 @Component({
   selector: 'app-predictions',
@@ -10,59 +12,37 @@ import {Color, Label} from 'ng2-charts';
   styleUrls: ['./predictions.component.css']
 })
 export class PredictionsComponent implements OnInit {
+  departments: DepartmentModel[];
+  depselect: string = '0';
+  tipopredic: string='0';
+  tipopredicdep: string='0';
+  tipodedatodep: string='0';
+  cantbol:number;
+  candep:number;
+  tipodedato: string='0';
+  tipodedatostr: string="";
+
+  tipodedatostrdep: string="";
   predictions: Data[];
+
   public lineChartData: ChartDataSets[];
-  public lineChartDataDeath: ChartDataSets[];
-  public lineChartDataRecovered: ChartDataSets[];
   public lineChartLabels: Label[];
   public lineChartLegend = true;
   public lineChartType = 'bar';
   public lineChartPlugins = [];
-
-
   ndata: number[] = [];
-  ddata: number[] = [];
-  rdata: number[] = [];
   date: string[] = [];
 
-  public LinealData: ChartDataSets[];
-  public LinealDataDeath: ChartDataSets[];
-  public LinealDataRecovered: ChartDataSets[];
-  public LinealLabel: Label[];
-  lndata: number[] = [];
-  lddata: number[] = [];
-  lrdata: number[] = [];
+  public lineChartDatadep: ChartDataSets[];
+  public lineChartLabelsdep: Label[];
+  ndatadep: number[] = [];
+  datedep: string[] = [];
 
-  regdate: string[] = [];
-
-  public ExpData: ChartDataSets[];
-  public ExpDataDeath: ChartDataSets[];
-  public ExpDataRecovered: ChartDataSets[];
-  public ExpLabel: Label[];
-  endata: number[] = [];
-  eddata: number[] = [];
-  erdata: number[] = [];
-
-  public PowData: ChartDataSets[];
-  public PowDataDeath: ChartDataSets[];
-  public PowDataRecovered: ChartDataSets[];
-  public PowLabel: Label[];
-  pndata: number[] = [];
-  pddata: number[] = [];
-  prdata: number[] = [];
-
-  public LogData: ChartDataSets[];
-  public LogDataDeath: ChartDataSets[];
-  public LogDataRecovered: ChartDataSets[];
-  public LogLabel: Label[];
-  logndata: number[] = [];
-  logddata: number[] = [];
-  logrdata: number[] = [];
 
   public lineChartColors: Color[] = [
     {
-      borderColor: 'rgba(8,74,231,0.3)',
-      backgroundColor: 'rgba(8,74,231,0.3)',
+      borderColor: 'rgba(8,231,198,0.97)',
+      backgroundColor: 'rgba(8,231,198,0.97)',
     },
   ];
   public lineChartColorsDeath: Color[] = [
@@ -78,198 +58,147 @@ export class PredictionsComponent implements OnInit {
     },
   ];
 
-  constructor(private predictionsService: PredictionsService) {
+  constructor(private predictionsService: PredictionsService,private departmentService: DepartmentService) {
   }
 
   ngOnInit(): void {
+    this.lineChartData=[];
+    this.lineChartLabels=[];
+    this.lineChartDatadep=[];
+    this.lineChartLabelsdep=[];
+    this.ndatadep=[];
+    this.ndata=[];
+    this.date=[];
+    this.datedep=[];
+
     this.getPredictions();
-
-    this.getPredictionslin();
-    this.getPredictionsexp();
-    this.getPredictionspow();
-    this.getPredictionslog();
-
+    this.getPredictionsdep();
     this.auxiliar();
+    this.getDepartment();
+  }
+  async getDepartment(): Promise<DepartmentModel[]> {
+    await this.departmentService.getDepartments().subscribe(value => {
+      this.departments = value;
+    });
+    return this.departments;
   }
 
   async getPredictions() {
-    await this.predictionsService.getPredictionsByCountry(29, 30).subscribe(value => {
-      this.datatochart(value);
-    });
-  }
+    if (this.tipodedato === '1') {
+      this.tipodedatostr = "Confirmados";
+    }
+    if (this.tipodedato  === '2') {
+      this.tipodedatostr = "Muertos";
+    }
+    if (this.tipodedato  === '3') {
+      this.tipodedatostr= "Recuperados";
+    }
+   // console.log(this.tipodedato)
+    //this.tipodedatostr=this.tipodedato;
+    if(this.tipopredic=="1"){
+      await this.predictionsService.getPredictionsByCountry(29, this.cantbol).subscribe(value => {
+        this.datatochart(value);
+      });
+    }else if(this.tipopredic=="2"){
+      await this.predictionsService.getPredictionsByCountrylin(29, this.cantbol).subscribe(value => {
+        this.datatochart(value);
+      });
 
-  async getPredictionslin() {
-    await this.predictionsService.getPredictionsByCountrylin(29, 30).subscribe(value => {
-      this.datatochartlin(value);
-    });
-  }
-
-  async getPredictionsexp() {
-    await this.predictionsService.getPredictionsByCountryexp(29, 30).subscribe(value => {
-      this.datatochartexp(value);
-    });
-  }
-
-  async getPredictionspow() {
-    await this.predictionsService.getPredictionsByCountrypow(29, 30).subscribe(value => {
-      this.datatochartpow(value);
-    });
-  }
-
-  async getPredictionslog() {
-    await this.predictionsService.getPredictionsByCountrylog(29, 30).subscribe(value => {
-      this.datatochartlog(value);
-    });
-  }
-
-  datatochartlin(datos) {
-    //console.log(datos);
-    datos.map((values) => {
-      if (values.datatype == '1') {
-        this.lndata.push(values.data);
-        this.regdate.push(values.inDate);
-      }
-      if (values.datatype == '2') {
-        this.lddata.push(values.data);
-
-      }
-      if (values.datatype == '3') {
-        this.lrdata.push(values.data);
-      }
-
-    });
-
-  }
-
-  datatochartexp(datos) {
-    //console.log(datos);
-    datos.map((values) => {
-      if (values.datatype == '1') {
-        this.endata.push(values.data);
-      }
-      if (values.datatype == '2') {
-        this.eddata.push(values.data);
-
-      }
-      if (values.datatype == '3') {
-        this.erdata.push(values.data);
-      }
-
-    });
-
-  }
-
-  datatochartpow(datos) {
-    //console.log(datos);
-    datos.map((values) => {
-      if (values.datatype == '1') {
-        this.pndata.push(values.data);
-      }
-      if (values.datatype == '2') {
-        this.pddata.push(values.data);
-
-      }
-      if (values.datatype == '3') {
-        this.prdata.push(values.data);
-      }
-
-    });
-
-  }
-
-  datatochartlog(datos) {
-    //console.log(datos);
-    datos.map((values) => {
-      if (values.datatype == '1') {
-        this.logndata.push(values.data);
-      }
-      if (values.datatype == '2') {
-        this.logddata.push(values.data);
-
-      }
-      if (values.datatype == '3') {
-        this.logrdata.push(values.data);
-      }
-
-    });
+    }else if(this.tipopredic=="3"){
+      await this.predictionsService.getPredictionsByCountrypow(29, this.cantbol).subscribe(value => {
+        this.datatochart(value);
+      });
+    }else if(this.tipopredic=="4"){
+      await this.predictionsService.getPredictionsByCountryexp(29, this.cantbol).subscribe(value => {
+        this.datatochart(value);
+      });
+    }else if (this.tipopredic=="5"){
+      await this.predictionsService.getPredictionsByCountrylog(29, this.cantbol).subscribe(value => {
+        this.datatochart(value);
+      });
+    }
 
   }
 
   datatochart(datos) {
     // console.log(datos);
     datos.map((values) => {
-      if (values.datatype == '1') {
+      if (values.datatype == this.tipodedato) {
         this.ndata.push(values.data);
         this.date.push(values.inDate);
       }
-      if (values.datatype == '2') {
-        this.ddata.push(values.data);
-
-      }
-      if (values.datatype == '3') {
-        this.rdata.push(values.data);
-      }
-
     });
 
   }
 
-  auxiliar() {
+  async getPredictionsdep() {
+    if (this.tipodedatodep === '1') {
+      this.tipodedatostrdep = "Confirmados";
+    }
+    if (this.tipodedatodep  === '2') {
+      this.tipodedatostrdep = "Muertos";
+    }
+    if (this.tipodedatodep  === '3') {
+      this.tipodedatostrdep= "Recuperados";
+    }
 
-    this.lineChartData = [
-      {data: this.ndata, label: 'Contagiados'},
-    ];
-    this.lineChartDataDeath = [
-      {data: this.ddata, label: 'Muertos'},
-    ];
-    this.lineChartDataRecovered = [
-      {data: this.rdata, label: 'Recuperados'},
-    ];
-    this.lineChartLabels = this.date;
+    if(this.tipopredicdep=="1"){
+      await this.predictionsService.getPredictionsByDepartment(this.depselect, this.candep).subscribe(value => {
+        this.datatochartdep(value);
+      });
+    }else if(this.tipopredicdep=="2"){
+      await this.predictionsService.getPredictionsByCitylin(this.depselect, this.candep).subscribe(value => {
+        this.datatochartdep(value);
+      });
 
-    this.LinealData = [
-      {data: this.lndata, label: 'Contagiados'},
-    ];
-    this.LinealDataDeath = [
-      {data: this.lddata, label: 'Muertos'},
-    ];
-    this.LinealDataRecovered = [
-      {data: this.lrdata, label: 'Recuperados'},
-    ];
-    this.LinealLabel = this.regdate;
+    }else if(this.tipopredicdep=="3"){
+      await this.predictionsService.getPredictionsByCitypow(this.depselect, this.candep).subscribe(value => {
+        this.datatochartdep(value);
+      });
+    }else if(this.tipopredicdep=="4"){
+      await this.predictionsService.getPredictionsByCityexp(this.depselect, this.candep).subscribe(value => {
+        this.datatochartdep(value);
+      });
+    }else if (this.tipopredicdep=="5"){
+      await this.predictionsService.getPredictionsByCitylog(this.depselect, this.candep).subscribe(value => {
+        this.datatochartdep(value);
+      });
+    }
 
-    this.PowData = [
-      {data: this.pndata, label: 'Contagiados'},
-    ];
-    this.PowDataDeath = [
-      {data: this.pddata, label: 'Muertos'},
-    ];
-    this.PowDataRecovered = [
-      {data: this.prdata, label: 'Recuperados'},
-    ];
-    this.PowLabel = this.regdate;
-
-    this.LogData = [
-      {data: this.logndata, label: 'Contagiados'},
-    ];
-    this.LogDataDeath = [
-      {data: this.logddata, label: 'Muertos'},
-    ];
-    this.LogDataRecovered = [
-      {data: this.logrdata, label: 'Recuperados'},
-    ];
-    this.LogLabel = this.regdate;
-
-    this.ExpData = [
-      {data: this.endata, label: 'Contagiados'},
-    ];
-    this.ExpDataDeath = [
-      {data: this.eddata, label: 'Muertos'},
-    ];
-    this.ExpDataRecovered = [
-      {data: this.erdata, label: 'Recuperados'},
-    ];
-    this.ExpLabel = this.regdate;
   }
 
+  datatochartdep(datos) {
+    datos.map((values) => {
+      if (values.datatype == this.tipodedatostrdep) {
+        this.ndatadep.push(values.data);
+        this.datedep.push(values.inDate);
+      }
+    });
+
+  }
+
+
+  auxiliar() {
+
+    console.log(this.tipodedatostr)
+    this.lineChartData = [
+      {data: this.ndata, label: this.tipodedatostr },
+    ];
+    this.lineChartLabels = this.date;
+console.log(this.ndatadep)
+    this.lineChartDatadep= [
+      {data: this.ndatadep, label: this.tipodedatostrdep },
+    ];
+    this.lineChartLabelsdep = this.datedep;
+
+  }
+
+  databolivia(){
+
+    this.ngOnInit();
+  }
+
+  datadep(){
+    this.ngOnInit();
+  }
 }

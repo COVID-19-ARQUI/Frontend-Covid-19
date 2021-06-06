@@ -31,4 +31,19 @@ export class PredictionsService {
   getPredictionsByCountrylog(idcountry, amount) {
     return this.http.get<Data[]>(apikey.api + `/predict/country/log/${idcountry}`, {params: {cant: amount}});
   }
+
+  getPredictionsByCitylin(idcountry, amount) {
+    return this.http.get<Data[]>(apikey.api + `/predict/cities/lineal/${idcountry}`, {params: {cant: amount}});
+  }
+  getPredictionsByCitypow(idcountry, amount) {
+    return this.http.get<Data[]>(apikey.api + `/predict/cities/pow/${idcountry}`, {params: {cant: amount}});
+  }
+  getPredictionsByCityexp(idcountry, amount) {
+    return this.http.get<Data[]>(apikey.api + `/predict/cities/exp/${idcountry}`, {params: {cant: amount}});
+  }
+  getPredictionsByCitylog(idcountry, amount) {
+    return this.http.get<Data[]>(apikey.api + `/predict/cities/log/${idcountry}`, {params: {cant: amount}});
+  }
+
+
 }
