@@ -175,7 +175,7 @@ export class DashboardsboliviaComponent implements OnInit {
         'Ocp-Apim-Subscription-Key': 'd9fb5e0085a246ab880455bef594d06d'
       },
       params: {
-        count: 16,
+        count: 5,
         mkt: 'en-US',
       }
     }).then((response) => {

@@ -47,7 +47,7 @@ body {
 
 .box h1 {
   color: #fff;
-  padding: 30px;
+  padding: 20px;
   margin-top: 100px;
   text-align: center;
   font-weight: 100;
@@ -118,7 +118,7 @@ body {
 }
 
 .seven {
-  background: url('http://www.diputados.bo/sites/default/files/POTOSI1_1.jpg');
+  background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Vista_panor%C3%A1mica_de_Potos%C3%AD.jpg/1000px-Vista_panor%C3%A1mica_de_Potos%C3%AD.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

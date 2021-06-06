@@ -38,6 +38,7 @@ import {LoginComponent} from './alerts/login/login.component';
 import {NoticiasBingComponent} from './pages/noticias-bing/noticias-bing.component';
 import {DragScrollModule} from 'ngx-drag-scroll';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { AcumulatedGraphComponent } from './components/graphs/acumulated-graph/acumulated-graph.component';
 import {MatSortModule} from '@angular/material/sort';
 
 @NgModule({
@@ -57,6 +58,7 @@ import {MatSortModule} from '@angular/material/sort';
     CountriesComponent,
     LoginComponent,
     NoticiasBingComponent,
+    AcumulatedGraphComponent,
   ],
   imports: [
     CommonModule,

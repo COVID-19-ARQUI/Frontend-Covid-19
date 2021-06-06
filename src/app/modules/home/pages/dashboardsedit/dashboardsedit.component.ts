@@ -26,7 +26,7 @@ export class DashboardseditComponent implements OnInit {
   isCheckedC: boolean;
   isCheckedR: boolean;
   isCheckedM: boolean;
-
+  isCheckedAcu: boolean;
 
   databolivia: Data[] = [];
 

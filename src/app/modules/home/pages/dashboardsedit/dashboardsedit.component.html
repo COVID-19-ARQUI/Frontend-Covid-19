@@ -1,17 +1,21 @@
 <div class="example-flex-container" style="align-content: center">
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <button mat-icon-button color="primary" [disabled]="isCheckedbar" (click)="isCheckedbar=true"> Grafico de baras
+        <button mat-icon-button color="primary" [disabled]="isCheckedbar" (click)="isCheckedbar=true"> Grafico de barras
         <mat-icon>bar_chart</mat-icon>
       </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
         <button mat-icon-button color="primary" [disabled]="isCheckedpie" (click)="isCheckedpie=true"> Grafico de torta
         <mat-icon>pie_chart</mat-icon>
       </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <button mat-icon-button color="primary" [disabled]="isCheckedAcu" (click)="isCheckedAcu=true"> Grafico Acumulados
+        <mat-icon>bar_chart</mat-icon>
+      </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
         <button mat-icon-button color="primary"
                     (click)="exportAsPDF();"> Imprimir
         <mat-icon>print</mat-icon>
       </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
 
 
 </div>
@@ -117,8 +121,9 @@
   <div id="pie-imagen">
 
     <div *ngIf="isCheckedpie" id="Pie">
-
-      <mat-slide-toggle [(ngModel)]="isCheckedpie" color="warn" data-html2canvas-ignore="true">Eliminar</mat-slide-toggle>
+      <button mat-icon-button color="warn" [disabled]="isCheckedpie==false" (click)="isCheckedpie=false"> Borrar grafico
+        <mat-icon>delete</mat-icon>
+      </button>
       <br>
       <mat-slide-toggle [(ngModel)]="isCheckedC" color="accent" data-html2canvas-ignore="true">Contagiados</mat-slide-toggle>
       <mat-slide-toggle [(ngModel)]="isCheckedM" color="accent" data-html2canvas-ignore="true">Muertos</mat-slide-toggle>
@@ -175,6 +180,17 @@
 
       </mat-horizontal-stepper>
 
+    </div>
+  </div>
+
+  <div id="acumulated-graph">
+
+    <div *ngIf="isCheckedAcu" id="acumulated">
+      <button mat-icon-button color="warn" [disabled]="isCheckedAcu==false" (click)="isCheckedAcu=false"> Borrar grafico
+        <mat-icon>delete</mat-icon>
+      </button>
+      <br>
+      <app-acumulated-graph></app-acumulated-graph>
     </div>
   </div>
 

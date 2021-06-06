@@ -4,6 +4,7 @@ import apikey from '../shared/apikey';
 import {DepartmentModel} from '../models/department.model';
 import {Data} from '../models/data.model';
 import {MunicipalitydataModel} from '../models/municipalitydata.model';
+import {AcumulatedDepartmentModel} from '../models/AcumulatedDepartment.model';
 
 @Injectable({
   providedIn: 'root'
@@ -54,5 +55,9 @@ export class DepartmentService {
   // list department and municipalities
   getlistofdep() {
     return this.http.get<DepartmentModel[]>(apikey.api + '/department/list');
+  }
+  // data acumulated from each department
+  getdataacumulated(){
+    return this.http.get<AcumulatedDepartmentModel[]>(apikey.api+"/department/all/accumulated")
   }
 }

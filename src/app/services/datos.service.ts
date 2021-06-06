@@ -21,4 +21,6 @@ export class DatosService {
     return this.http.get<Data[]>(apikey.api + '/data/general/list/29');
   }
 
+
+
 }

@@ -1,0 +1,62 @@
+<!--<mat-slide-toggle [(ngModel)]="isCheckedC" color="accent" data-html2canvas-ignore="true">Contagiados</mat-slide-toggle>-->
+<!--<mat-slide-toggle [(ngModel)]="isCheckedM" color="accent" data-html2canvas-ignore="true">Muertos</mat-slide-toggle>-->
+<!--<mat-slide-toggle [(ngModel)]="isCheckedR" color="accent" data-html2canvas-ignore="true">Recuperados</mat-slide-toggle>-->
+
+<mat-horizontal-stepper #stepper *ngIf="load">
+  <mat-step>
+    <ng-template matStepLabel>Contagiados</ng-template>
+    <div style="display: block; ">
+      <h1 style="text-align:center;"> Contagiados</h1>
+      <canvas baseChart width="1500" height="500"
+              [datasets]="lineChartData"
+              [labels]="lineChartLabels"
+              [colors]="lineChartColors"
+              [legend]="lineChartLegend"
+              [chartType]="lineChartType"
+              [plugins]="lineChartPlugins">
+      </canvas>
+    </div>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Muertos</ng-template>
+    <div style="display: block; ">
+      <h1 style="text-align:center;"> Muertos</h1>
+      <canvas baseChart width="1500" height="500"
+              [datasets]="lineChartDatadead"
+              [labels]="lineChartLabels"
+              [colors]="lineChartColorsDeath"
+              [legend]="lineChartLegend"
+              [chartType]="lineChartType"
+              [plugins]="lineChartPlugins">
+      </canvas>
+    </div>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Recuperados</ng-template>
+    <div style="display: block; ">
+      <h1 style="text-align:center;"> Recuperados</h1>
+      <canvas baseChart width="1500" height="500"
+              [datasets]="lineChartDatarec"
+              [labels]="lineChartLabels"
+              [colors]="lineChartColorsRecovered"
+              [legend]="lineChartLegend"
+              [chartType]="lineChartType"
+              [plugins]="lineChartPlugins">
+      </canvas>
+    </div>
+  </mat-step>
+<!--  <mat-step>-->
+<!--    <ng-template matStepLabel>Vacunados</ng-template>-->
+<!--    <div style="display: block; ">-->
+<!--      <h1 style="text-align:center;"> Vacunados</h1>-->
+<!--      <canvas baseChart width="1500" height="500"-->
+<!--              [datasets]="lineChartDataVaccined"-->
+<!--              [labels]="lineChartLabelsVa"-->
+<!--              [colors]="lineChartColorsVaccined"-->
+<!--              [legend]="lineChartLegend"-->
+<!--              [chartType]="lineChartType"-->
+<!--              [plugins]="lineChartPlugins">-->
+<!--      </canvas>-->
+<!--    </div>-->
+<!--  </mat-step>-->
+</mat-horizontal-stepper>
