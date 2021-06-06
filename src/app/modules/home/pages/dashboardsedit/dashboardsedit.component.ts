@@ -164,6 +164,7 @@ export class DashboardseditComponent implements OnInit {
     let graphicsContagiados = document.getElementById('bar-contagiados');
     let graphicsMuertos = document.getElementById('bar-muertos');
     let graphicsRecuperados = document.getElementById('bar-recuperados');
+    let graphicsAcumulate = document.getElementById('acumulated-graph');
 
 
 
@@ -172,46 +173,40 @@ export class DashboardseditComponent implements OnInit {
     var imgGraphMuertos = '';
     var imgGraphRecuperados = '';
     var imgPie = '';
-
-
+    var imgacu='';
     html2canvas(graphicsContagiados).then(canvas => {
       imgGraphContagiados = canvas.toDataURL('image/png');
-      if(this.isCheckedbarcon){
-        pdf.addImage(imgGraphContagiados, 'PNG', 0, 2.5, 29.0, 18.0);
-      }
       html2canvas(graphicsMuertos).then(canvas => {
         imgGraphMuertos = canvas.toDataURL('image/png');
         html2canvas(graphicsRecuperados).then(canvas => {
           imgGraphRecuperados = canvas.toDataURL('image/png');
           html2canvas(pieGraphic).then(canvas => {
             imgPie = canvas.toDataURL('image/png');
-            if(this.isCheckedbardead){
+            html2canvas(graphicsAcumulate).then(canvas =>{
+              imgacu= canvas.toDataURL('image/png')
+
+              pdf.addImage(imgGraphContagiados, 'PNG', 0, 2.5, 29.0, 18.0);
+
+              pdf.addPage("a4", "l");
               pdf.addImage(imgGraphMuertos, 'PNG', 0, 1.5, 29.0, 18.0);
 
-            }
-            if(this.isCheckedbarrec){
               pdf.addPage("a4", "l");
               pdf.addImage(imgGraphRecuperados, 'PNG', 0, 1.5, 29.0, 18.0);
-            }
-            if(this.isCheckedpie){
+
               pdf.addPage("a4", "l");
               pdf.addImage(imgPie, 'PNG', 0, 1.5, 29.0, 18.0);
-            }
-            console.log(imgGraphContagiados.length);
-            console.log(imgGraphMuertos.length);
-            console.log(imgGraphRecuperados.length);
-            console.log(imgPie.length);
-            //console.log("el tamaño de las hojas son: "+pdf.getNumberOfPages());
-            pdf.save('dashboards.pdf');
+
+              pdf.addPage("a4", "l");
+              pdf.addImage(imgacu, 'PNG', 0, 1.5, 29.0, 18.0);
+
+              pdf.save('dashboards.pdf');
+            });
           });
         });
 
       });
 
     });
-
-
-
 
 
 
