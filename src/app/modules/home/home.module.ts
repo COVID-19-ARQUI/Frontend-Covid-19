@@ -38,6 +38,7 @@ import {LoginComponent} from './alerts/login/login.component';
 import {NoticiasBingComponent} from './pages/noticias-bing/noticias-bing.component';
 import {DragScrollModule} from 'ngx-drag-scroll';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -84,7 +85,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatDatepickerModule,
     MatNativeDateModule,
     ReactiveFormsModule,
-    DragScrollModule
+    DragScrollModule,
+    MatSortModule
   ],
   entryComponents: [],
 })

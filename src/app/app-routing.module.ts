@@ -11,7 +11,7 @@ import {PredictionsComponent} from './modules/home/pages/predictions/predictions
 import {ProfileComponent} from './modules/home/pages/profile/profile.component';
 import {CountriesComponent} from './modules/home/pages/countries/countries.component';
 import {LoginComponent} from './modules/home/alerts/login/login.component';
-import {NoticiasBingComponent} from "./modules/home/pages/noticias-bing/noticias-bing.component";
+import {NoticiasBingComponent} from './modules/home/pages/noticias-bing/noticias-bing.component';
 import {AuthGuard} from './shared/auth.guard';
 
 const routes: Routes = [

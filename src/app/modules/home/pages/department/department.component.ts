@@ -25,7 +25,7 @@ import {DataCOUNTRIES} from '../countries/countries.component';
 export class DepartmentComponent implements OnInit {
   displayedColumns: string[] = ['municipality', 'dato'];
   listMunicipio: MunicipalitydataModel[];
-  dataSource ;
+  dataSource;
   muni: boolean;
   contagiados: number;
   muertos: number;
@@ -77,6 +77,7 @@ export class DepartmentComponent implements OnInit {
     },
   ];
 
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(private servicedash: DashboardService,
               private servicedata: DatosService,
@@ -100,6 +101,7 @@ export class DepartmentComponent implements OnInit {
 
       this.listMunicipio = value;
       this.dataSource = new MatTableDataSource(this.listMunicipio);
+      this.dataSource.paginator = this.paginator;
       console.log(value.length);
       if (value.length == 0) {
         this.muni = false;
