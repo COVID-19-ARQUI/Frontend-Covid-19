@@ -32,11 +32,13 @@ import {DashboardseditComponent} from './pages/dashboardsedit/dashboardsedit.com
 import {PredictionsComponent} from './pages/predictions/predictions.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BrowserModule} from '@angular/platform-browser';
-import { ProfileComponent } from './pages/profile/profile.component';
-import { CountriesComponent } from './pages/countries/countries.component';
-import { LoginComponent } from './alerts/login/login.component';
-import { NoticiasBingComponent } from './pages/noticias-bing/noticias-bing.component';
-import { DragScrollModule } from 'ngx-drag-scroll';
+import {ProfileComponent} from './pages/profile/profile.component';
+import {CountriesComponent} from './pages/countries/countries.component';
+import {LoginComponent} from './alerts/login/login.component';
+import {NoticiasBingComponent} from './pages/noticias-bing/noticias-bing.component';
+import {DragScrollModule} from 'ngx-drag-scroll';
+import {MatPaginatorModule} from '@angular/material/paginator';
+
 @NgModule({
   declarations: [
     HomeComponent,
@@ -55,34 +57,35 @@ import { DragScrollModule } from 'ngx-drag-scroll';
     LoginComponent,
     NoticiasBingComponent,
   ],
-    imports: [
-        CommonModule,
-        BrowserModule,
-        FormsModule,
-        RouterModule,
-        MatSidenavModule,
-        MatToolbarModule,
-        MatIconModule,
-        MatListModule,
-        MatSliderModule,
-        ChartsModule,
-        MatRippleModule,
-        MatButtonModule,
-        MatListModule,
-        MatTableModule,
-        MatFormFieldModule,
-        MatSelectModule,
-        MatGridListModule,
-        MatInputModule,
-        MatMenuModule,
-        MatStepperModule,
-        MatCardModule,
-        MatSlideToggleModule,
-        MatDatepickerModule,
-        MatNativeDateModule,
-        ReactiveFormsModule,
-        DragScrollModule
-    ],
+  imports: [
+    CommonModule,
+    BrowserModule,
+    MatPaginatorModule,
+    FormsModule,
+    RouterModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatListModule,
+    MatSliderModule,
+    ChartsModule,
+    MatRippleModule,
+    MatButtonModule,
+    MatListModule,
+    MatTableModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatGridListModule,
+    MatInputModule,
+    MatMenuModule,
+    MatStepperModule,
+    MatCardModule,
+    MatSlideToggleModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    ReactiveFormsModule,
+    DragScrollModule
+  ],
   entryComponents: [],
 })
 export class HomeModule {

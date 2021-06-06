@@ -1,54 +1,63 @@
 <mat-card>
+  <div align="center" class="mat-form-field-custom">
+    <mat-form-field>
+      <mat-label>Paises</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Escriba un pais" #input>
+    </mat-form-field>
+  </div>
+
   <div class="mat-elevation-z8">
-    <table mat-table [dataSource]="dataCountries">
+    <table mat-table [dataSource]="dataSource" matSort>
 
       <ng-container matColumnDef="country_name">
-        <th mat-header-cell *matHeaderCellDef> Pais </th>
+        <th mat-header-cell *matHeaderCellDef> Pais</th>
         <td mat-cell *matCellDef="let element"> {{element.country_name}} </td>
       </ng-container>
 
       <ng-container matColumnDef="cases">
-        <th mat-header-cell *matHeaderCellDef> Casos </th>
+        <th mat-header-cell *matHeaderCellDef> Casos</th>
         <td mat-cell *matCellDef="let element"> {{element.cases}} </td>
       </ng-container>
 
       <ng-container matColumnDef="deaths">
-        <th mat-header-cell *matHeaderCellDef> Muertes </th>
+        <th mat-header-cell *matHeaderCellDef> Muertes</th>
         <td mat-cell *matCellDef="let element"> {{element.deaths}} </td>
       </ng-container>
 
       <ng-container matColumnDef="region">
-        <th mat-header-cell *matHeaderCellDef> Region </th>
+        <th mat-header-cell *matHeaderCellDef> Region</th>
         <td mat-cell *matCellDef="let element"> {{element.region}} </td>
       </ng-container>
       <ng-container matColumnDef="total_recovered">
-        <th mat-header-cell *matHeaderCellDef> Recuperados </th>
+        <th mat-header-cell *matHeaderCellDef> Recuperados</th>
         <td mat-cell *matCellDef="let element"> {{element.total_recovered}} </td>
       </ng-container>
       <ng-container matColumnDef="new_deaths">
-        <th mat-header-cell *matHeaderCellDef> Muertes Hoy </th>
+        <th mat-header-cell *matHeaderCellDef> Muertes Hoy</th>
         <td mat-cell *matCellDef="let element"> {{element.new_deaths}} </td>
       </ng-container>
       <ng-container matColumnDef="new_cases">
-        <th mat-header-cell *matHeaderCellDef> Casos Hoy </th>
+        <th mat-header-cell *matHeaderCellDef> Casos Hoy</th>
         <td mat-cell *matCellDef="let element"> {{element.new_cases}} </td>
       </ng-container>
       <ng-container matColumnDef="serious_critical">
-        <th mat-header-cell *matHeaderCellDef> Críticos </th>
+        <th mat-header-cell *matHeaderCellDef> Críticos</th>
         <td mat-cell *matCellDef="let element"> {{element.serious_critical}} </td>
       </ng-container>
       <ng-container matColumnDef="active_cases">
-        <th mat-header-cell *matHeaderCellDef> Casos Activos </th>
+        <th mat-header-cell *matHeaderCellDef> Casos Activos</th>
         <td mat-cell *matCellDef="let element"> {{element.active_cases}} </td>
       </ng-container>
       <ng-container matColumnDef="total_cases_per_1m_population">
-        <th mat-header-cell *matHeaderCellDef> Total Casos por cada Millon </th>
+        <th mat-header-cell *matHeaderCellDef> Total Casos por cada Millon</th>
         <td mat-cell *matCellDef="let element"> {{element.total_cases_per_1m_population}} </td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
   </div>
 </mat-card>
 
