@@ -31,3 +31,6 @@ table tr:nth-child(odd) {
 table tr:nth-child(even) {
   background-color: #ffffff;
 }
+mat-chip {
+  max-width: 200px;
+}
