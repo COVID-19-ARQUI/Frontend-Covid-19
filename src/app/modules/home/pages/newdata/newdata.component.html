@@ -1,96 +1,129 @@
-<mat-card class="form_data">
-  <div>
-    <mat-form-field appearance="outline">
-      <mat-label>Datos a ingresar</mat-label>
-      <input matInput type="number" placeholder="Placeholder" [(ngModel)]="dato">
-    </mat-form-field>
-
-    <mat-form-field appearance="outline" class="example-form-field">
-      <mat-label>Choose a date</mat-label>
-      <input matInput [matDatepicker]="datepicker" [(ngModel)]="fecha">
-      <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
-      <mat-datepicker #datepicker>
-        <mat-datepicker-actions>
-          <button mat-button matDatepickerCancel>Cancel</button>
-          <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
-        </mat-datepicker-actions>
-      </mat-datepicker>
-    </mat-form-field>
-
-    <mat-form-field appearance="outline">
-      <mat-label>Select an option</mat-label>
-      <mat-select [(value)]="selected">
-        <mat-option>None</mat-option>
-        <mat-option value="1">Contagiados</mat-option>
-        <mat-option value="2">Muertos</mat-option>
-        <mat-option value="3">Recuperado</mat-option>
-        <mat-option value="4">Vacuna primera dosis</mat-option>
-        <mat-option value="5">vacuna segunda dosis</mat-option>
-      </mat-select>
-    </mat-form-field>
-
-    <br>
-    <mat-slide-toggle [(ngModel)]="dep" color="primary">Departameto</mat-slide-toggle>
-  </div>
+<div align="center">
   <br>
-  <div *ngIf="dep==true" id="dep">
+  <mat-card class="form_data cards">
+    <div>
+      <mat-grid-list cols="3" rowHeight="100px">
+        <mat-grid-tile [rowspan]="1">
+          <mat-form-field appearance="outline">
+            <mat-label>Datos a ingresar</mat-label>
+            <input matInput type="number" placeholder="Placeholder" [(ngModel)]="dato">
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-form-field appearance="outline" class="example-form-field">
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="datepicker" [(ngModel)]="fecha">
+            <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+            <mat-datepicker #datepicker>
+              <mat-datepicker-actions>
+                <button mat-button matDatepickerCancel>Cancel</button>
+                <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+              </mat-datepicker-actions>
+            </mat-datepicker>
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-form-field appearance="outline">
+            <mat-label>Select an option</mat-label>
+            <mat-select [(value)]="selected">
+              <mat-option>None</mat-option>
+              <mat-option value="1">Contagiados</mat-option>
+              <mat-option value="2">Muertos</mat-option>
+              <mat-option value="3">Recuperado</mat-option>
+              <mat-option value="4">Vacuna primera dosis</mat-option>
+              <mat-option value="5">vacuna segunda dosis</mat-option>
+            </mat-select>
+          </mat-form-field>
 
-    <mat-form-field appearance="outline">
-      <mat-label>Departamento</mat-label>
-      <mat-select [(value)]="depselect" name="depa">
-        <mat-option value="" selected></mat-option>
-        <mat-option *ngFor="let depa of departments" [value]="depa.idDepartment">
-          {{depa.department}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
+        </mat-grid-tile>
+      </mat-grid-list>
 
 
+      <br>
+      <mat-slide-toggle [(ngModel)]="dep" color="primary">Departameto</mat-slide-toggle>
+    </div>
     <br>
-
-    <mat-slide-toggle [(ngModel)]="mun" color="primary">municipio</mat-slide-toggle>
-
-    <div *ngIf="mun==true" id="municipio">
+    <div *ngIf="dep==true" id="dep">
 
       <mat-form-field appearance="outline">
         <mat-label>Departamento</mat-label>
-        <mat-select [(value)]="muniselect" name="depa">
+        <mat-select [(value)]="depselect" name="depa">
           <mat-option value="" selected></mat-option>
-          <mat-option *ngFor="let muni of departments[depselect-1].municipalities" [value]="muni">
-            {{muni}}
+          <mat-option *ngFor="let depa of departments" [value]="depa.idDepartment">
+            {{depa.department}}
           </mat-option>
         </mat-select>
       </mat-form-field>
 
+
+      <br>
+
+      <mat-slide-toggle [(ngModel)]="mun" color="primary">Municipio</mat-slide-toggle>
+
+      <div *ngIf="mun==true" id="municipio">
+
+        <mat-form-field appearance="outline">
+          <mat-label>Municipio</mat-label>
+          <mat-select [(value)]="muniselect" name="depa">
+            <mat-option value="" selected></mat-option>
+            <mat-option *ngFor="let muni of departments[depselect-1].municipalities" [value]="muni">
+              {{muni}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+      </div>
+
     </div>
 
-  </div>
+    <br>
 
-
-  <button mat-raised-button color="primary" (click)="dataform()">
-    Guardar
-  </button>
-
-  <br/>
-
-</mat-card>
-
-
-<div id="csv">
-  <input type="file" class="file-input" (change)="onFileSelected($event)" #fileUpload>
-  <div class="file-upload">     {{fileName || "No file uploaded yet."}}
-    <button mat-mini-fab color="primary" class="upload-btn" (click)="fileUpload.click()">
-      <mat-icon>attach_file</mat-icon>
+    <button mat-raised-button color="primary" (click)="dataform()">
+      Guardar
     </button>
-  </div>
+    <br/>
+  </mat-card>
+
+  <br>
+
+  <mat-card class="cards">
+    <!--<div id="csv">-->
+    <!--  <input type="file" class="file-input" (change)="onFileSelected($event)" #fileUpload>-->
+    <!--  <div class="file-upload">     {{fileName || "No file uploaded yet."}}-->
+    <!--    <button mat-mini-fab color="primary" class="upload-btn" (click)="fileUpload.click()">-->
+    <!--      <mat-icon>attach_file</mat-icon>-->
+    <!--    </button>-->
+    <!--  </div>-->
+    <!--</div>-->
+
+    <!--    <div>-->
+    <!--      <span class="drag-box-highlight" [ngClass]="fileName !== '' ? 'file-align' : 'file-none'">-->
+    <!--&lt;!&ndash;        {{fileName}} <i class="material-icons">done</i>&ndash;&gt;-->
+    <!--      </span>-->
+    <!--      <input type="file" id="uploadFiles" #uploadFiles (change)="onFileSelected($event)"/>-->
+    <!--      <br>-->
+    <!--      <br>-->
+    <!--      <button mat-raised-button type="button" color="primary"-->
+    <!--              [ngClass]="{'component-disabled' : fileName === ''}">{{'BUTTON_IMPORT' }}</button>-->
+    <!--    </div>-->
+
+    <h3> Selecciona el archivo que deseas subir</h3>
+    <h5>El archivo debe ser csv y contener la siguiente cabecera:</h5>
+    <h5>data,in_date,type,country,department,municipality</h5>
+
+    <div>
+      <!-- Display files names -->
+      <input matInput readonly name="name"/>
+      <!-- Browse Button -->
+      <button mat-flat-button color="primary">
+        Seleccionar archivo
+      </button>
+      <!-- Fetch selected filed on change -->
+      <input type="file" #fileInput id="uploadFile" name="uploadFile" accept=".csv"/>
+    </div>
+  </mat-card>
 </div>
 
-<div>
-   <span class="drag-box-highlight" [ngClass]="fileName !== '' ? 'file-align' : 'file-none'">
-   {{fileName}} <i class="material-icons">done</i>
-   </span>
-  <input type="file" id="uploadFiles" #uploadFiles (change)="onFileSelected($event)"/>
-  <button mat-raised-button type="button" color="primary"
-          [ngClass]="{'component-disabled' : fileName === ''}">{{'BUTTON_IMPORT' }}</button>
-</div>
-
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
