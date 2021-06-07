@@ -40,6 +40,7 @@ import {DragScrollModule} from 'ngx-drag-scroll';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { AcumulatedGraphComponent } from './components/graphs/acumulated-graph/acumulated-graph.component';
 import {MatSortModule} from '@angular/material/sort';
+import {FooterComponent} from '../../layout/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import {MatSortModule} from '@angular/material/sort';
     LoginComponent,
     NoticiasBingComponent,
     AcumulatedGraphComponent,
+    FooterComponent,
   ],
   imports: [
     CommonModule,
