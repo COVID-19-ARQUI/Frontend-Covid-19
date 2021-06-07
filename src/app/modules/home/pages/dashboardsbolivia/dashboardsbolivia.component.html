@@ -3,39 +3,61 @@
   <mat-grid-tile>
     <mat-card>
       <mat-card-title>Contagiados</mat-card-title>
-      <mat-card-content align="center">{{contagiados}}</mat-card-content>
+      <mat-card-content align="center">
+        <mat-chip-list>
+          <mat-chip color="primary" selected >{{contagiados}}</mat-chip>
+        </mat-chip-list>
+      </mat-card-content>
 
     </mat-card>
   </mat-grid-tile>
   <mat-grid-tile>
     <mat-card>
       <mat-card-title>Muertos</mat-card-title>
-      <mat-card-content align="center">{{muertos}}</mat-card-content>
+      <mat-card-content align="center">
+        <mat-chip-list>
+          <mat-chip color="primary" selected > {{muertos}}</mat-chip>
+        </mat-chip-list>
 
-
+      </mat-card-content>
     </mat-card>
   </mat-grid-tile>
   <mat-grid-tile>
     <mat-card>
       <mat-card-title>Recuperados</mat-card-title>
-      <mat-card-content align="center">{{recuperados}}</mat-card-content>
+      <mat-card-content align="center">
+
+        <mat-chip-list>
+          <mat-chip color="primary" selected > {{recuperados}}</mat-chip>
+        </mat-chip-list>
+      </mat-card-content>
       <!--      <mat-icon aria-hidden="false" aria-label="Example home icon" >home</mat-icon>-->
     </mat-card>
   </mat-grid-tile>
   <mat-grid-tile>
     <mat-card>
       <mat-card-title>Primera Dosis</mat-card-title>
-      <mat-card-content align="center">{{vacu1}}</mat-card-content>
+      <mat-card-content align="center">
+        <mat-chip-list>
+          <mat-chip color="primary" selected > {{vacu1}}</mat-chip>
+        </mat-chip-list>
+
+      </mat-card-content>
       <!--      <mat-icon aria-hidden="false" aria-label="Example home icon" >home</mat-icon>-->
     </mat-card>
   </mat-grid-tile>
   <mat-grid-tile>
     <mat-card>
       <mat-card-title>Segunda Dosis</mat-card-title>
-      <mat-card-content align="center">{{vacu2}}</mat-card-content>
+      <mat-card-content align="center">
+        <mat-chip-list>
+          <mat-chip color="primary" selected > {{vacu2}}</mat-chip>
+        </mat-chip-list>
+      </mat-card-content>
       <!--      <mat-icon aria-hidden="false" aria-label="Example home icon" >home</mat-icon>-->
     </mat-card>
   </mat-grid-tile>
+
 </mat-grid-list>
 
 <mat-horizontal-stepper #stepper>
