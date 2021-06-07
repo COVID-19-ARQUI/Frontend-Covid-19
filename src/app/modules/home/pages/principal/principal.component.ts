@@ -4,6 +4,7 @@ import {MarkerService} from '../../../../services/marker.service';
 import {Data} from '../../../../models/data.model';
 import {DatosService} from '../../../../services/datos.service';
 import {DepartmentService} from '../../../../services/department.service';
+import axios from 'axios';
 
 const iconRetinaUrl = 'assets/marker-icon-2x.png';
 const iconUrl = 'assets/marker-icon.png';
@@ -32,6 +33,7 @@ export class PrincipalComponent implements AfterViewInit {
   recuperados: number;
   vacu1: number;
   vacu2: number;
+  datanews: any;
   private map;
   private initMap(): void {
     this.map = L.map('map', {
@@ -57,7 +59,7 @@ export class PrincipalComponent implements AfterViewInit {
     this.initMap();
     // this.markerService.makeCapitalMarkers(this.map);
     this.markerService.makeCapitalCircleMarkers(this.map,this.contagiados);
-
+    this.getData();
   }
 
 
@@ -92,7 +94,26 @@ export class PrincipalComponent implements AfterViewInit {
 
   }
 
+  getData(){
+    let searchTerm = 'Covid-19 bolivia';
+    var r;
+    axios.get('https://api.bing.microsoft.com/v7.0/news/search?q='+searchTerm, {
+      headers: {
+        'Ocp-Apim-Subscription-Key': 'd9fb5e0085a246ab880455bef594d06d'
+      },
+      params: {
+        count: 4,
+        mkt: 'en-US',
+      }
+    }).then((response) => {
+      r = response.data.value;
+      this.datanews=r;
+      console.log( response.data.value)
 
+    }).catch((error) => {
+      console.error(error);
+    });
+  }
 
 
 }

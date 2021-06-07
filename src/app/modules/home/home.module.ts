@@ -41,6 +41,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import { AcumulatedGraphComponent } from './components/graphs/acumulated-graph/acumulated-graph.component';
 import {MatSortModule} from '@angular/material/sort';
 import {FooterComponent} from '../../layout/footer/footer.component';
+import {MatChipsModule} from '@angular/material/chips';
 
 @NgModule({
   declarations: [
@@ -62,36 +63,37 @@ import {FooterComponent} from '../../layout/footer/footer.component';
     AcumulatedGraphComponent,
     FooterComponent,
   ],
-  imports: [
-    CommonModule,
-    BrowserModule,
-    MatPaginatorModule,
-    FormsModule,
-    RouterModule,
-    MatSidenavModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatListModule,
-    MatSliderModule,
-    ChartsModule,
-    MatRippleModule,
-    MatButtonModule,
-    MatListModule,
-    MatTableModule,
-    MatFormFieldModule,
-    MatSelectModule,
-    MatGridListModule,
-    MatInputModule,
-    MatMenuModule,
-    MatStepperModule,
-    MatCardModule,
-    MatSlideToggleModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    ReactiveFormsModule,
-    DragScrollModule,
-    MatSortModule
-  ],
+    imports: [
+        CommonModule,
+        BrowserModule,
+        MatPaginatorModule,
+        FormsModule,
+        RouterModule,
+        MatSidenavModule,
+        MatToolbarModule,
+        MatIconModule,
+        MatListModule,
+        MatSliderModule,
+        ChartsModule,
+        MatRippleModule,
+        MatButtonModule,
+        MatListModule,
+        MatTableModule,
+        MatFormFieldModule,
+        MatSelectModule,
+        MatGridListModule,
+        MatInputModule,
+        MatMenuModule,
+        MatStepperModule,
+        MatCardModule,
+        MatSlideToggleModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        ReactiveFormsModule,
+        DragScrollModule,
+        MatSortModule,
+        MatChipsModule
+    ],
   entryComponents: [],
 })
 export class HomeModule {
