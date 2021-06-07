@@ -1,42 +1,45 @@
 
-
+<br><br><br>
 
 <h1 align="center">Bolivia Predicciones</h1>
 
-
-<mat-form-field appearance="outline">
-  <mat-label>Tipo de dato</mat-label>
-  <mat-select [(value)]="tipodedato">
-    <mat-option>None</mat-option>
-    <mat-option value="1">Contagiados</mat-option>
-    <mat-option value="2">Muertos</mat-option>
-    <mat-option value="3">Recuperado</mat-option>
-  </mat-select>
-</mat-form-field>
-&nbsp;
-<mat-form-field appearance="outline">
-  <mat-label>Cantidad de datos a predecir</mat-label>
-  <input matInput type="number" [(ngModel)]="cantbol">
-  <button *ngIf="cantbol" matSuffix mat-icon-button aria-label="Clear" (click)="cantbol=null">
-    <mat-icon>close</mat-icon>
+<mat-card style="align-content: center">
+  <mat-form-field appearance="outline">
+    <mat-label>Tipo de dato</mat-label>
+    <mat-select [(value)]="tipodedato">
+      <mat-option>None</mat-option>
+      <mat-option value="1">Contagiados</mat-option>
+      <mat-option value="2">Muertos</mat-option>
+      <mat-option value="3">Recuperado</mat-option>
+    </mat-select>
+  </mat-form-field>
+  &nbsp;
+  <mat-form-field appearance="outline">
+    <mat-label>Cantidad de datos a predecir</mat-label>
+    <input matInput type="number" [(ngModel)]="cantbol">
+    <button *ngIf="cantbol" matSuffix mat-icon-button aria-label="Clear" (click)="cantbol=null">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+  &nbsp;
+  <mat-form-field appearance="outline">
+    <mat-label>Tipo de predicion</mat-label>
+    <mat-select [(value)]="tipopredic">
+      <mat-option>None</mat-option>
+      <mat-option value="1">Modelo Arima</mat-option>
+      <mat-option value="2">Lineal</mat-option>
+      <mat-option value="3">Potencial</mat-option>
+      <mat-option value="4">Exponencial</mat-option>
+      <mat-option value="5">Logaritmica</mat-option>
+    </mat-select>
+  </mat-form-field>
+  &nbsp;
+  <button mat-raised-button color="primary" (click)="databolivia()">
+    confirmar
   </button>
-</mat-form-field>
-&nbsp;
-<mat-form-field appearance="outline">
-  <mat-label>Tipo de predicion</mat-label>
-  <mat-select [(value)]="tipopredic">
-    <mat-option>None</mat-option>
-    <mat-option value="1">Modelo Arima</mat-option>
-    <mat-option value="2">Lineal</mat-option>
-    <mat-option value="3">Potencial</mat-option>
-    <mat-option value="4">Exponencial</mat-option>
-    <mat-option value="5">Logaritmica</mat-option>
-  </mat-select>
-</mat-form-field>
-&nbsp;
-<button mat-raised-button color="primary" (click)="databolivia()">
-  confirmar
-</button>
+</mat-card>
+<br><br><br>
+
 <div style="display: block; ">
   <canvas baseChart width="1500" height="500"
           [datasets]="lineChartData"
@@ -48,54 +51,59 @@
   </canvas>
 </div>
 
-
+<br><br><br>
 <h1 align="center">Predicciones de Departamentos</h1>
-<mat-form-field appearance="outline">
-  <mat-label>Departamento</mat-label>
-  <mat-select [(value)]="depselect" name="depa">
-    <mat-option value="" selected></mat-option>
-    <mat-option *ngFor="let depa of departments" [value]="depa.idDepartment">
-      {{depa.department}}
-    </mat-option>
-  </mat-select>
+
+<mat-card style="align-content: center">
+  <mat-form-field appearance="outline">
+    <mat-label>Departamento</mat-label>
+    <mat-select [(value)]="depselect" name="depa">
+      <mat-option value="" selected></mat-option>
+      <mat-option *ngFor="let depa of departments" [value]="depa.idDepartment">
+        {{depa.department}}
+      </mat-option>
+    </mat-select>
 
 
-</mat-form-field>
-&nbsp;
-<mat-form-field appearance="outline">
-  <mat-label>Tipo de dato</mat-label>
-  <mat-select [(value)]="tipodedatodep">
-    <mat-option>None</mat-option>
-    <mat-option value="1" >Contagiados</mat-option>
-    <mat-option value="2">Muertos</mat-option>
-    <mat-option value="3">Recuperado</mat-option>
-  </mat-select>
-</mat-form-field>
-&nbsp;
-<mat-form-field appearance="outline">
-  <mat-label>Cantidad de datos a predecir</mat-label>
-  <input matInput type="number" [(ngModel)]="candep">
-  <button *ngIf="cantbol" matSuffix mat-icon-button aria-label="Clear" (click)="cantbol=null">
-    <mat-icon>close</mat-icon>
+  </mat-form-field>
+  &nbsp;
+  <mat-form-field appearance="outline">
+    <mat-label>Tipo de dato</mat-label>
+    <mat-select [(value)]="tipodedatodep">
+      <mat-option>None</mat-option>
+      <mat-option value="1" >Contagiados</mat-option>
+      <mat-option value="2">Muertos</mat-option>
+      <mat-option value="3">Recuperado</mat-option>
+    </mat-select>
+  </mat-form-field>
+  &nbsp;
+  <mat-form-field appearance="outline">
+    <mat-label>Cantidad de datos a predecir</mat-label>
+    <input matInput type="number" [(ngModel)]="candep">
+    <button *ngIf="cantbol" matSuffix mat-icon-button aria-label="Clear" (click)="cantbol=null">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+
+  &nbsp;
+  <mat-form-field appearance="outline">
+    <mat-label>Tipo de predicion</mat-label>
+    <mat-select [(value)]="tipopredicdep">
+      <mat-option>None</mat-option>
+      <mat-option value="1">Modelo Arima</mat-option>
+      <mat-option value="2">Lineal</mat-option>
+      <mat-option value="3">Potencial</mat-option>
+      <mat-option value="4">Exponencial</mat-option>
+      <mat-option value="5">Logaritmica</mat-option>
+    </mat-select>
+  </mat-form-field>
+  &nbsp;
+  <button mat-raised-button color="primary" (click)="datadep()">
+    confirmar
   </button>
-</mat-form-field>
 
-&nbsp;
-<mat-form-field appearance="outline">
-  <mat-label>Tipo de predicion</mat-label>
-  <mat-select [(value)]="tipopredicdep">
-    <mat-option>None</mat-option>
-    <mat-option value="1">Modelo Arima</mat-option>
-    <mat-option value="2">Lineal</mat-option>
-    <mat-option value="3">Potencial</mat-option>
-    <mat-option value="4">Exponencial</mat-option>
-    <mat-option value="5">Logaritmica</mat-option>
-  </mat-select>
-</mat-form-field>
-&nbsp;
-<button mat-raised-button color="primary" (click)="datadep()">
-  confirmar
-</button>
+</mat-card>
+<br><br><br>
 <div style="display: block; ">
   <canvas baseChart width="1500" height="500"
           [datasets]="lineChartDatadep"
