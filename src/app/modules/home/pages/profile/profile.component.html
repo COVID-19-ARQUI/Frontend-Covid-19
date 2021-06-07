@@ -1,23 +1,31 @@
-<div *ngIf="profile">
-  <div class="align-items-center profile-header">
-    <div class="col-md-2 mb-3">
-      <img
-        [src]="profile.urlPhoto"
-        alt="User's profile picture"
-        class="rounded-circle img-fluid profile-picture"
-      />
+<br>
+<div *ngIf="profile" align="center">
+  <mat-card class="cards">
+    <div class="align-items-center profile-header" align="center">
+      <div class="col-md-2 mb-3">
+        <img
+          [src]="profile.urlPhoto"
+          alt="User's profile picture"
+          class="rounded-circle img-fluid profile-picture"
+        />
+      </div>
+      <div class="col-md text-center text-md-center">
+        <h2>{{ profile.username }}</h2>
+        <p class="lead text-muted">{{ profile.email }}</p>
+      </div>
+      <div class="col-md text-center text-md-center">
+        <p class="lead text-muted">{{ profile.name }}</p>
+      </div>
+      <div class="col-md text-center text-md-center">
+        <p class="lead text-muted">{{ profile.surname }}</p>
+      </div>
     </div>
-    <div class="col-md text-center text-md-left">
-      <h2>{{ profile.username }}</h2>
-      <p class="lead text-muted">{{ profile.email }}</p>
-    </div>
-    <div class="col-md text-center text-md-left">
-      <p class="lead text-muted">{{ profile.name }}</p>
-    </div>
-    <div class="col-md text-center text-md-left">
-      <p class="lead text-muted">{{ profile.surname }}</p>
-    </div>
-  </div>
+  </mat-card>
 
-
+  <br><br><br>
+  <br><br><br>
+  <br><br><br>
+  <br><br><br>
+  <br><br><br>
+  <br><br>
 </div>

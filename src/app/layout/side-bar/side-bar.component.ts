@@ -22,6 +22,7 @@ export class SideBarComponent implements OnInit {
   Autheticated = false;
   role: string[];
   user: UserInformation;
+
   constructor(
     private tokenService: TokenService,
     private breakpointObserver: BreakpointObserver,
@@ -34,40 +35,42 @@ export class SideBarComponent implements OnInit {
   ngOnInit(): void {
     this.role = this.tokenService.getAuthorities();
     console.log(this.role[0]);
-    if (this.tokenService.getToken()){
-      this.Autheticated=true;
+    if (this.tokenService.getToken()) {
+      this.Autheticated = true;
     }
     this.getUserInfo();
   }
-  getUserInfo(){
+
+  getUserInfo() {
     this.userService.getuserbyId(this.tokenService.getUserId()).subscribe(value => {
-      this.user=value;
+      this.user = value;
     });
   }
-  loginDialog(){
-    const dialog = this.dialog.open(LoginComponent,{
+
+  loginDialog() {
+    const dialog = this.dialog.open(LoginComponent, {
       width: '700px'
-    })
+    });
     dialog.afterClosed().subscribe((result) => {
       console.log('The dialog was closed');
       this.resultMsg = result;
       if (result) {
-        console.log('Login successful')
+        console.log('Login successful');
       } else if (result == false) {
         this.loginDialog();
       }
       this.ngOnInit();
     });
   }
-  logout(){
+
+  logout() {
     const currentUrl = this.router.url;
     this.tokenService.logOut();
-    this.router.navigateByUrl('/main', { skipLocationChange: true }).then(() => {
+    this.router.navigateByUrl('/main/principal', {skipLocationChange: true}).then(() => {
       this.router.navigate([currentUrl]);
     });
     this.Autheticated = false;
   }
-
 
 
 }

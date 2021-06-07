@@ -1,13 +1,12 @@
-
 <mat-card-title align="center">Mapa Bolivia</mat-card-title>
 <mat-grid-list cols="5" rowHeight="5:2">
   <mat-grid-tile>
     <mat-card>
       <mat-card-title>Contagiados</mat-card-title>
       <mat-card-content align="center">
-          <mat-chip-list>
-            <mat-chip color="primary" selected >{{contagiados}}</mat-chip>
-          </mat-chip-list>
+        <mat-chip-list>
+          <mat-chip color="primary" selected>{{contagiados}}</mat-chip>
+        </mat-chip-list>
       </mat-card-content>
 
     </mat-card>
@@ -17,7 +16,7 @@
       <mat-card-title>Muertos</mat-card-title>
       <mat-card-content align="center">
         <mat-chip-list>
-          <mat-chip color="primary" selected > {{muertos}}</mat-chip>
+          <mat-chip color="primary" selected> {{muertos}}</mat-chip>
         </mat-chip-list>
 
       </mat-card-content>
@@ -29,7 +28,7 @@
       <mat-card-content align="center">
 
         <mat-chip-list>
-          <mat-chip color="primary" selected > {{recuperados}}</mat-chip>
+          <mat-chip color="primary" selected> {{recuperados}}</mat-chip>
         </mat-chip-list>
       </mat-card-content>
       <!--      <mat-icon aria-hidden="false" aria-label="Example home icon" >home</mat-icon>-->
@@ -40,7 +39,7 @@
       <mat-card-title>Primera Dosis</mat-card-title>
       <mat-card-content align="center">
         <mat-chip-list>
-          <mat-chip color="primary" selected > {{vacu1}}</mat-chip>
+          <mat-chip color="primary" selected> {{vacu1}}</mat-chip>
         </mat-chip-list>
 
       </mat-card-content>
@@ -52,7 +51,7 @@
       <mat-card-title>Segunda Dosis</mat-card-title>
       <mat-card-content align="center">
         <mat-chip-list>
-          <mat-chip color="primary" selected > {{vacu2}}</mat-chip>
+          <mat-chip color="primary" selected> {{vacu2}}</mat-chip>
         </mat-chip-list>
       </mat-card-content>
       <!--      <mat-icon aria-hidden="false" aria-label="Example home icon" >home</mat-icon>-->
@@ -71,26 +70,27 @@
       </div>
     </div>
   </mat-grid-tile>
-    <mat-grid-tile *ngFor="let a of datanews" [colspan]="3" [rowspan]="6">
+  <mat-grid-tile *ngFor="let a of datanews" [colspan]="3" [rowspan]="6">
 
-      <mat-card class="example-card" style="width: 600px; height: 350px">
-        <mat-card-header>
-          <mat-card-title>{{a.name}} </mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-          <img src="{{a.image.thumbnail.contentUrl}}">
-          <p>
-            {{a.description}}
-          </p>
-        </mat-card-content>
-        <mat-card-actions>
-          <a mat-raised-button href="{{a.url}}" color="primary" target="_blank">Mas informacion</a>
-        </mat-card-actions>
-      </mat-card>
-    </mat-grid-tile>
-    <mat-grid-tile [colspan]="3" [rowspan]="1">
-      <a mat-raised-button href="https://www.bing.com/news/search?q=Covid-19+bolivia&FORM=HDRSC6" color="primary" target="_blank">Ver más...</a>
-    </mat-grid-tile>
+    <mat-card class="example-card" style="width: 600px; height: 350px">
+      <mat-card-header>
+        <mat-card-title>{{a.name}} </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <img *ngIf="a.image" src="{{a.image.thumbnail.contentUrl}}">
+        <p>
+          {{a.description}}
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <a mat-raised-button href="{{a.url}}" color="primary" target="_blank">Mas informacion</a>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="3" [rowspan]="1">
+    <a mat-raised-button href="https://www.bing.com/news/search?q=Covid-19+bolivia&FORM=HDRSC6" color="primary"
+       target="_blank">Ver más...</a>
+  </mat-grid-tile>
 </mat-grid-list>
 
 
