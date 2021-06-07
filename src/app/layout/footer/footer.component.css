@@ -1,0 +1,18 @@
+.foot {
+  /*border: 15px outset;*/
+  background-color: #3F51B5;
+  text-align: center;
+  height: 50px
+}
+
+p {
+  color: white
+}
+
+/*.footer {*/
+/*  position: absolute;*/
+/*  bottom: 0;*/
+/*  left: 25%;*/
+/*  width: 75%;*/
+/*  height: 50px;*/
+/*}*/
